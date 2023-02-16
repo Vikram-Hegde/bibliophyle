@@ -65,11 +65,17 @@
 		}
 
 		.logout {
+			line-height: 0;
+			display: flex;
+			align-items: center;
 			background-color: transparent;
 			border: none;
 			cursor: pointer;
-			border-radius: 50%;
 			color: inherit;
+		}
+
+		h1 {
+			font-size: var(--fs-400);
 		}
 
 	}

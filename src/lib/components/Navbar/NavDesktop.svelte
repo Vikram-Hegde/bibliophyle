@@ -42,14 +42,14 @@
 	</ul>
 	<ul class="nav-desktop__list nav-desktop__action">
 		{#if $isLoggedIn}
-			<li>
+			<li class="sellbooks">
 				<NavItem href="/sellbooks" name="Sell Books">
 					<IconBuildingStore size={20} slot="icon" />
 				</NavItem>
 			</li>
 			<li>
 				<button class="logout" on:click={() => isLoggedIn.set(false)}>
-					<IconLogout size={20} />
+					<IconLogout size={22} />
 				</button>
 			</li>
 		{:else}
@@ -92,6 +92,7 @@
 			--align: center;
 			display: flex;
 			justify-content: var(--align);
+			align-items: center;
 			gap: 1rem;
 			@extend %list-reset;
 		}
@@ -100,5 +101,13 @@
 			--align: end;
 			justify-self: end;
 		}
+	}
+
+	.sellbooks {
+		padding: 0.6rem 1rem;
+		color: var(--background);
+		background-color: var(--purple);
+		border-radius: 6px;
+		line-height: 0;
 	}
 </style>
