@@ -23,19 +23,10 @@
 		@extend %wrapper;
 	}
 
-	// .hero-img {
-	// 	position: sticky;
-	// 	top: 0;
-	// }
-
-	// .content {
-	// 	--col: 2 / 7;
-	// }
-
 	img {
 		z-index: -1;
 		width: auto;
-		height: calc(var(--nav) + 100%);
+		height: calc(100% + var(--nav));
 		object-fit: cover;
 		position: absolute;
 		right: -4rem;

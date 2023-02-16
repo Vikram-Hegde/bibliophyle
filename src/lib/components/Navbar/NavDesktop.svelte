@@ -80,7 +80,7 @@
 		align-items: center;
 		height: var(--nav);
 		background-color: hsl(34 80% 96% / 0.5);
-		backdrop-filter: blur(10px);
+		backdrop-filter: blur(15px);
 		z-index: 10;
 
 		&__logo {

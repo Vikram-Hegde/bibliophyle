@@ -11,6 +11,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Sign Up | Bibliophile</title>
+</svelte:head>
+
 <h1>create new account</h1>
 <form on:submit|preventDefault={submit}>
 	<label for="email">Email</label>
