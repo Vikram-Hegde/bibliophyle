@@ -1,0 +1,49 @@
+@mixin prefers-motion() {
+	@media (prefers-reduced-motion: no-preference) {
+		@content;
+	}
+}
+
+@mixin prefer-dark() {
+	@media (prefers-color-scheme: dark) {
+		@content;
+	}
+}
+
+@mixin touch-device {
+	@media (hover: none), (pointer: coarse) {
+		@content;
+	}
+}
+
+@mixin flex($x: start, $y: start, $dir: row) {
+	display: flex;
+	justify-content: $x;
+	align-items: $y;
+	@if ($dir != row) {
+		flex-direction: $dir;
+	}
+}
+
+@mixin rounded($size) {
+	inline-size: #{$size};
+	block-size: #{$size};
+	border-radius: calc($size / 2);
+}
+
+@mixin map($prefix, $variable) {
+	@each $prop, $value in $variable {
+		#{$prefix}-#{$prop}: #{$value};
+	}
+}
+
+%list-reset {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+%wrapper {
+	width: var(--width);
+	margin: 0 auto;
+}

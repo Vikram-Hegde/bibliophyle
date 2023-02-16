@@ -1,0 +1,76 @@
+<script>
+	import PageTransition from '$lib/utils/PageTransition.svelte';
+	import NavDesktop from '$lib/components/Navbar/NavDesktop.svelte';
+	import NavMobile from '$lib/components/Navbar/NavMobile.svelte';
+
+	/** @type {import('./$types').PageData}*/
+	export let data;
+</script>
+
+<NavDesktop />
+<NavMobile />
+
+<PageTransition pathname={data.pathname}>
+	<slot />
+</PageTransition>
+
+<style lang="scss">
+	@use '../lib/styles/variables' as *;
+
+	:global {
+		*,
+		*::after,
+		*::before {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			--nav: 3.5rem;
+			--max-width: 1280px;
+			--width: min(calc(100% - 4rem), var(--max-width));
+			font-family: 'Open Sans', sans-serif;
+			font-size: var(--fs--100);
+			color: var(--text);
+			background-color: var(--background);
+		}
+
+		.nav-desktop {
+			display: none;
+		}
+
+		@media (min-width: 750px) {
+			body {
+				--nav: 4rem;
+			}
+
+			.nav-desktop {
+				display: grid;
+			}
+
+			.nav-mobile.nav-mobile {
+				display: none;
+			}
+		}
+
+		main {
+			padding: 2rem 0;
+			min-height: calc(100vh - var(--nav) - 2px);
+		}
+
+		hr {
+			border: none;
+			border-bottom: 2px solid hsl(34 50% 85%);
+		}
+
+		.logout {
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			border-radius: 50%;
+			color: inherit;
+		}
+
+	}
+</style>
