@@ -36,7 +36,7 @@
 			bottom: -23px;
 			left: 2px;
 			width: 100%;
-			height: 2px;
+			height: 3px;
 			border-radius: 10px;
 			background-color: currentColor;
 		}

@@ -1,11 +1,11 @@
 <script>
-	import { IconAt, IconLock } from '@tabler/icons-svelte';
+	import { IconAt, IconLock, IconUser } from '@tabler/icons-svelte';
 
 	export let type = '';
 	export let placeholder = '';
 	export let value = '';
 	export let label = '';
-	export let minlength = 0;
+	export const minlength = 0;
 
 	function chooseIcon() {
 		switch (type) {
@@ -13,6 +13,8 @@
 				return IconAt;
 			case 'password':
 				return IconLock;
+			case 'text':
+				return IconUser;
 			default:
 				return null;
 		}

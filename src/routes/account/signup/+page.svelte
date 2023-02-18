@@ -5,9 +5,10 @@
 
 	let email = '';
 	let password = '';
+	let name = '';
 
 	function submit() {
-		$auth = { email, password };
+		$auth = { name, email, password };
 		goto('/');
 	}
 </script>
@@ -19,6 +20,9 @@
 <section class="signup">
 	<h1>Create a new account</h1>
 	<form on:submit|preventDefault={submit}>
+		<div class="row">
+			<Input type="text" label="Name" bind:value={name} />
+		</div>
 		<div class="row">
 			<Input type="email" label="Email" bind:value={email} />
 		</div>
