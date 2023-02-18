@@ -29,11 +29,8 @@
 		height: calc(100% + var(--nav));
 		object-fit: cover;
 		position: absolute;
-		// right: -4rem;
 		bottom: 0;
-		// display: none;
-		mix-blend-mode: overlay;
-		opacity: 0.5;
+		display: none;
 	}
 	
 	@media(min-width: 1100px) {
@@ -43,9 +40,8 @@
 		}
 
 		img {
-			mix-blend-mode: normal;
+			display: block;
 			right: -4rem;
-			opacity: 1;
 		}
 	}
 </style>

@@ -33,7 +33,7 @@
 			content: '';
 			display: block;
 			position: absolute;
-			bottom: -22px;
+			bottom: -23px;
 			left: 2px;
 			width: 100%;
 			height: 2px;

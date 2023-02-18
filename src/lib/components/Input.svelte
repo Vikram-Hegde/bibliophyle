@@ -25,7 +25,6 @@
 	const Icon = chooseIcon();
 </script>
 
-<div class="row">
 	<label for="email">{label}</label>
 	<div class="input">
 		{#if Icon}
@@ -33,17 +32,11 @@
 		{/if}
 		<input use:typeAction bind:value {placeholder} required />
 	</div>
-</div>
 
 <style lang="scss">
 	label {
 		display: block;
 		margin-bottom: 0.25rem;
-	}
-	.row {
-		display: flex;
-		flex-direction: column;
-		gap: 0.35rem;
 	}
 	.icon,
 	svg {
