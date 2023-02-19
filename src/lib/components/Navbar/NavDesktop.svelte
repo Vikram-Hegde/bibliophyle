@@ -87,7 +87,8 @@
 
 		&__logo {
 			line-height: 0;
-			align-self: center;
+			display: flex;
+			align-items: center;
 		}
 
 		&__list {

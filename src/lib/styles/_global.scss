@@ -9,6 +9,12 @@
 		box-sizing: border-box;
 	}
 
+	*:focus-visible {
+		outline: 2px solid var(--text);
+		outline-offset: 6px;
+		border-radius: 6px;
+	}
+
 	body {
 		--nav: 3.5rem;
 		--max-width: 1280px;
@@ -38,7 +44,6 @@
 	}
 
 	main {
-		padding: 2rem 0;
 		min-height: calc(100vh - var(--nav) - 2px);
 	}
 
@@ -55,6 +60,15 @@
 		border: none;
 		cursor: pointer;
 		color: inherit;
+	}
+
+	*::selection {
+		background-color: var(--text);
+		color: var(--background);
+	}
+
+	a {
+		color: hsl(34 90% 60%);
 	}
 
 	h1 {

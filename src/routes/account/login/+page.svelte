@@ -24,12 +24,12 @@
 	<h1>Sign In</h1>
 	<form on:submit|preventDefault={submit}>
 		<div class="row">
-			<Input type="email" label="Email" bind:value={email} />
+			<Input type="email" label="Email" bind:value={email} autocomplete="true" />
 		</div>
 		<div class="row">
 			<Input type="password" label="Password" bind:value={password} />
 		</div>
-		<button>Login</button>
+		<button>Sign In</button>
 	</form>
 	<p>Don't have an account? <a href="/account/signup">Create a new one</a></p>
 </section>

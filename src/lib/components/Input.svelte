@@ -5,7 +5,8 @@
 	export let placeholder = '';
 	export let value = '';
 	export let label = '';
-	export const minlength = 0;
+	export let minlength = '';
+	export let autocomplete = 'false';
 
 	function chooseIcon() {
 		switch (type) {
@@ -27,13 +28,13 @@
 	const Icon = chooseIcon();
 </script>
 
-	<label for="email">{label}</label>
-	<div class="input">
-		{#if Icon}
-			<div class="icon"><Icon size={20} /></div>
-		{/if}
-		<input use:typeAction bind:value {placeholder} required />
-	</div>
+<label for="email">{label}</label>
+<div class="input">
+	{#if Icon}
+		<div class="icon"><Icon size={20} /></div>
+	{/if}
+	<input use:typeAction bind:value {placeholder} required {minlength} {autocomplete} />
+</div>
 
 <style lang="scss">
 	label {
@@ -45,7 +46,7 @@
 		display: inline-block;
 	}
 	.icon {
-		background-color: hsl(34 61% 90%);
+		background-color: hsl(34 61% 89%);
 		block-size: 2.75rem;
 		inline-size: 3rem;
 		display: flex;
@@ -73,5 +74,9 @@
 		font-size: inherit;
 		color: inherit;
 		border-radius: 0 0.3rem 0.3rem 0;
+
+		&::placeholder {
+			color: hsl(33 35% 75%);
+		}
 	}
 </style>

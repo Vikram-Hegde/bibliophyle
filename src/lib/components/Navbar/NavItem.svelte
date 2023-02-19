@@ -19,17 +19,17 @@
 		text-transform: uppercase;
 		position: relative;
 
-		&:not(.active):hover {
+		&:not(:is(.active, .sellbooks a)):hover {
 			color: hsl(34 98% 38%);
 		}
 	}
 
-	.active {
+	:not(.sellbooks a).active {
 		color: hsl(34 80% 60%);
 	}
 
 	@media (min-width: 750px) {
-		.active::after {
+		:not(.sellbooks a).active::after {
 			content: '';
 			display: block;
 			position: absolute;
@@ -39,6 +39,7 @@
 			height: 3px;
 			border-radius: 10px;
 			background-color: currentColor;
+			outline: 0px solid black;
 		}
 	}
 </style>

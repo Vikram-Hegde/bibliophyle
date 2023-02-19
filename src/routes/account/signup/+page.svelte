@@ -1,7 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import Input from '$lib/components/Input.svelte';
-	import { auth } from '$lib/utils/authStore';
+	import { auth, isLoggedIn } from '$lib/utils/authStore';
 
 	let email = '';
 	let password = '';
@@ -9,6 +9,7 @@
 
 	function submit() {
 		$auth = { name, email, password };
+		$isLoggedIn = true;
 		goto('/');
 	}
 </script>
@@ -21,13 +22,13 @@
 	<h1>Create a new account</h1>
 	<form on:submit|preventDefault={submit}>
 		<div class="row">
-			<Input type="text" label="Name" bind:value={name} />
+			<Input type="text" placeholder="novelninja" label="Username" bind:value={name} />
 		</div>
 		<div class="row">
-			<Input type="email" label="Email" bind:value={email} />
+			<Input type="email" placeholder="someone@gmail.com" label="Email" bind:value={email} />
 		</div>
 		<div class="row">
-			<Input type="password" label="Password" bind:value={password} minlength={6} />
+			<Input type="password" label="Password" bind:value={password} minlength="6" />
 		</div>
 		<button>Create account</button>
 	</form>
