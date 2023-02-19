@@ -1,5 +1,6 @@
 <script>
 	import heroImg from '$lib/assets/hero-img.png';
+	import heroImgMobile from '$lib/assets/hero-img-mobile.png';
 </script>
 
 <svelte:head>
@@ -11,7 +12,11 @@
 		<h1>Bibliophile</h1>
 		<p>Sharing knowledge has never been easier. Find and sell used books at lower rates</p>
 	</section>
-	<img src={heroImg} alt="two hands where one is taking a book from another" />
+	<picture>
+		<source srcset={heroImgMobile} media="(max-width: 600px)" />
+		<source srcset={heroImg} media="(min-width: 601px)" />
+		<img src={heroImg} alt="two hands where one is taking a book from another" />
+	</picture>
 </main>
 
 <style lang="scss">
@@ -51,7 +56,7 @@
 		align-self: center;
 	}
 
-	img {
+	picture, img {
 		display: block;
 		height: 100%;
 		max-height: 340px;
@@ -61,5 +66,9 @@
 		max-width: 100%;
 		align-self: end;
 		border-radius: 3rem 3rem 0 0;
+
+		@media (max-width: 600px) {
+			order: -1;
+		}
 	}
 </style>

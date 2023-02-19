@@ -79,9 +79,13 @@
 		left: 50%;
 		padding: 0 0.25rem;
 
-		background-color: var(--background);
+		background-color: hsl(34 80% 96%);
 		box-shadow: 0 0 1px 0 hsl(34 50% 65%), 0 0px 0px 4px hsla(34 50% 90% / 0.5);
 		border-radius: 500px;
+
+		@media(max-width: 600px) {
+		background-color: hsl(34 80% 96% / 0.5);
+		}
 	}
 
 	ul {
