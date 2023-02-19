@@ -1,6 +1,7 @@
 <script>
-	import heroImg from '$lib/assets/hero-img.png'
+	import heroImg from '$lib/assets/hero-img.png';
 </script>
+
 <svelte:head>
 	<title>Home | Bibliophile</title>
 </svelte:head>
@@ -8,9 +9,9 @@
 	<section>
 		<p class="subtitle">Paradise for book lovers</p>
 		<h1>Bibliophile</h1>
-		<p>Sharing knowledge has never been easier<br />Find and sell used books at lower rates</p>
+		<p>Sharing knowledge has never been easier. Find and sell used books at lower rates</p>
 	</section>
-	<img src={heroImg} alt="two hands where one is taking a book from another">
+	<img src={heroImg} alt="two hands where one is taking a book from another" />
 </main>
 
 <style lang="scss">
@@ -31,6 +32,8 @@
 	p {
 		font-size: var(--fs-100);
 		line-height: 1.5;
+		width: min(35ch, 100%);
+		margin: 0 auto;
 	}
 
 	main {

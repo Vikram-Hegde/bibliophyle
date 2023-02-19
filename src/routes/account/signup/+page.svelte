@@ -25,10 +25,10 @@
 			<Input type="text" placeholder="novelninja" label="Username" bind:value={name} />
 		</div>
 		<div class="row">
-			<Input type="email" placeholder="someone@gmail.com" label="Email" bind:value={email} />
+			<Input type="email" placeholder="novelninja@gmail.com" label="Email" bind:value={email} />
 		</div>
 		<div class="row">
-			<Input type="password" label="Password" bind:value={password} minlength="6" />
+			<Input placeholder="*******" type="password" label="Password" bind:value={password} minlength="6" />
 		</div>
 		<button>Create account</button>
 	</form>

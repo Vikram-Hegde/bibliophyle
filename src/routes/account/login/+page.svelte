@@ -24,10 +24,10 @@
 	<h1>Sign In</h1>
 	<form on:submit|preventDefault={submit}>
 		<div class="row">
-			<Input type="email" label="Email" bind:value={email} autocomplete="true" />
+			<Input placeholder="novelninja@gmail.com" type="email" label="Email" bind:value={email} autocomplete="true" />
 		</div>
 		<div class="row">
-			<Input type="password" label="Password" bind:value={password} />
+			<Input placeholder="******" type="password" label="Password" bind:value={password} />
 		</div>
 		<button>Sign In</button>
 	</form>
