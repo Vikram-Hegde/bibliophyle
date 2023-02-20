@@ -10,13 +10,6 @@
 <style lang="scss">
 	@use '../../lib/styles/utils' as *;
 
-	:global {
-		html,
-		body {
-			overflow-x: hidden;
-		}
-	}
-
 	main {
 		@extend %wrapper;
 		display: grid;

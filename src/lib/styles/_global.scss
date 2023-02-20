@@ -9,7 +9,7 @@
 		box-sizing: border-box;
 	}
 
-	*:focus-visible {
+	a:focus-visible, button:focus-visible {
 		outline: 2px solid var(--text);
 		outline-offset: 4px;
 		border-radius: 6px;
@@ -27,6 +27,7 @@
 		font-size: var(--fs--100);
 		color: var(--text);
 		background-color: var(--background);
+		overflow-x: hidden;
 	}
 
 	.nav-desktop {
