@@ -30,7 +30,7 @@
 	}
 
 	h1 {
-		font-size: calc(var(--fs-700) + 1rem);
+		font-size: var(--fs-800);
 		margin-bottom: 0.5rem;
 	}
 
@@ -66,9 +66,5 @@
 		max-width: 100%;
 		align-self: end;
 		border-radius: 3rem 3rem 0 0;
-
-		@media (max-width: 600px) {
-			// order: -1;
-		}
 	}
 </style>
