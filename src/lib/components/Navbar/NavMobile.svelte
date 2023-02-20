@@ -72,9 +72,9 @@
 
 	nav {
 		z-index: 100;
-		position: absolute;
+		position: fixed;
 		display: inline-block;
-		bottom: 1.5rem;
+		bottom: 1.25rem;
 		translate: -50%;
 		left: 50%;
 		padding: 0 0.25rem;
@@ -84,12 +84,11 @@
 		border-radius: 500px;
 
 		@media(max-width: 600px) {
-		background-color: hsl(34 80% 96% / 0.5);
+		background-color: hsl(34 80% 96% / 0.9);
 		}
 	}
 
 	ul {
-		--row-start: 2;
 		display: flex;
 		align-items: center;
 		line-height: 0;

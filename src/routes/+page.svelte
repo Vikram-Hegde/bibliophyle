@@ -48,12 +48,12 @@
 		height: calc(100vh - var(--nav) - 2px);
 		grid-template-rows: 1fr 1fr;
 		grid-template-columns: repeat(12, 1fr);
+		align-items: center;
 	}
 
 	section {
 		grid-column: 1 / -1;
 		text-align: center;
-		align-self: center;
 	}
 
 	picture, img {
@@ -68,7 +68,7 @@
 		border-radius: 3rem 3rem 0 0;
 
 		@media (max-width: 600px) {
-			order: -1;
+			// order: -1;
 		}
 	}
 </style>
