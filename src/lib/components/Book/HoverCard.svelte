@@ -22,7 +22,7 @@
 			<p>{book.author}</p>
 			<div class="condition">
 				<p>Condition</p>
-				<p>{'⭐'.repeat(Math.floor(book.rating))}</p>
+				<p>{'⭐'.repeat(Math.ceil(book.rating))}</p>
 			</div>
 			<div class="description">
 				<h3>Description</h3>
@@ -48,6 +48,7 @@
 	.condition {
 		display: flex;
 		justify-content: space-between;
+		font-size: var(--fs--200);
 	}
 
 	.hover-card {
@@ -59,6 +60,7 @@
 		background-color: hsl(34 98% 92%);
 		box-shadow: 0 20px 25px -5px hsl(34 30% 70% / 50%), 0 4px 6px -4px hsl(34 30% 70% / 50%);
 		border-radius: 1rem;
+		border: 1px solid hsl(34 40% 70%);
 
 		&__content {
 			padding: 1rem;
