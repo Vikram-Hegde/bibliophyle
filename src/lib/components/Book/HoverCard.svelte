@@ -3,8 +3,6 @@
 	/**
 	 * @typedef {Object} bookInfo
 	 * @property {string} title
-	 * @property {string} url
-	 * @property {number} price
 	 * @property {string} author
 	 * @property {string} summary
 	 * @property {number} rating
@@ -18,16 +16,16 @@
 </script>
 
 {#if hovered}
-	<div class="hover-card" in:fly={{y: 10, duration: 200}} out:fly={{y: -10, duration: 150}}>
+	<div class="hover-card" in:fly={{ y: 10, duration: 200 }} out:fly={{ y: -10, duration: 150 }}>
 		<div class="hover-card__content">
 			<h3>{book.title}</h3>
 			<p>{book.author}</p>
 			<div class="condition">
 				<p>Condition</p>
-				<p>{Math.floor(book.rating)}</p>
+				<p>{'⭐'.repeat(Math.floor(book.rating))}</p>
 			</div>
 			<div class="description">
-				<h4>Description</h4>
+				<h3>Description</h3>
 				<p>{book.summary}</p>
 			</div>
 		</div>
@@ -40,6 +38,16 @@
 		-webkit-line-clamp: 4;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
+		font-size: var(--fs--200);
+
+		:first-child {
+			margin-bottom: 0.25rem;
+		}
+	}
+
+	.condition {
+		display: flex;
+		justify-content: space-between;
 	}
 
 	.hover-card {
@@ -49,11 +57,14 @@
 		width: 320px;
 		z-index: 1;
 		background-color: hsl(34 98% 92%);
+		box-shadow: 0 20px 25px -5px hsl(34 30% 70% / 50%), 0 4px 6px -4px hsl(34 30% 70% / 50%);
 		border-radius: 1rem;
-	}
 
-	.hover-card__content {
-		padding: 1rem;
-		max-width: 320px;
+		&__content {
+			padding: 1rem;
+			max-width: 320px;
+			display: grid;
+			gap: 0.25rem;
+		}
 	}
 </style>

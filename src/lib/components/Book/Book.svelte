@@ -7,6 +7,7 @@
 	 * @property {number} price
 	 * @property {string} author
 	 * @property {string} summary
+	 * @property {number} rating
 	 */
 
 	/**
