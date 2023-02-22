@@ -66,5 +66,6 @@
 		max-width: 100%;
 		align-self: end;
 		border-radius: 3rem 3rem 0 0;
+		mix-blend-mode: multiply;
 	}
 </style>

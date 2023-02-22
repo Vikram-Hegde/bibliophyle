@@ -1,15 +1,74 @@
 <script>
 	import bookData from '$lib/books.json';
+	import Book from '$lib/components/Book/Book.svelte';
+	import Input from '$lib/components/Input.svelte';
+
+	let search = '';
 </script>
 
 <main>
-	<h1>Bookshelf Page</h1>
+	<section class="filter">
+		<h2>Filter by</h2>
+	</section>
+	<section class="books">
+		<form>
+			<Input bind:value={search} placeholder="Search for books..." type="search" />
+		</form>
+		<div class="bookshelf">
+			{#each bookData as book}
+					{#if book.title.toLowerCase().includes(search.toLowerCase())}
+							<Book {book} />
+					{/if}
+			{/each}
+		</div>
+	</section>
+	<aside class="recommendation">
+		<h2>People Also Like</h2>
+	</aside>
 </main>
 
 <style lang="scss">
 	@use '../../lib/styles/utils' as *;
-
 	main {
-		@extend %wrapper;
+		display: grid;
+		grid-template-columns: repeat(24, 1fr);
+	}
+
+	.bookshelf {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+		gap: 1rem;
+		padding: 1.5rem 0;
+	}
+
+	.filter,
+	.recommendation {
+		grid-column: span 5;
+		background-color: hsl(34 98% 93%);
+		position: sticky;
+		top: 0;
+		padding: 1.5rem 2rem;
+		max-height: calc(100vh - 2px);
+
+		h2 {
+			font-size: var(--fs--100);
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			margin-bottom: 1rem;
+		}
+	}
+
+	.recommendation {
+		background-color: hsl(34 98% 98%);
+	}
+
+	.books {
+		grid-column: 6 / -6;
+		padding: 1rem 2rem;
+	}
+
+
+	form {
+		max-width: 50ch;
 	}
 </style>

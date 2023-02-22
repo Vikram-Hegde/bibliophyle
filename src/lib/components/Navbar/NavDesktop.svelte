@@ -73,17 +73,13 @@
 	@use '../../styles/utils' as *;
 
 	.nav-desktop {
-		position: sticky;
-		top: 0;
-		width: var(--width);
-		margin: 0 auto;
+		@extend %wrapper;
 		grid-template-columns: repeat(3, 1fr);
 		justify-content: space-between;
 		align-items: center;
 		height: var(--nav);
 		background-color: hsl(34 80% 96% / 0.5);
 		backdrop-filter: blur(15px);
-		z-index: 10;
 
 		&__logo {
 			line-height: 0;
@@ -92,16 +88,14 @@
 		}
 
 		&__list {
-			--align: center;
 			display: flex;
-			justify-content: var(--align);
 			align-items: center;
+			justify-content: center;
 			gap: 1rem;
 			@extend %list-reset;
 		}
 
 		&__action {
-			--align: end;
 			justify-self: end;
 		}
 	}

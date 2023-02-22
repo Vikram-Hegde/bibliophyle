@@ -1,5 +1,5 @@
 <script>
-	import { IconAt, IconLock, IconUser } from '@tabler/icons-svelte';
+	import { IconAt, IconLock, IconUser, IconSearch } from '@tabler/icons-svelte';
 
 	export let type = '';
 	export let placeholder = '';
@@ -16,6 +16,8 @@
 				return IconLock;
 			case 'text':
 				return IconUser;
+			case 'search':
+				return IconSearch;
 			default:
 				return null;
 		}
