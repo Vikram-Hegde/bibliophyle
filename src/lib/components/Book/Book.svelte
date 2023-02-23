@@ -16,19 +16,29 @@
 	 */
 	export let book;
 	let hovered = 0;
+	let card = null;
+
+	function onHover() {
+		hovered = 1;
+		card = this;
+	}
+
+	function onLeave() {
+		hovered = 0;
+		card = null;
+	}
 </script>
 
-<div
+<a
+	href="#"
 	class="book__wrapper"
-	on:focus={() => (hovered = 1)}
-	on:blur={() => (hovered = 0)}
-	on:mouseover={() => (hovered = 1)}
-	on:mouseleave={() => (hovered = 0)}
+	on:focus={onHover}
+	on:mouseenter={onHover}
+	on:blur={onLeave}
+	on:mouseleave={onLeave}
 >
 	<div class="book">
-		<a href="#">
-			<img src={book.url} alt={book.title} />
-		</a>
+		<img src={book.url} alt={book.title} />
 		<div class="book__details">
 			<div>
 				<strike>₹{book.price + 300}</strike>
@@ -37,8 +47,8 @@
 			<button><IconShoppingCartPlus size={20} /></button>
 		</div>
 	</div>
-	<HoverCard {book} {hovered} />
-</div>
+	<HoverCard {book} {hovered} {card} />
+</a>
 
 <style lang="scss">
 	a {
@@ -59,7 +69,6 @@
 	.book {
 		background-color: hsl(34 98% 92%);
 		min-width: 120px;
-		// overflow: hidden;
 		border-radius: 8px;
 		display: grid;
 
@@ -72,6 +81,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			border-radius: 8px 8px 0 0;
 		}
 
 		strike {

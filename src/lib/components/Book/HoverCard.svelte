@@ -8,15 +8,28 @@
 	 * @property {number} rating
 	 */
 
+	let align = 1;
 	/**
 	 * @type {bookInfo}
 	 */
 	export let book;
+	export let card;
 	export let hovered = 0;
+
+	$: if (card) {
+		const rect = card.getBoundingClientRect();
+		const window = document.body.getBoundingClientRect();
+
+		if ((rect.width + rect.left + 320) > window.right) {
+			align = 1;
+		} else {
+			align = 0;
+		}
+	}
 </script>
 
 {#if hovered}
-	<div class="hover-card" in:fly={{ y: 10, duration: 200 }} out:fly={{ y: -10, duration: 150 }}>
+	<div class={`hover-card ${align ? 'right' : 'left'}`} in:fly={{ y: 10, duration: 200 }} out:fly={{ y: -10, duration: 150 }}>
 		<div class="hover-card__content">
 			<h3>{book.title}</h3>
 			<p>{book.author}</p>
@@ -51,10 +64,17 @@
 		font-size: var(--fs--200);
 	}
 
+	.left {
+		left: calc(100% + 0.5rem);
+	}
+
+	.right {
+		right: calc(100% + 0.5rem);
+	}
+
 	.hover-card {
 		position: absolute;
 		bottom: 0;
-		left: calc(100% + 0.5rem);
 		width: 320px;
 		z-index: 1;
 		background-color: hsl(34 98% 92%);
