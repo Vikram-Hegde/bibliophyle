@@ -1,4 +1,5 @@
 <script>
+	import { IconShoppingCartPlus } from '@tabler/icons-svelte';
 	import HoverCard from './HoverCard.svelte';
 	/**
 	 * @typedef {Object} bookInfo
@@ -17,8 +18,7 @@
 	let hovered = 0;
 </script>
 
-<a
-	href="#"
+<div
 	class="book__wrapper"
 	on:focus={() => (hovered = 1)}
 	on:blur={() => (hovered = 0)}
@@ -26,14 +26,19 @@
 	on:mouseleave={() => (hovered = 0)}
 >
 	<div class="book">
-		<img src={book.url} alt={book.title} />
+		<a href="#">
+			<img src={book.url} alt={book.title} />
+		</a>
 		<div class="book__details">
-			<strike>₹{book.price + 300}</strike>
-			<p class="book__price">₹{book.price}</p>
+			<div>
+				<strike>₹{book.price + 300}</strike>
+				<p class="book__price">₹{book.price}</p>
+			</div>
+			<button><IconShoppingCartPlus size={20} /></button>
 		</div>
 	</div>
 	<HoverCard {book} {hovered} />
-</a>
+</div>
 
 <style lang="scss">
 	a {
@@ -41,10 +46,20 @@
 		color: inherit;
 	}
 
+	button {
+		background-color: hsl(34 90% 88%);
+		color: inherit;
+		padding: 0.5rem;
+		border: none;
+		cursor: pointer;
+		display: flex;
+		border-radius: 6px;
+	}
+
 	.book {
 		background-color: hsl(34 98% 92%);
 		min-width: 120px;
-		overflow: hidden;
+		// overflow: hidden;
 		border-radius: 8px;
 		display: grid;
 
@@ -64,8 +79,11 @@
 		}
 
 		&__details {
+			align-items: center;
 			padding: 0.35rem;
 			align-self: end;
+			display: flex;
+			justify-content: space-between;
 		}
 
 		&__price {
