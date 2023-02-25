@@ -78,8 +78,6 @@
 		justify-content: space-between;
 		align-items: center;
 		height: var(--nav);
-		background-color: hsl(34 80% 96% / 0.5);
-		backdrop-filter: blur(15px);
 
 		&__logo {
 			line-height: 0;

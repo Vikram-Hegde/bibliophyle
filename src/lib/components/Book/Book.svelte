@@ -1,6 +1,7 @@
 <script>
 	import { IconShoppingCartPlus } from '@tabler/icons-svelte';
 	import HoverCard from './HoverCard.svelte';
+
 	/**
 	 * @typedef {Object} bookInfo
 	 * @property {string} title
@@ -15,7 +16,11 @@
 	 * @type {bookInfo}
 	 */
 	export let book;
+	export let mobile;
 	let hovered = 0;
+	/**
+	 * @type {HTMLElement | null} card
+	 */
 	let card = null;
 
 	function onHover() {
@@ -29,8 +34,7 @@
 	}
 </script>
 
-<a
-	href="#"
+<div
 	class="book__wrapper"
 	on:focus={onHover}
 	on:mouseenter={onHover}
@@ -38,7 +42,9 @@
 	on:mouseleave={onLeave}
 >
 	<div class="book">
-		<img src={book.url} alt={book.title} />
+		<a href="#">
+			<img src={book.url} alt={book.title} />
+		</a>
 		<div class="book__details">
 			<div>
 				<strike>₹{book.price + 300}</strike>
@@ -47,8 +53,10 @@
 			<button><IconShoppingCartPlus size={20} /></button>
 		</div>
 	</div>
-	<HoverCard {book} {hovered} {card} />
-</a>
+	{#if !mobile.matches}
+		<HoverCard {book} {hovered} {card} />
+	{/if}
+</div>
 
 <style lang="scss">
 	a {

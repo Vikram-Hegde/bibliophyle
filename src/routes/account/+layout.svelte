@@ -1,10 +1,14 @@
 <script>
 	import treeImg from '$lib/assets/book-tree.png';
+	import { fly } from 'svelte/transition';
 </script>
 
 <main>
-		<slot />
-		<img src={treeImg} alt="A tree full of books instead of leaves" />
+	<slot />
+		<img
+			src={treeImg}
+			alt="A tree full of books instead of leaves"
+		/>
 </main>
 
 <style lang="scss">
@@ -17,16 +21,17 @@
 	}
 
 	img {
+		isolation: isolate;
 		z-index: -1;
 		width: auto;
-		height: calc(100% + var(--nav));
+		height: calc(100% - 1rem);
 		object-fit: cover;
 		position: absolute;
 		bottom: 0;
 		display: none;
 	}
-	
-	@media(min-width: 1100px) {
+
+	@media (min-width: 1100px) {
 		main {
 			place-items: initial;
 			align-items: center;
@@ -34,7 +39,7 @@
 
 		img {
 			display: block;
-			right: -4rem;
+			right: -2rem;
 		}
 	}
 </style>

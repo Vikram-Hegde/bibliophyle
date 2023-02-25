@@ -3,6 +3,14 @@
 	import Book from '$lib/components/Book/Book.svelte';
 	import Input from '$lib/components/Input.svelte';
 
+	// check if its a touch device
+	let mediaCheck = '(hover: none), (pointer: coarse)';
+	let mobile = window.matchMedia(mediaCheck);
+
+	mobile.addEventListener('change', () => {
+		mobile = window.matchMedia(mediaCheck);
+	});
+
 	let search = '';
 </script>
 
@@ -16,9 +24,10 @@
 		</form>
 		<div class="bookshelf">
 			{#each bookData as book}
-					{#if book.title.toLowerCase().includes(search.toLowerCase())}
-							<Book {book} />
-					{/if}
+				{#if book.title.toLowerCase().includes(search.toLowerCase())}
+					<Book {book} {mobile} />
+					<!-- {:else} -->
+				{/if}
 			{/each}
 		</div>
 	</section>
@@ -29,6 +38,7 @@
 
 <style lang="scss">
 	@use '../../lib/styles/utils' as *;
+
 	main {
 		display: grid;
 		grid-template-columns: repeat(24, 1fr);
@@ -48,13 +58,18 @@
 		position: sticky;
 		top: 0;
 		padding: 1.5rem 2rem;
-		max-height: calc(100vh - 2px);
+		max-block-size: calc(100vh - 2px);
+
+		@media(max-width: 1030px) {
+			//WIP
+			display: none;
+		}
 
 		h2 {
 			font-size: var(--fs--100);
 			text-transform: uppercase;
 			letter-spacing: 2px;
-			margin-bottom: 1rem;
+			margin-block-end: 1rem;
 		}
 	}
 
@@ -65,10 +80,13 @@
 	.books {
 		grid-column: 6 / -6;
 		padding: 1rem 2rem;
+
+		@media(max-width: 1030px) {
+			grid-column: span 24;
+		}
 	}
 
-
 	form {
-		max-width: 50ch;
+		max-inline-size: 50ch;
 	}
 </style>

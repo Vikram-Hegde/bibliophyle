@@ -9,18 +9,20 @@
 	 */
 
 	let align = 1;
-	/**
-	 * @type {bookInfo}
-	 */
+
+	/**  @type {bookInfo} */
 	export let book;
+
+	/** @type {HTMLElement | null} */
 	export let card;
+
 	export let hovered = 0;
 
 	$: if (card) {
 		const rect = card.getBoundingClientRect();
 		const window = document.body.getBoundingClientRect();
 
-		if ((rect.width + rect.left + 320) > window.right) {
+		if ((rect.width + rect.left + 320) > window.width) {
 			align = 1;
 		} else {
 			align = 0;
