@@ -18,34 +18,44 @@
 	/**
 	 * @type {string[]}
 	 */
-	let filter = []
+	let filterOptions;
+	$: filterOptions = [...new Set(books.map((book) => book.genre).flat())];
 
-	$: {
-		let isPresent = false
-
-		duration = 150;
-
-		if(filter.length !== 0)
-		books = books.filter(book => {
-			filter.forEach(genre => {
-				if (book.genre.includes(genre)) isPresent = true
-				else isPresent = false
-			})
-			return isPresent
-		})
-	}
-
+	/**
+	 * @type {string[]}
+	 */
+	let filter = [];
 	let search = '';
+
 	let duration = 150;
 
 	$: {
-		books = bookData.filter(book => book.title.toLowerCase().includes(search.toLowerCase()))
-		duration = 0
-	}
+		if (filter.length === 0) {
+			books = bookData.filter((book) => book.title.toLowerCase().includes(search.toLowerCase()));
+			duration = 0;
+		}
 
-	$: {
-		if(filter.length === 0) {
-			books = bookData.filter(book => book.title.toLowerCase().includes(search.toLowerCase()))
+		let isPresent = false;
+		if (search.length === 0 && filter.length !== 0) {
+			duration = 250;
+			books = bookData.filter((book) => {
+				filter.forEach((genre) => {
+					if (book.genre.includes(genre)) isPresent = true;
+					else isPresent = false;
+				});
+				return isPresent;
+			});
+		}
+
+		if(search.length && filter.length) {
+			duration = 250;
+			books = bookData.filter((book) => {
+				filter.forEach((genre) => {
+					if (book.genre.includes(genre)) isPresent = true;
+					else isPresent = false;
+				});
+				return isPresent && book.title.toLowerCase().includes(search.toLowerCase());
+			});
 		}
 	}
 </script>
@@ -55,36 +65,15 @@
 		<div class="filter">
 			<h2>Filter by</h2>
 			<div class="filter__options">
-				<label>
-					<input type="checkbox" bind:group={filter} value="Adventure" />
-					Adventure
-				</label>
-				<label>
-					<input type="checkbox" bind:group={filter} value="Fantasy">
-					Fantasy
-				</label>
-				<label>
-					<input type="checkbox" bind:group={filter} value="Mystery" />
-					Mystery
-				</label>
-				<label>
-					<input type="checkbox" bind:group={filter} value="Romance" />
-					Romance
-				</label>
-				<label>
-					<input type="checkbox" bind:group={filter} value="Science Fiction" />
-					Science Fiction
-				</label>
-				<label>
-					<input type="checkbox" bind:group={filter} value="Self Help" />
-					Self Help
-				</label>
-				<label>
-					<input type="checkbox" bind:group={filter} value="Thriller" />
-					Thriller
-				</label>
+				{#each filterOptions as option}
+					<label>
+						<input type="checkbox" bind:group={filter} value={option} />
+						{option}
+					</label>
+				{/each}
+			</div>
+			<!-- sort will also be here on desktop -->
 		</div>
-		<!-- sort will also be here on desktop -->
 	</section>
 	<section class="books">
 		<div class="actions">
