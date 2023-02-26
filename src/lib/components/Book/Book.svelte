@@ -35,14 +35,12 @@
 	}
 </script>
 
-<div
-	class="book__wrapper"
+	<div class="book"
 	on:focus={onHover}
 	on:mouseenter={onHover}
 	on:blur={onLeave}
 	on:mouseleave={onLeave}
->
-	<div class="book">
+	>
 		<a href={`bookshelf/${book.id}`}>
 			<img src={book.url} alt={book.title} loading="lazy" />
 		</a>
@@ -62,7 +60,6 @@
 	{#if !mobile.matches}
 		<HoverCard {book} {hovered} {card} />
 	{/if}
-</div>
 
 <style lang="scss">
 	a {
