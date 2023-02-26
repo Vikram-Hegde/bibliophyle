@@ -50,7 +50,7 @@
 				</NavItem>
 			</li>
 			<li>
-				<button class="logout" on:click={() => isLoggedIn.set(false)}>
+				<button title="Logout" class="logout" on:click={() => isLoggedIn.set(false)}>
 					<IconLogout size={22} />
 				</button>
 			</li>

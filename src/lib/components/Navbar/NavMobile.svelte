@@ -45,7 +45,7 @@
 				</NavItem>
 			</li>
 			<li>
-				<button class="logout" on:click={() => isLoggedIn.set(false)}
+				<button title="Logout" class="logout" on:click={() => isLoggedIn.set(false)}
 					><IconLogout size={24} /><button /></button
 				>
 			</li>
@@ -84,8 +84,8 @@
 		border-radius: 500px;
 
 		@media (max-width: 600px) {
-			background-color: hsl(34 80% 96% / 0.8);
-			backdrop-filter: blur(15px);
+			background-color: hsl(34 80% 96% / 0.75);
+			backdrop-filter: blur(5px);
 		}
 	}
 

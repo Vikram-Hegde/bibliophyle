@@ -7,6 +7,7 @@
 	 * @property {string} title
 	 * @property {string} url
 	 * @property {number} price
+	 * @property {number} id
 	 * @property {string} author
 	 * @property {string} summary
 	 * @property {number} rating
@@ -42,15 +43,20 @@
 	on:mouseleave={onLeave}
 >
 	<div class="book">
-		<a href="#">
-			<img src={book.url} alt={book.title} />
+		<a href={`bookshelf/${book.id}`}>
+			<img src={book.url} alt={book.title} loading="lazy" />
 		</a>
 		<div class="book__details">
 			<div>
+				{#if mobile.matches}
+					<h3 class="book__title">{book.title}</h3>
+				{/if}
 				<strike>₹{book.price + 300}</strike>
 				<p class="book__price">₹{book.price}</p>
 			</div>
-			<button><IconShoppingCartPlus size={20} /></button>
+			{#if !mobile.matches}
+				<button><IconShoppingCartPlus size={20} /></button>
+			{/if}
 		</div>
 	</div>
 	{#if !mobile.matches}
@@ -76,9 +82,18 @@
 
 	.book {
 		background-color: hsl(34 98% 92%);
-		min-width: 120px;
+		min-width: var(--min-width);
 		border-radius: 8px;
 		display: grid;
+		overflow: hidden;
+
+		&__title {
+			font-size: var(--fs--100);
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			max-inline-size: var(--min-width);
+		}
 
 		img {
 			align-self: start;
@@ -89,7 +104,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			border-radius: 8px 8px 0 0;
+			border-radius: 0.5rem 0.5rem 0 0;
 		}
 
 		strike {
@@ -106,6 +121,9 @@
 
 		&__price {
 			font-size: var(--fs-100);
+			@media (max-width: 600px) {
+				font-size: calc(var(--fs-100) + 0.25rem);
+			}
 		}
 
 		&__wrapper {

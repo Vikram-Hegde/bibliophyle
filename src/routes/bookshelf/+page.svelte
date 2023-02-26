@@ -4,7 +4,7 @@
 	import Input from '$lib/components/Input.svelte';
 
 	// check if its a touch device
-	let mediaCheck = '(hover: none), (pointer: coarse)';
+	let mediaCheck = '(hover: none), (pointer: coarse), (max-width: 750px)';
 	let mobile = window.matchMedia(mediaCheck);
 
 	mobile.addEventListener('change', () => {
@@ -42,12 +42,17 @@
 	main {
 		display: grid;
 		grid-template-columns: repeat(24, 1fr);
+
+		@media (max-width: 750px) {
+			padding-block-end: 4rem;	
+		}
 	}
 
 	.bookshelf {
+		--min-width: 120px;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-		gap: 1rem;
+		grid-template-columns: repeat(auto-fill, minmax(var(--min-width), 1fr));
+		gap: clamp(0.5rem, 4vw - 1rem, 1rem);
 		padding: 1.5rem 0;
 	}
 
