@@ -46,7 +46,7 @@
 			</li>
 			<li>
 				<button title="Logout" class="logout" on:click={() => isLoggedIn.set(false)}
-					><IconLogout size={24} /><button /></button
+					><IconLogout size={24} /></button
 				>
 			</li>
 		{:else}
