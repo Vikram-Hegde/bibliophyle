@@ -46,7 +46,7 @@
 
 		if (search.length && filter.length) filter = [];
 
-		peopleAlsoLike = bookData.filter((book) => books[0].related.includes(book.id));
+		peopleAlsoLike = bookData.filter((book) => books[0]?.related.includes(book.id));
 	}
 </script>
 
