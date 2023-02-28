@@ -13,15 +13,15 @@
 	 * @property {number} rating
 	 */
 
-	/**
-	 * @type {bookInfo}
-	 */
+	/**  @type {bookInfo} */
 	export let book;
+
+	/** @type {MediaQueryList} */
 	export let mobile;
+
 	let hovered = 0;
-	/**
-	 * @type {HTMLElement | null} card
-	 */
+
+	/**  @type {HTMLElement | null} card */
 	let card = null;
 
 	function onHover() {
@@ -121,11 +121,6 @@
 			@media (max-width: 600px) {
 				font-size: calc(var(--fs-100) + 0.25rem);
 			}
-		}
-
-		&__wrapper {
-			position: relative;
-			display: flex;
 		}
 	}
 </style>

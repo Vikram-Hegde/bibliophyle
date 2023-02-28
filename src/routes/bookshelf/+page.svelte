@@ -29,6 +29,8 @@
 
 	let duration = 150;
 
+	let peopleAlsoLike = [];
+
 	$: {
 		if (filter.length === 0) {
 			books = bookData.filter((book) => book.title.toLowerCase().includes(search.toLowerCase()));
@@ -48,11 +50,20 @@
 		}
 
 		if (search.length && filter.length) {
-			duration = 250;
 			filter = [];
 		}
+
+		peopleAlsoLike = bookData.filter((book) => {
+			return books[0].related.includes(book.id);
+		});
+
+		console.log(peopleAlsoLike);
 	}
 </script>
+
+<svelte:head>
+	<title>Bookshelf | Bibliophile</title>
+</svelte:head>
 
 <main>
 	<section class="options">
@@ -90,6 +101,15 @@
 	</section>
 	<aside class="recommendation">
 		<h2>People Also Like</h2>
+		<div class="recommendation__bookshelf">
+			{#each peopleAlsoLike as book (book.id)}
+				<div class="book__wrapper">
+					<a href="/bookshelf/{book.id}">
+						<img src={book.url} alt={book.title} />
+					</a>
+				</div>
+			{/each}
+		</div>
 	</aside>
 </main>
 
@@ -137,14 +157,38 @@
 
 	.recommendation {
 		background-color: hsl(34 98% 98%);
+
+		@media(max-width: 1170px) {
+			display: none;
+		}
+
+		&__bookshelf {
+			--min-width: 80px;
+			margin-block-start: 2rem;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
+			// grid-template-columns: 1fr 1fr;
+			gap: clamp(0.5rem, 4vw - 1rem, 1rem);
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 0.5rem;
+			}
+		}
 	}
 
 	.books {
 		grid-column: 6 / -6;
 		padding: 1rem 2rem;
 
+		@media (max-width: 1170px) {
+			grid-column: 6 / -1;
+		}
+
 		@media (max-width: 1030px) {
-			grid-column: span 24;
+			grid-column: 1 / -1;
 		}
 	}
 
@@ -160,6 +204,7 @@
 	.filter__options {
 		display: grid;
 		gap: 0.35rem;
+		align-content: start;
 
 		label {
 			display: flex;
@@ -171,7 +216,6 @@
 	.control {
 		position: relative;
 		padding-left: 30px;
-		// margin-bottom: 5px;
 		padding-top: 2px;
 		cursor: pointer;
 	}
@@ -204,6 +248,7 @@
 		content: '';
 		position: absolute;
 		opacity: 0;
+		transform: rotate(25deg) scale(0.7);
 	}
 
 	.control input:checked ~ .control_indicator:after {
@@ -220,6 +265,5 @@
 		border: solid var(--background);
 		border-width: 0 2px 2px 0;
 		transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		transform: rotate(45deg) scale(0.7);
 	}
 </style>
