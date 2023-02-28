@@ -15,15 +15,11 @@
 		mobile = window.matchMedia(mediaCheck);
 	});
 
-	/**
-	 * @type {string[]}
-	 */
+	/** @type {string[]} */
 	let filterOptions;
 	filterOptions = [...new Set(books.map((book) => book.genre).flat())];
 
-	/**
-	 * @type {string[]}
-	 */
+	/** @type {string[]} */
 	let filter = [];
 	let search = '';
 
@@ -37,27 +33,20 @@
 			duration = 0;
 		}
 
-		let isPresent = false;
 		if (search.length === 0 && filter.length !== 0) {
 			duration = 250;
 			books = bookData.filter((book) => {
+				let isPresent = false;
 				filter.forEach((genre) => {
 					if (book.genre.includes(genre)) isPresent = true;
-					else isPresent = false;
 				});
 				return isPresent;
 			});
 		}
 
-		if (search.length && filter.length) {
-			filter = [];
-		}
+		if (search.length && filter.length) filter = [];
 
-		peopleAlsoLike = bookData.filter((book) => {
-			return books[0].related.includes(book.id);
-		});
-
-		console.log(peopleAlsoLike);
+		peopleAlsoLike = bookData.filter((book) => books[0].related.includes(book.id));
 	}
 </script>
 
@@ -114,156 +103,5 @@
 </main>
 
 <style lang="scss">
-	@use '../../lib/styles/utils' as *;
-
-	main {
-		display: grid;
-		grid-template-columns: repeat(24, 1fr);
-
-		@media (max-width: 750px) {
-			padding-block-end: 4rem;
-		}
-	}
-
-	.bookshelf {
-		--min-width: 120px;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(var(--min-width), 1fr));
-		gap: clamp(0.5rem, 4vw - 1rem, 1rem);
-		padding: 1.5rem 0;
-	}
-
-	.options,
-	.recommendation {
-		grid-column: span 5;
-		background-color: hsl(34 98% 93%);
-		position: sticky;
-		top: 0;
-		padding: 1.5rem 2rem;
-		max-block-size: calc(100vh - 2px);
-
-		@media (max-width: 1030px) {
-			//WIP
-			display: none;
-		}
-
-		h2 {
-			font-size: var(--fs--100);
-			text-transform: uppercase;
-			letter-spacing: 2px;
-			margin-block-end: 1rem;
-		}
-	}
-
-	.recommendation {
-		background-color: hsl(34 98% 98%);
-
-		@media(max-width: 1170px) {
-			display: none;
-		}
-
-		&__bookshelf {
-			--min-width: 80px;
-			margin-block-start: 2rem;
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
-			// grid-template-columns: 1fr 1fr;
-			gap: clamp(0.5rem, 4vw - 1rem, 1rem);
-
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				border-radius: 0.5rem;
-			}
-		}
-	}
-
-	.books {
-		grid-column: 6 / -6;
-		padding: 1rem 2rem;
-
-		@media (max-width: 1170px) {
-			grid-column: 6 / -1;
-		}
-
-		@media (max-width: 1030px) {
-			grid-column: 1 / -1;
-		}
-	}
-
-	form {
-		max-inline-size: 50ch;
-	}
-
-	.book__wrapper {
-		position: relative;
-		display: flex;
-	}
-
-	.filter__options {
-		display: grid;
-		gap: 0.35rem;
-		align-content: start;
-
-		label {
-			display: flex;
-			gap: 0.25rem;
-		}
-	}
-
-	// checkbox styles
-	.control {
-		position: relative;
-		padding-left: 30px;
-		padding-top: 2px;
-		cursor: pointer;
-	}
-	.control input {
-		position: absolute;
-		z-index: -1;
-		opacity: 0;
-	}
-	.control_indicator {
-		position: absolute;
-		top: 2px;
-		left: 0;
-		height: 20px;
-		width: 20px;
-		background-color: transparent;
-		border: 1px solid var(--text);
-		border-radius: 6px;
-	}
-	.control:hover input ~ .control_indicator,
-	.control input:focus-visible ~ .control_indicator {
-		background-color: hsl(34 98% 88%);
-	}
-
-	.control input:checked ~ .control_indicator {
-		background-color: var(--text);
-	}
-
-	.control_indicator:after {
-		box-sizing: unset;
-		content: '';
-		position: absolute;
-		opacity: 0;
-		transform: rotate(25deg) scale(0.7);
-	}
-
-	.control input:checked ~ .control_indicator:after {
-		display: block;
-		transform: rotate(45deg) scale(1);
-		opacity: 1;
-	}
-
-	.control-checkbox .control_indicator:after {
-		left: 7px;
-		top: 3px;
-		width: 3px;
-		height: 9px;
-		border: solid var(--background);
-		border-width: 0 2px 2px 0;
-		transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-	}
+	@use './style';
 </style>
