@@ -75,10 +75,9 @@
 			<form>
 				<Input bind:value={search} placeholder="Search for books..." type="search" />
 			</form>
-			{#if mobile.matches}
-				<button><IconArrowsSort size={20} /></button>
+			<div class="actions__btn">
 				<button><IconFilter size={20} /></button>
-			{/if}
+			</div>
 		</div>
 		<div class="bookshelf">
 			{#each books as book (book.id)}
