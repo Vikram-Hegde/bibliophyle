@@ -18,6 +18,7 @@
 	/** @type {string[]} */
 	let filterOptions;
 	filterOptions = [...new Set(books.map((book) => book.genre).flat())];
+	let state = 'closed';
 
 	/** @type {string[]} */
 	let filter = [];
@@ -48,6 +49,11 @@
 
 		peopleAlsoLike = bookData.filter((book) => books[0]?.related.includes(book.id));
 	}
+
+	const toggleState = () => {
+		if (state === 'open') state = 'closed';
+		else state = 'open';
+	};
 </script>
 
 <svelte:head>
@@ -55,7 +61,8 @@
 </svelte:head>
 
 <main>
-	<section class="options">
+	<button class="dark-screen" data-state={state} on:click={toggleState} />
+	<section class="options" data-state={state}>
 		<div class="filter">
 			<h2>Filter by</h2>
 			<div class="filter__options">
@@ -76,7 +83,12 @@
 				<Input bind:value={search} placeholder="Search for books..." type="search" />
 			</form>
 			<div class="actions__btn">
-				<button><IconFilter size={20} /></button>
+				<button
+					on:click={() => {
+						if (state === 'open') state = 'closed';
+						else state = 'open';
+					}}><IconFilter size={20} /></button
+				>
 			</div>
 		</div>
 		<div class="bookshelf">
