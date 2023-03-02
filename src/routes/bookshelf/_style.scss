@@ -5,7 +5,7 @@ main {
 	grid-template-columns: repeat(24, 1fr);
 
 	@media (max-width: 750px) {
-		padding-block-end: 4rem;
+		padding-block-end: 2rem;
 	}
 }
 
@@ -26,6 +26,7 @@ main {
 	padding: 1.5rem 2rem;
 	max-block-size: calc(100vh - 2px);
 	transition: translate 0.25s ease-in-out;
+	overflow-y: auto;
 
 	h2 {
 		font-size: var(--fs--100);
@@ -84,6 +85,10 @@ main {
 		@media (min-width: 1030px) {
 			translate: 0;
 		}
+	}
+
+	@media (max-width: 750px) {
+		height: calc(100vh + var(--nav));
 	}
 }
 
