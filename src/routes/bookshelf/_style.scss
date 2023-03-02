@@ -60,12 +60,11 @@ main {
 
 @media (max-width: 1030px) {
 	.options {
-		grid-column: 1 / -1;
+		grid-column: 1 / 15;
 		z-index: 2;
 		overflow-y: auto;
 		box-shadow: -20px 0 25px -5px hsl(34 30% 70% / 30%), -4px 0 6px -4px hsl(34 30% 70% / 30%);
-		max-width: min(80%, 30ch);
-		margin-left: auto;
+		max-width: min(80%, 40ch);
 	}
 
 	.books,
@@ -80,7 +79,7 @@ main {
 	}
 
 	&[data-state='closed'] {
-		translate: calc(100% + 0.25rem);
+		translate: -100%;
 
 		@media (min-width: 1030px) {
 			translate: 0;
