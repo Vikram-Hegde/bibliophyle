@@ -23,13 +23,15 @@
 	/** @type {string[]} */
 	let filter = [];
 	let search = '';
+	let sort = '';
 
 	let duration = 150;
 
 	let peopleAlsoLike = [];
 
 	$: {
-		if (filter.length === 0) {
+
+		if (!filter.length) {
 			books = bookData.filter((book) => book.title.toLowerCase().includes(search.toLowerCase()));
 			duration = 0;
 		}
@@ -47,8 +49,25 @@
 
 		if (search.length && filter.length) filter = [];
 
+
 		peopleAlsoLike = bookData.filter((book) => books[0]?.related.includes(book.id));
 	}
+
+	$: {
+			duration = 250;
+
+		if(sort === 'LH') 
+			books = books.sort((a, b) => a.price - b.price)
+
+
+		if(sort === 'HL') 
+			books = books.sort((a, b) => b.price - a.price)
+		
+	}
+
+$: if(search.length) duration = 0
+
+	
 
 	const toggleState = () => {
 		if (state === 'open') state = 'closed';
@@ -65,16 +84,26 @@
 	<section class="options" data-state={state}>
 		<div class="filter">
 			<h2>Filter by</h2>
-			<div class="filter__options">
-				{#each filterOptions as option}
-					<label class="control control-checkbox">
-						<input type="checkbox" bind:group={filter} value={option} />
-						{option}
-						<div class="control_indicator" />
-					</label>
-				{/each}
-			</div>
-			<!-- sort will also be here on desktop -->
+			{#each filterOptions as option}
+				<label class="control control-checkbox">
+					<input type="checkbox" bind:group={filter} value={option} />
+					{option}
+					<div class="control_indicator" />
+				</label>
+			{/each}
+		</div>
+		<div class="sort">
+			<h2>Sort By</h2>
+			<label class="control control-radio">
+				Price (Low to High)
+				<input type="radio" name="radio" value="LH" bind:group={sort} />
+				<div class="control_indicator" />
+			</label>
+			<label class="control control-radio">
+				Price (High to Low)
+				<input type="radio" name="radio" value="HL" bind:group={sort} />
+				<div class="control_indicator" />
+			</label>
 		</div>
 	</section>
 	<section class="books">

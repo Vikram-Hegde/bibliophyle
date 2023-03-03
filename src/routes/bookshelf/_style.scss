@@ -75,6 +75,14 @@ main {
 }
 
 .options {
+	display: grid;
+	align-content: start;
+	gap: 1rem;
+
+	h2 {
+		margin-bottom: 0;	
+	}
+
 	&[data-state='open'] {
 		translate: 0;
 	}
@@ -90,6 +98,10 @@ main {
 	@media (max-width: 750px) {
 		height: calc(100vh + var(--nav));
 	}
+}
+
+label {
+	width: max-content;
 }
 
 .recommendation {
@@ -137,15 +149,20 @@ form {
 	display: flex;
 }
 
-.filter__options {
+.filter {
 	display: grid;
-	gap: 0.35rem;
+	gap: 0.4rem;
 	align-content: start;
 
 	label {
 		display: flex;
 		gap: 0.25rem;
 	}
+}
+
+.sort {
+	display: grid;
+	gap: 0.5rem;
 }
 
 // checkbox styles
@@ -155,52 +172,55 @@ form {
 	padding-top: 2px;
 	cursor: pointer;
 }
-.control input {
-	position: absolute;
-	z-index: -1;
-	opacity: 0;
-}
-.control_indicator {
-	position: absolute;
-	top: 2px;
-	left: 0;
-	block-size: 20px;
-	inline-size: 20px;
-	background-color: transparent;
-	border: 1px solid var(--text);
-	border-radius: 6px;
-}
-.control:hover input ~ .control_indicator,
-.control input:focus-visible ~ .control_indicator {
-	background-color: hsl(34 98% 89%);
-}
 
-.control input:checked ~ .control_indicator {
-	background-color: var(--text);
-}
+.control-checkbox {
+	input {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+	}
+	.control_indicator {
+		position: absolute;
+		top: 2px;
+		left: 0;
+		block-size: 20px;
+		inline-size: 20px;
+		background-color: transparent;
+		border: 1px solid var(--text);
+		border-radius: 6px;
+	}
+	&:hover input ~ .control_indicator,
+	input:focus-visible ~ .control_indicator {
+		background-color: hsl(34 98% 89%);
+	}
 
-.control_indicator:after {
-	box-sizing: unset;
-	content: '';
-	position: absolute;
-	opacity: 0;
-	transform: rotate(25deg) scale(0.7);
-}
+	input:checked ~ .control_indicator {
+		background-color: var(--text);
+	}
 
-.control input:checked ~ .control_indicator:after {
-	display: block;
-	transform: rotate(45deg) scale(1);
-	opacity: 1;
-}
+	.control_indicator:after {
+		box-sizing: unset;
+		content: '';
+		position: absolute;
+		opacity: 0;
+		transform: rotate(25deg) scale(0.7);
+	}
 
-.control-checkbox .control_indicator:after {
-	left: 7px;
-	top: 3px;
-	inline-size: 3px;
-	block-size: 9px;
-	border: solid var(--background);
-	border-width: 0 2px 2px 0;
-	transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	input:checked ~ .control_indicator:after {
+		display: block;
+		transform: rotate(45deg) scale(1);
+		opacity: 1;
+	}
+
+	.control_indicator:after {
+		left: 7px;
+		top: 3px;
+		inline-size: 3px;
+		block-size: 9px;
+		border: solid var(--background);
+		border-width: 0 2px 2px 0;
+		transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	}
 }
 
 // action buttons
@@ -254,5 +274,62 @@ form {
 			background-color: hsl(34 98% 20%);
 			color: var(--background);
 		}
+	}
+}
+
+// radio styles
+.control-radio {
+	input {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+	}
+
+	.control_indicator {
+		position: absolute;
+		top: 2px;
+		left: 0;
+		height: 20px;
+		width: 20px;
+		background-color: transparent;
+		border: 1px solid var(--text);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&:hover input ~ .control_indicator,
+	input:focus ~ .control_indicator {
+		background-color: hsl(34 98% 89%);
+	}
+
+	input:checked ~ .control_indicator {
+		background-color: var(--text);
+	}
+
+	&:hover input:not([disabled]):checked ~ .control_indicator,
+	input:checked:focus ~ .control_indicator {
+		background-color: var(--text);
+	}
+
+	.control_indicator:after {
+		content: '';
+		display: none;
+	}
+
+	input:checked ~ .control_indicator:after {
+		display: block;
+	}
+
+	.control_indicator {
+		border-radius: 50%;
+	}
+
+	.control_indicator:after {
+		block-size: 6px;
+		inline-size: 6px;
+		border-radius: 50%;
+		background-color: var(--background);
+		transition: background 250ms;
 	}
 }
