@@ -26,7 +26,7 @@ main {
 	padding: 1.5rem 2rem;
 	max-block-size: calc(100vh - 2px);
 	transition: translate 0.25s ease-in-out;
-	overflow-y: auto;
+	overflow-x: auto;
 
 	h2 {
 		font-size: var(--fs--100);
@@ -57,6 +57,10 @@ main {
 		background-color: hsl(34 98% 98% / 0);
 		pointer-events: none;
 	}
+
+	@media (min-width: 1030px) {
+		display: none;
+	}
 }
 
 @media (max-width: 1030px) {
@@ -80,7 +84,7 @@ main {
 	gap: 1rem;
 
 	h2 {
-		margin-bottom: 0;	
+		margin-bottom: 0;
 	}
 
 	&[data-state='open'] {

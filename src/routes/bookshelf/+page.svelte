@@ -2,7 +2,7 @@
 	import bookData from '$lib/books.json';
 	import Book from '$lib/components/Book/Book.svelte';
 	import Input from '$lib/components/Input.svelte';
-	import { IconArrowsSort, IconFilter } from '@tabler/icons-svelte';
+	import { IconFilter } from '@tabler/icons-svelte';
 	import { flip } from 'svelte/animate';
 
 	// check if its a touch device
@@ -27,10 +27,9 @@
 
 	let duration = 150;
 
-	let peopleAlsoLike = [];
+	let readersLikes = [];
 
 	$: {
-
 		if (!filter.length) {
 			books = bookData.filter((book) => book.title.toLowerCase().includes(search.toLowerCase()));
 			duration = 0;
@@ -49,25 +48,18 @@
 
 		if (search.length && filter.length) filter = [];
 
-
-		peopleAlsoLike = bookData.filter((book) => books[0]?.related.includes(book.id));
+		readersLikes = bookData.filter((book) => books[0]?.related.includes(book.id));
 	}
 
 	$: {
-			duration = 250;
+		duration = 250;
 
-		if(sort === 'LH') 
-			books = books.sort((a, b) => a.price - b.price)
+		if (sort === 'LH') books = books.sort((a, b) => a.price - b.price);
 
-
-		if(sort === 'HL') 
-			books = books.sort((a, b) => b.price - a.price)
-		
+		if (sort === 'HL') books = books.sort((a, b) => b.price - a.price);
 	}
 
-$: if(search.length) duration = 0
-
-	
+	$: if (search.length) duration = 0;
 
 	const toggleState = () => {
 		if (state === 'open') state = 'closed';
@@ -129,9 +121,9 @@ $: if(search.length) duration = 0
 		</div>
 	</section>
 	<aside class="recommendation">
-		<h2>People Also Like</h2>
+		<h2>Readers Also Enjoyed</h2>
 		<div class="recommendation__bookshelf">
-			{#each peopleAlsoLike as book (book.id)}
+			{#each readersLikes as book (book.id)}
 				<div class="book__wrapper">
 					<a href="/bookshelf/{book.id}">
 						<img src={book.url} alt={book.title} />

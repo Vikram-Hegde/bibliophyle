@@ -1,0 +1,44 @@
+[
+	{
+		"name": "Jane Doe",
+		"comment": "I was completely swept away by this book. It had me hooked from the first page and I was utterly invested in the characters and their journey. It's definitely one of those books that stays with you long after you've finished it.",
+		"rating": 4.5,
+		"avatar_link": "https://randomuser.me/api/portraits/women/1.jpg"
+	},
+	{
+		"name": "Mark Johnson",
+		"comment": "I was really disappointed by this book. The characters were flat and uninteresting, and the plot was predictable. I struggled to get through it and found myself skimming the last few chapters just to finish it.",
+		"rating": 2,
+		"avatar_link": "https://randomuser.me/api/portraits/men/6.jpg"
+	},
+	{
+		"name": "Sarah Lee",
+		"comment": "I picked up this book on a whim and I'm so glad I did. It was such a delightful surprise! The story was engaging and the characters were so well-drawn that I felt like I knew them personally. I was sad to say goodbye to them when I finished the book.",
+		"rating": 4,
+		"avatar_link": "https://randomuser.me/api/portraits/women/3.jpg"
+	},
+	{
+		"name": "Alex Chen",
+		"comment": "This book was a real page-turner. I couldn't put it down! The plot was twisty and full of surprises, and the pacing was perfect. It kept me guessing until the very end, and the resolution was so satisfying.",
+		"rating": 4.5,
+		"avatar_link": "https://randomuser.me/api/portraits/men/4.jpg"
+	},
+	{
+		"name": "Lisa Chen",
+		"comment": "I'm not sure what all the hype is about with this book. I found it to be slow and tedious, and the writing style didn't really resonate with me. It wasn't terrible, but it definitely didn't live up to my expectations.",
+		"rating": 3,
+		"avatar_link": "https://randomuser.me/api/portraits/women/7.jpg"
+	},
+	{
+		"name": "John Smith",
+		"comment": "I can't say enough good things about this book. It's one of those rare gems that captures your heart and mind from the very beginning. I found myself completely absorbed in the story, and the writing was so beautiful that I often found myself rereading certain passages just to savor them.",
+		"rating": 5,
+		"avatar_link": "https://randomuser.me/api/portraits/men/2.jpg"
+	},
+	{
+		"name": "Emily Nguyen",
+		"comment": "I've read a lot of books in this genre, but this one really stood out to me. The writing was top-notch and the author had such a way with words that I found myself underlining passages and quotes throughout. The story itself was also incredibly engaging, and I loved the way the author wove together different threads to create a cohesive whole.",
+		"rating": 5,
+		"avatar_link": "https://randomuser.me/api/portraits/women/5.jpg"
+	}
+]
