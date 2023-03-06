@@ -22,3 +22,36 @@ button {
 	padding: 0.5rem 1rem;
 	border-radius: 6px;
 }
+
+.book {
+	&__genre {
+		display: flex;
+		gap: 0.75rem;
+		align-items: center;
+	}
+
+	.genre {
+		background-color: hsl(30 98% 85%);
+		padding: 0.25rem;
+		border-radius: 6px;
+	}
+
+	&__cover {
+		img {
+			border-radius: 8px 18px 18px 8px;
+		}
+	}
+
+	&__wrapper {
+		position: relative;
+		display: flex;
+	}
+
+	&__recommendation {
+		.books {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+			gap: clamp(0.5rem, 4vw - 1rem, 1rem);
+		}
+	}
+}

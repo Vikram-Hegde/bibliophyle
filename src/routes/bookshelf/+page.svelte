@@ -11,10 +11,6 @@
 
 	let books = bookData;
 
-	mobile.addEventListener('change', () => {
-		mobile = window.matchMedia(mediaCheck);
-	});
-
 	/** @type {string[]} */
 	let filterOptions;
 	filterOptions = [...new Set(books.map((book) => book.genre).flat())];
@@ -115,7 +111,7 @@
 		<div class="bookshelf">
 			{#each books as book (book.id)}
 				<div class="book__wrapper" animate:flip={{ duration }}>
-					<Book {book} {mobile} />
+					<Book {book} />
 				</div>
 			{/each}
 		</div>

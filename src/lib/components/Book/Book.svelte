@@ -16,8 +16,14 @@
 	/**  @type {bookInfo} */
 	export let book;
 
-	/** @type {MediaQueryList} */
-	export let mobile;
+	let mediaCheck = '(hover: none), (pointer: coarse), (max-width: 750px)';
+	let mobile = window.matchMedia(mediaCheck);
+
+	mobile.addEventListener('change', () => {
+		mobile = window.matchMedia(mediaCheck);
+	});
+
+	export let link = `bookshelf/${book.id}`
 
 	let hovered = 0;
 
@@ -35,31 +41,32 @@
 	}
 </script>
 
-	<div class="book"
+<div
+	class="book"
 	on:focus={onHover}
 	on:mouseenter={onHover}
 	on:blur={onLeave}
 	on:mouseleave={onLeave}
-	>
-		<a href={`bookshelf/${book.id}`}>
-			<img src={book.url} alt={book.title} loading="lazy" />
-		</a>
-		<div class="book__details">
-			<div>
-				{#if mobile.matches}
-					<h3 class="book__title">{book.title}</h3>
-				{/if}
-				<strike>₹{book.price + 300}</strike>
-				<p class="book__price">₹{book.price}</p>
-			</div>
-			{#if !mobile.matches}
-				<button><IconShoppingCartPlus size={20} /></button>
+>
+	<a href={link}>
+		<img src={book.url} alt={book.title} loading="lazy" />
+	</a>
+	<div class="book__details">
+		<div>
+			{#if mobile.matches}
+				<h3 class="book__title">{book.title}</h3>
 			{/if}
+			<strike>₹{book.price + 300}</strike>
+			<p class="book__price">₹{book.price}</p>
 		</div>
+		{#if !mobile.matches}
+			<button><IconShoppingCartPlus size={20} /></button>
+		{/if}
 	</div>
-	{#if !mobile.matches}
-		<HoverCard {book} {hovered} {card} />
-	{/if}
+</div>
+{#if !mobile.matches}
+	<HoverCard {book} {hovered} {card} />
+{/if}
 
 <style lang="scss">
 	a {
