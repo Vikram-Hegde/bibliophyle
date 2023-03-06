@@ -41,6 +41,19 @@
 			{/each}
 		</div>
 	</section>
+	<section class="book__review">
+		<h2>Ratings <i>&</i> Reviews</h2>
+		<div class="review">
+			<div class="review__author-info">
+				<img src="https://randomuser.me/api/portraits/men/4.jpg" alt="comment author" />
+				<h4>Chen</h4>
+			</div>
+			<div class="review__description">
+				<Star rating={3.5} />
+				<p>well this is my rating, take it or leave it</p>
+			</div>
+		</div>
+	</section>
 </main>
 
 <style lang="scss">

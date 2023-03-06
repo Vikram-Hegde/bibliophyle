@@ -5,7 +5,7 @@
 	const stars = Array.from({ length: 5 }, (_, i) => {
 		if (i < rating) {
 			return 'full';
-		} else if (rating % 1 >= 0.5) {
+		} else if (i < rating + 0.5) {
 			return 'half';
 		} else {
 			return 'empty';
