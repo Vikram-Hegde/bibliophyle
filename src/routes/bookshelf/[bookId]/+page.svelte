@@ -49,7 +49,7 @@
 				<h4>Chen</h4>
 			</div>
 			<div class="review__description">
-				<Star rating={3.5} />
+				<Star rating={3.7} />
 				<p>well this is my rating, take it or leave it</p>
 			</div>
 		</div>

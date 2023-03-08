@@ -1,5 +1,6 @@
 <script>
 	import { fly } from 'svelte/transition';
+	import Star from '../Star.svelte';
 	/**
 	 * @typedef {Object} bookInfo
 	 * @property {string} title
@@ -22,7 +23,7 @@
 		const rect = card.getBoundingClientRect();
 		const window = document.body.getBoundingClientRect();
 
-		if ((rect.width + rect.left + 320) > window.width) {
+		if (rect.width + rect.left + 320 > window.width) {
 			align = 1;
 		} else {
 			align = 0;
@@ -31,13 +32,17 @@
 </script>
 
 {#if hovered}
-	<div class={`hover-card ${align ? 'right' : 'left'}`} in:fly={{ y: 10, duration: 200 }} out:fly={{ y: -10, duration: 150 }}>
+	<div
+		class={`hover-card ${align ? 'right' : 'left'}`}
+		in:fly={{ y: 10, duration: 200 }}
+		out:fly={{ y: -10, duration: 150 }}
+	>
 		<div class="hover-card__content">
 			<h3>{book.title}</h3>
 			<p>{book.author}</p>
 			<div class="condition">
-				<p>Condition</p>
-				<p>{'⭐'.repeat(Math.ceil(book.rating))}</p>
+				<p>Rating</p>
+				<Star rating={book.rating} size={14} />
 			</div>
 			<div class="description">
 				<h3>Description</h3>
@@ -63,7 +68,7 @@
 	.condition {
 		display: flex;
 		justify-content: space-between;
-		font-size: var(--fs--200);
+		font-size: var(--fs--100);
 	}
 
 	.left {

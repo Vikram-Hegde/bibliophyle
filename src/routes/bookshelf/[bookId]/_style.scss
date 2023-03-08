@@ -3,6 +3,9 @@
 
 main {
 	@extend %wrapper;
+	@media (max-width: 750px) {
+		padding-block: 2rem 6rem;
+	}
 }
 
 img {
@@ -37,6 +40,11 @@ button {
 	}
 
 	&__cover {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: 0.5rem;
+
 		img {
 			border-radius: 8px 18px 18px 8px;
 		}
@@ -49,9 +57,41 @@ button {
 
 	&__recommendation {
 		.books {
+			--min-width: 120px;
 			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-			gap: clamp(0.5rem, 4vw - 1rem, 1rem);
+			grid-template-columns: repeat(auto-fill, minmax(var(--min-width), 1fr));
+			gap: clamp(0.5rem, 4vw + 1rem, 0.75rem);
+			margin-block-start: 0.5rem;
 		}
+	}
+
+	.review {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+
+		img {
+			border-radius: 50%;
+			block-size: clamp(3rem, 5vw + 1rem, 4.5rem);
+			inline-size: clamp(3rem, 5vw + 1rem, 4.5rem);
+		}
+
+		&__description {
+			display: grid;
+			gap: 0.5rem;
+		}
+
+		&__info {
+			display: grid;
+			gap: 0.5rem;
+		}
+
+		&__author-info {
+			display: flex;
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+
+		// might have to remove
 	}
 }

@@ -32,6 +32,10 @@
 	h1 {
 		font-size: var(--fs-800);
 		margin-bottom: 0.5rem;
+
+		@media (max-width: 600px) {
+		font-size: var(--fs-700);
+		}
 	}
 
 	p {

@@ -86,7 +86,7 @@
 
 	.book {
 		background-color: hsl(34 98% 92%);
-		min-width: var(--min-width);
+		inline-size: var(--min-width);
 		border-radius: 8px;
 		display: grid;
 		overflow: hidden;
@@ -100,13 +100,9 @@
 		}
 
 		img {
-			align-self: start;
-		}
-
-		img {
 			display: block;
-			width: 100%;
-			height: 100%;
+			block-size: 100%;
+			inline-size: 100%;
 			object-fit: cover;
 			border-radius: 0.5rem 0.5rem 0 0;
 		}
