@@ -86,7 +86,7 @@
 
 	.book {
 		background-color: hsl(34 98% 92%);
-		inline-size: var(--min-width);
+		min-inline-size: var(--min-width);
 		border-radius: 8px;
 		display: grid;
 		overflow: hidden;

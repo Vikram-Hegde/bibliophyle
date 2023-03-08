@@ -76,12 +76,7 @@ button {
 			inline-size: clamp(3rem, 5vw + 1rem, 4.5rem);
 		}
 
-		&__description {
-			display: grid;
-			gap: 0.5rem;
-		}
-
-		&__info {
+		&__description, &__info {
 			display: grid;
 			gap: 0.5rem;
 		}
