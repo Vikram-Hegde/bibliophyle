@@ -3,6 +3,7 @@
 
 main {
 	@extend %wrapper;
+	padding-block: 2rem;
 	@media (max-width: 750px) {
 		padding-block: 2rem 6rem;
 	}
@@ -27,10 +28,56 @@ button {
 }
 
 .book {
+	display: grid;
+	gap: 1.25rem;
+
+	@media (min-width: 860px) {
+		gap: 2.25rem;
+		grid-template-areas:
+			'cover info info'
+			'. recommendation recommendation'
+			'. review review';
+
+		p {
+			max-inline-size: 75ch;
+			// line-height: 1.45;
+		}
+
+		&__cover {
+			position: sticky;
+			top: 1.5rem;
+		}
+	}
+
 	&__genre {
 		display: flex;
 		gap: 0.75rem;
 		align-items: center;
+	}
+
+	&__info {
+		display: grid;
+		gap: 0.5rem;
+		grid-area: info;
+	}
+
+	&__rating {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+
+		h2 {
+			line-height: 0;
+		}
+	}
+
+	&__review {
+		grid-area: review;
+
+		@media(min-width: 860px) {
+			display: grid;
+			gap: 1.25rem
+		}
 	}
 
 	.genre {
@@ -44,6 +91,7 @@ button {
 		align-items: center;
 		flex-direction: column;
 		gap: 0.5rem;
+		grid-area: cover;
 
 		img {
 			border-radius: 8px 18px 18px 8px;
@@ -56,6 +104,9 @@ button {
 	}
 
 	&__recommendation {
+		display: grid;
+		gap: 0.5rem;
+		grid-area: recommendation;
 		.books {
 			--min-width: 120px;
 			display: grid;
@@ -69,6 +120,17 @@ button {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
+		margin-block-start: 1rem;
+
+		@media(min-width: 860px) {
+			flex-direction: row;
+			gap: 2.5rem;
+
+			&__author-info {
+				max-inline-size: 8ch;
+				text-align: center;
+			}
+		}
 
 		img {
 			border-radius: 50%;
@@ -76,7 +138,7 @@ button {
 			inline-size: clamp(3rem, 5vw + 1rem, 4.5rem);
 		}
 
-		&__description, &__info {
+		&__description {
 			display: grid;
 			gap: 0.5rem;
 		}
@@ -86,7 +148,5 @@ button {
 			flex-direction: column;
 			gap: 0.25rem;
 		}
-
-		// might have to remove
 	}
 }

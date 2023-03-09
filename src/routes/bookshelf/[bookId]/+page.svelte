@@ -2,9 +2,18 @@
 	import Book from '$lib/components/Book/Book.svelte';
 	import Star from '$lib/components/Star.svelte';
 	import { IconShoppingCartPlus } from '@tabler/icons-svelte';
+	import commentsJson from '$lib/comments.json';
 
+	/** @type {import('./$types').PageData}*/
 	export let data;
+
+	/**
+	 * @type {Object} book
+	 */
 	const { book } = data;
+	/**
+	 * @type {Object} book
+	 */
 	const { relatedBooks } = data;
 </script>
 
@@ -20,7 +29,10 @@
 	<section class="book__info">
 		<h1>{book.title}</h1>
 		<p class="book__author">{book.author}</p>
-		<Star rating={book.rating} />
+		<div class="book__rating">
+			<Star rating={book.rating} />
+			<h2>{book.rating}</h2>
+		</div>
 		<p class="book__description">
 			{book.summary}
 		</p>
@@ -43,16 +55,18 @@
 	</section>
 	<section class="book__review">
 		<h2>Ratings <i>&</i> Reviews</h2>
-		<div class="review">
-			<div class="review__author-info">
-				<img src="https://randomuser.me/api/portraits/men/4.jpg" alt="comment author" />
-				<h4>Chen</h4>
+		{#each commentsJson as comment}
+			<div class="review">
+				<div class="review__author-info">
+					<img src={comment.avatar_link} alt="comment author {comment.name}" loading="lazy" />
+					<h4>{comment.name}</h4>
+				</div>
+				<div class="review__description">
+					<Star rating={comment.rating} />
+					<p>{comment.comment}</p>
+				</div>
 			</div>
-			<div class="review__description">
-				<Star rating={3.7} />
-				<p>well this is my rating, take it or leave it</p>
-			</div>
-		</div>
+		{/each}
 	</section>
 </main>
 
