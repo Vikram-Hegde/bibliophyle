@@ -30,7 +30,11 @@ button {
 .book {
 	display: grid;
 	gap: 1.25rem;
-
+	grid-template-areas:
+		'cover'
+		'info'
+		'recommendation'
+		'review';
 	@media (min-width: 860px) {
 		gap: 2.25rem;
 		grid-template-areas:
@@ -40,7 +44,6 @@ button {
 
 		p {
 			max-inline-size: 75ch;
-			// line-height: 1.45;
 		}
 
 		&__cover {
@@ -74,9 +77,9 @@ button {
 	&__review {
 		grid-area: review;
 
-		@media(min-width: 860px) {
+		@media (min-width: 860px) {
 			display: grid;
-			gap: 1.25rem
+			gap: 1.25rem;
 		}
 	}
 
@@ -122,7 +125,7 @@ button {
 		gap: 0.5rem;
 		margin-block-start: 1rem;
 
-		@media(min-width: 860px) {
+		@media (min-width: 860px) {
 			flex-direction: row;
 			gap: 2.5rem;
 
