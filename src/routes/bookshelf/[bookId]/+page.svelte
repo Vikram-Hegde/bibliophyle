@@ -1,20 +1,23 @@
 <script>
 	import Book from '$lib/components/Book/Book.svelte';
 	import Star from '$lib/components/Star.svelte';
-	import { IconShoppingCartPlus } from '@tabler/icons-svelte';
+	import { IconArrowLeft, IconShoppingCartPlus } from '@tabler/icons-svelte';
 	import commentsJson from '$lib/comments.json';
 
 	/** @type {import('./$types').PageData}*/
 	export let data;
 
-	/**
-	 * @type {Object} book
-	 */
 	const { book } = data;
-	/**
-	 * @type {Object} book
-	 */
 	const { relatedBooks } = data;
+
+	function shuffleArray(array) {
+		for (let i = array.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[array[i], array[j]] = [array[j], array[i]];
+		}
+	}
+
+	shuffleArray(commentsJson);
 </script>
 
 <svelte:head>
@@ -22,13 +25,16 @@
 </svelte:head>
 
 <main class="book">
+	<button class="back" on:click={() => history.go(-1)}>
+		<IconArrowLeft size={24} />
+	</button>
 	<section class="book__cover">
 		<img src={book.url} alt={book.title} />
 		<button><IconShoppingCartPlus size={20} /> Add To Cart </button>
 	</section>
 	<section class="book__info">
 		<h1>{book.title}</h1>
-		<p class="book__author">{book.author}</p>
+		<h3 class="book__author">{book.author}</h3>
 		<div class="book__rating">
 			<Star rating={book.rating} />
 			<h2>{book.rating}</h2>
