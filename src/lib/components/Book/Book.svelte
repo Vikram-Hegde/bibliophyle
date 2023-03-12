@@ -23,7 +23,7 @@
 		mobile = window.matchMedia(mediaCheck);
 	});
 
-	export let link = `bookshelf/${book.id}`
+	export let link = `bookshelf/${book.id}`;
 
 	let hovered = 0;
 

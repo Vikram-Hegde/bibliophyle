@@ -3,7 +3,7 @@
 main {
 	@extend %wrapper;
 	padding-block: 2rem;
-	@media (max-width: 750px) {
+	@media (max-width: 850px) {
 		padding-block: 2rem 6rem;
 	}
 }
@@ -39,7 +39,7 @@ button {
 		background-color: hsl(30 98% 88%);
 	}
 
-	@media (min-width: 750px) {
+	@media (min-width: 850px) {
 		display: none;
 	}
 }
@@ -56,6 +56,8 @@ button {
 
 	@media (min-width: 860px) {
 		gap: 2.25rem;
+		// very doubtful which would be better
+		// align-items: start;
 		grid-template-areas:
 			'cover info info'
 			'. recommendation recommendation'
@@ -103,7 +105,7 @@ button {
 	}
 
 	.genre {
-		background-color: hsl(30 98% 85%);
+		background-color: hsl(30 98% 90%);
 		padding: 0.25rem;
 		border-radius: 6px;
 	}
@@ -163,6 +165,7 @@ button {
 		&__description {
 			display: grid;
 			gap: 0.5rem;
+			line-height: 1.6;
 		}
 
 		&__author-info {
@@ -170,5 +173,10 @@ button {
 			flex-direction: column;
 			gap: 0.25rem;
 		}
+	}
+
+	&__rating,
+	&__price {
+		font-family: 'Open Sans', sans-serif;
 	}
 }

@@ -39,6 +39,7 @@
 			<Star rating={book.rating} />
 			<h2>{book.rating}</h2>
 		</div>
+		<h2 class="book__price">₹{book.price}</h2>
 		<p class="book__description">
 			{book.summary}
 		</p>

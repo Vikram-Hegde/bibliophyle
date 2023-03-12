@@ -5,10 +5,6 @@
 	import { IconFilter } from '@tabler/icons-svelte';
 	import { flip } from 'svelte/animate';
 
-	// check if its a touch device
-	let mediaCheck = '(hover: none), (pointer: coarse), (max-width: 750px)';
-	let mobile = window.matchMedia(mediaCheck);
-
 	let books = bookData;
 
 	/** @type {string[]} */

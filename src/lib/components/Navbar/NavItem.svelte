@@ -28,7 +28,7 @@
 		color: hsl(34 80% 60%);
 	}
 
-	@media (min-width: 750px) {
+	@media (min-width: 850px) {
 		:not(.sellbooks a).active::after {
 			content: '';
 			display: block;
@@ -39,7 +39,7 @@
 			height: 3px;
 			border-radius: 10px;
 			background-color: currentColor;
-			outline: 0px solid black;
+			outline: 0;
 		}
 	}
 </style>
