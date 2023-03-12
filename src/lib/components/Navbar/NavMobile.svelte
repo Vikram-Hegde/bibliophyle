@@ -71,7 +71,7 @@
 	}
 
 	nav {
-		z-index: 100;
+		z-index: 1;
 		position: fixed;
 		display: inline-block;
 		bottom: 1.25rem;

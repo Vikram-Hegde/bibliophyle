@@ -43,8 +43,7 @@
 		display: block;
 		margin-bottom: 0.25rem;
 	}
-	.icon,
-	svg {
+	.icon {
 		display: inline-block;
 	}
 	.icon {

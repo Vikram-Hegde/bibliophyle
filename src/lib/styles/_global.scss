@@ -88,4 +88,27 @@
 	h4 {
 		font-family: 'Merriweather', serif;
 	}
+
+	.dark-screen {
+		position: fixed;
+		top: 0;
+		left: 0;
+		block-size: 100%;
+		inline-size: 100%;
+		background-color: hsl(34 98% 98% / 0%);
+		transition: background-color 0.25s ease-in-out;
+		z-index: 2;
+		border: none;
+		cursor: pointer;
+
+		&[data-state='open'] {
+			background-color: hsl(34 98% 98% / 0.5);
+			pointer-events: auto;
+		}
+
+		&[data-state='closed'] {
+			background-color: hsl(34 98% 98% / 0);
+			pointer-events: none;
+		}
+	}
 }
