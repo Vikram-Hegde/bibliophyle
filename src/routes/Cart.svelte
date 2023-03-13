@@ -1,28 +1,45 @@
 <script>
 	import { cartItems } from '$lib/utils/cartStore';
+	import { IconTrash } from '@tabler/icons-svelte';
 	import { createEventDispatcher } from 'svelte';
+	import { fade, fly } from 'svelte/transition';
 	export let cartVisible;
 
 	$: amount = $cartItems.reduce((acc, item) => {
 		return acc + item.price;
 	}, 0);
 
-	const dispatcher = createEventDispatcher();
+	const dispatch = createEventDispatcher();
 </script>
 
 {#if cartVisible}
-	<button class="dark-screen" data-state="open" on:click={() => dispatcher('close')} />
-	<div class="cart__container">
+	<button
+		transition:fade={{ duration: 200 }}
+		class="dark-screen"
+		data-state="open"
+		on:click={() => dispatch('close')}
+	/>
+	<div
+		class="cart__container"
+		transition:fly={{ x: 250, duration: 250 }}
+		in={{ duration: 250, x: 0 }}
+		out={{ duration: 250, x: 250 }}
+	>
 		<h3>Cart</h3>
-		{#each $cartItems as item}
-			<div class="cart__item">
-				<img src={item.url} alt={item.title} />
-				<div class="cart__info">
-					<h4>{item.title}</h4>
-					<h3>₹{item.price}</h3>
+		<div class="cart__wrapper">
+			{#each $cartItems as item}
+				<div class="cart__item">
+					<img src={item.url} alt={item.title} />
+					<div class="cart__info">
+						<h4>{item.title}</h4>
+						<div class="wrapper">
+							<h3>₹{item.price}</h3>
+							<button><IconTrash size={20} /></button>
+						</div>
+					</div>
 				</div>
-			</div>
-		{/each}
+			{/each}
+		</div>
 		<div class="total">
 			<h3>Total :</h3>
 			<span>₹{amount} /-</span>
@@ -49,11 +66,43 @@
 			border-radius: 1rem 0 0 1rem;
 		}
 
+		&__wrapper {
+			display: grid;
+			gap: 0.5rem;
+		}
+
 		&__item {
 			display: flex;
 			align-items: center;
+			inline-size: 100%;
 			gap: 0.5rem;
 		}
+
+		&__info {
+			flex: 1;
+
+			button {
+				all: unset;
+				color: hsl(4, 100%, 50%);
+				block-size: 1.75rem;
+				inline-size: 1.75rem;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+
+				&:hover {
+					background-color: hsl(4, 100%, 90%);
+				}
+			}
+		}
+	}
+
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	img {
@@ -61,11 +110,16 @@
 		width: auto;
 		object-fit: cover;
 		border-radius: 6px;
+		flex-shrink: 0;
 	}
 
 	h3 {
 		text-transform: uppercase;
 		font-family: 'Open Sans', sans-serif;
+	}
+
+	h4 {
+		font-weight: lighter;
 	}
 
 	.total {

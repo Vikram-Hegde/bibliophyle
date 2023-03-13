@@ -5,10 +5,12 @@
 		IconUserCircle,
 		IconLogin,
 		IconLogout,
-		IconBuildingStore
+		IconBuildingStore,
+		IconShoppingCart
 	} from '@tabler/icons-svelte';
 	import NavItem from './NavItem.svelte';
 	import { isLoggedIn } from '$lib/utils/authStore';
+	import ButtonIndicator from '../ButtonIndicator.svelte';
 </script>
 
 <header class="nav-mobile">
@@ -20,6 +22,9 @@
 			/>
 		</svg>
 	</a>
+	{#if $isLoggedIn}
+		<ButtonIndicator on:open />
+	{/if}
 </header>
 <nav class="nav-mobile">
 	<ul>
@@ -68,7 +73,9 @@
 		display: flex;
 		min-height: var(--nav);
 		align-items: center;
+		justify-content: space-between;
 	}
+
 
 	nav {
 		z-index: 1;

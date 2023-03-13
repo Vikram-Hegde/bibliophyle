@@ -1,6 +1,7 @@
 <script>
 	import { IconShoppingCartPlus } from '@tabler/icons-svelte';
 	import HoverCard from './HoverCard.svelte';
+	import { cartItems } from '$lib/utils/cartStore';
 
 	/**
 	 * @typedef {Object} bookInfo
@@ -39,6 +40,10 @@
 		hovered = 0;
 		card = null;
 	}
+
+	const addToCart = () => {
+		$cartItems = [...$cartItems, book];
+	};
 </script>
 
 <div
@@ -60,7 +65,7 @@
 			<p class="book__price">₹{book.price}</p>
 		</div>
 		{#if !mobile.matches}
-			<button><IconShoppingCartPlus size={20} /></button>
+			<button on:click={addToCart}><IconShoppingCartPlus size={20} /></button>
 		{/if}
 	</div>
 </div>

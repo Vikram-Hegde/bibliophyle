@@ -7,13 +7,13 @@
 	/** @type {import('./$types').PageData}*/
 	export let data;
 
-	let cartVisible = true;
+	let cartVisible = false;
 
 	$: console.log(cartVisible);
 </script>
 
 <NavDesktop on:open={() => (cartVisible = true)} />
-<NavMobile />
+<NavMobile on:open={() => (cartVisible = true)} />
 
 <PageTransition pathname={data.pathname}>
 	<slot />

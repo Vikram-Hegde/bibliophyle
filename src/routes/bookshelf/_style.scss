@@ -53,7 +53,9 @@ main {
 	.options {
 		grid-row: 1;
 	}
+}
 
+@media (min-width: 1030px) {
 	.dark-screen {
 		display: none;
 	}

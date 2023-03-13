@@ -11,9 +11,8 @@
 	} from '@tabler/icons-svelte';
 	import NavItem from './NavItem.svelte';
 	import { isLoggedIn } from '$lib/utils/authStore';
-	import { createEventDispatcher } from 'svelte';
+	import ButtonIndicator from '../ButtonIndicator.svelte';
 
-	const dispatch = createEventDispatcher();
 </script>
 
 <nav class="nav-desktop">
@@ -59,9 +58,7 @@
 					<IconBuildingStore size={20} slot="icon" />
 				</NavItem>
 			</li>
-			<button class="cart" on:click={() => dispatch('open')}>
-				<IconShoppingCart size={24} />
-			</button>
+			<ButtonIndicator on:open />
 			<li>
 				<button title="Logout" class="logout" on:click={() => isLoggedIn.set(false)}>
 					<IconLogout size={22} />
@@ -123,15 +120,4 @@
 		color: var(--text);
 	}
 
-	.cart {
-		all: unset;
-		line-height: 0;
-		padding: 0.5rem;
-		border-radius: 50%;
-		cursor: pointer;
-
-		&:hover {
-			background-color: hsl(34 98% 92%);
-		}
-	}
 </style>
