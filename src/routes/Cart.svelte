@@ -10,6 +10,10 @@
 	}, 0);
 
 	const dispatch = createEventDispatcher();
+
+	const removeFromCart = (id) => {
+		$cartItems = $cartItems.filter(item => item.id != id)
+	}
 </script>
 
 {#if cartVisible}
@@ -27,6 +31,9 @@
 	>
 		<h3>Cart</h3>
 		<div class="cart__wrapper">
+			{#if $cartItems.length === 0}
+				<h4>No items added to cart : (</h4>
+			{/if}
 			{#each $cartItems as item}
 				<div class="cart__item">
 					<img src={item.url} alt={item.title} />
@@ -34,7 +41,7 @@
 						<h4>{item.title}</h4>
 						<div class="wrapper">
 							<h3>₹{item.price}</h3>
-							<button><IconTrash size={20} /></button>
+							<button on:click={() => removeFromCart(item.id)}><IconTrash size={20} /></button>
 						</div>
 					</div>
 				</div>
@@ -64,6 +71,7 @@
 			z-index: 3;
 			box-shadow: -20px 0 25px -5px hsl(34 30% 70% / 30%), -4px 0 6px -4px hsl(34 30% 70% / 30%);
 			border-radius: 1rem 0 0 1rem;
+			overflow-y: auto;
 		}
 
 		&__wrapper {
