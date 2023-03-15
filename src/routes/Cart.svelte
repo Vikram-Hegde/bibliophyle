@@ -12,8 +12,8 @@
 	const dispatch = createEventDispatcher();
 
 	const removeFromCart = (id) => {
-		$cartItems = $cartItems.filter(item => item.id != id)
-	}
+		$cartItems = $cartItems.filter((item) => item.id != id);
+	};
 </script>
 
 {#if cartVisible}
@@ -32,7 +32,8 @@
 		<h3>Cart</h3>
 		<div class="cart__wrapper">
 			{#if $cartItems.length === 0}
-				<h4>No items added to cart : (</h4>
+			<!-- this can be centered, will be done while refining empty states -->
+				<h4>Looks like your cart is feeling a little lonely at the moment.</h4>
 			{/if}
 			{#each $cartItems as item}
 				<div class="cart__item">

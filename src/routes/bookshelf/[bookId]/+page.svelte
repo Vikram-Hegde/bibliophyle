@@ -3,7 +3,7 @@
 	import Star from '$lib/components/Star.svelte';
 	import { IconArrowLeft, IconShoppingCartPlus } from '@tabler/icons-svelte';
 	import commentsJson from '$lib/comments.json';
-	import { cartItems } from '$lib/utils/cartStore';
+	import { cartItems, addToCart } from '$lib/utils/cartStore';
 
 	/** @type {import('./$types').PageData}*/
 	export let data;
@@ -18,10 +18,6 @@
 		}
 	}
 
-	const addToCart = () => {
-		$cartItems = [...$cartItems, data.book];
-	};
-
 	shuffleArray(commentsJson);
 </script>
 
@@ -35,7 +31,9 @@
 	</button>
 	<section class="book__cover">
 		<img src={book.url} alt={book.title} />
-		<button on:click={addToCart}><IconShoppingCartPlus size={20} /> Add To Cart </button>
+		<button on:click={() => addToCart(data.book)}
+			><IconShoppingCartPlus size={20} /> Add To Cart
+		</button>
 	</section>
 	<section class="book__info">
 		<h1>{book.title}</h1>

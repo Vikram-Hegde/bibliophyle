@@ -1,3 +1,15 @@
 import { writable } from 'svelte/store';
 
-export let cartItems = writable([]);
+let cartItems = writable([]);
+
+const addToCart = (book) => {
+	cartItems.update((items) => {
+		if (items.find((item) => item.id === book.id)) {
+			// do nothing
+			return items;
+		}
+		return [...items, book];
+	});
+};
+
+export { cartItems, addToCart };
