@@ -3,6 +3,7 @@
 	import { IconTrash } from '@tabler/icons-svelte';
 	import { createEventDispatcher } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
 	export let cartVisible;
 
 	$: amount = $cartItems.reduce((acc, item) => {
@@ -32,11 +33,11 @@
 		<h3>Cart</h3>
 		<div class="cart__wrapper">
 			{#if $cartItems.length === 0}
-			<!-- this can be centered, will be done while refining empty states -->
+				<!-- this can be centered, will be done while refining empty states -->
 				<h4>Looks like your cart is feeling a little lonely at the moment.</h4>
 			{/if}
-			{#each $cartItems as item}
-				<div class="cart__item">
+			{#each $cartItems as item (item.id)}
+				<div class="cart__item" animate:flip={{duration: 250}}>
 					<img src={item.url} alt={item.title} />
 					<div class="cart__info">
 						<h4>{item.title}</h4>

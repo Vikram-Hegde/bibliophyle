@@ -12,7 +12,6 @@
 	import NavItem from './NavItem.svelte';
 	import { isLoggedIn } from '$lib/utils/authStore';
 	import ButtonIndicator from '../ButtonIndicator.svelte';
-
 </script>
 
 <nav class="nav-desktop">
@@ -58,7 +57,6 @@
 					<IconBuildingStore size={20} slot="icon" />
 				</NavItem>
 			</li>
-			<ButtonIndicator on:open />
 			<li>
 				<button title="Logout" class="logout" on:click={() => isLoggedIn.set(false)}>
 					<IconLogout size={22} />
@@ -76,6 +74,8 @@
 				</NavItem>
 			</li>
 		{/if}
+
+		<ButtonIndicator on:open />
 	</ul>
 </nav>
 
@@ -119,5 +119,4 @@
 	a {
 		color: var(--text);
 	}
-
 </style>

@@ -209,17 +209,6 @@
 		"related": ["b12", "b13", "b14", "b15"]
 	},
 	{
-		"id": "b20",
-		"title": "The Fault in Our Stars",
-		"author": "John Green",
-		"price": 799,
-		"url": "/bookcover/the-fault-in-our-stars.jpg",
-		"genre": ["Romance", "Drama"],
-		"rating": 4.2,
-		"summary": "The Fault in Our Stars is a 2012 American romantic drama film directed by Josh Boone, based on the novel of the same name by John Green. The film stars Shailene Woodley as Hazel Grace Lancaster, a 16-year-old cancer patient who falls in love with Augustus Waters, a 17-year-old cancer survivor played by Ansel Elgort. The Fault in Our Stars is a 2012 American romantic drama film directed by Josh Boone, based on the novel of the same name by John Green. The film stars Shailene Woodley as Hazel Grace Lancaster, a 16-year-old cancer patient who falls in love with Augustus Waters, a 17-year-old cancer survivor played by Ansel Elgort.",
-		"related": ["b22", "b36", "b37", "b38"]
-	},
-	{
 		"id": "b21",
 		"title": "The Alchemist",
 		"author": "Paulo Coelho",
@@ -239,7 +228,7 @@
 		"genre": ["Drama", "Historical Fiction"],
 		"rating": 3.4,
 		"summary": "The Kite Runner is the first novel by Afghan-American author Khaled Hosseini. Published in 2003 by Riverhead Books, it tells the story of Amir, a young boy from the Wazir Akbar Khan district of Kabul.",
-		"related": ["b20", "b36", "b37", "b38"]
+		"related": ["b36", "b37", "b38"]
 	},
 	{
 		"id": "b23",
@@ -393,7 +382,7 @@
 		"genre": ["Romance", "Drama"],
 		"rating": 4.2,
 		"summary": "It Starts with Us is a 2018 novel by American author Colleen Hoover. It is the first book in the Hopeless series. The novel was released on August 7, 2018. ",
-		"related": ["b20", "b22", "b37", "b38"]
+		"related": ["b22", "b37", "b38"]
 	},
 	{
 		"id": " b37",
@@ -404,7 +393,7 @@
 		"genre": ["Romance", "Drama"],
 		"rating": 4.2,
 		"summary": "It Ends with Us is a 2016 novel by American author Colleen Hoover. It is the second book in the Hopeless series. The novel was released on August 2, 2016. ",
-		"related": ["b20", "b22", "b36", "b38"]
+		"related": ["b22", "b36", "b38"]
 	},
 	{
 		"id": "b38",
@@ -415,7 +404,7 @@
 		"genre": ["Romance", "Drama"],
 		"rating": 3.5,
 		"summary": "Falling in Love Again is a collection of short stories by Ruskin Bond. It was first published in 1996. The book contains 12 short stories. ",
-		"related": ["b37", "b22", "b36", "b20"]
+		"related": ["b37", "b22", "b36"]
 	},
 	{
 		"id": "b39",
