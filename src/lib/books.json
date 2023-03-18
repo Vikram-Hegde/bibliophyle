@@ -376,7 +376,7 @@
 	{
 		"id": "b36",
 		"title": "It Starts with Us",
-		"author ": "Collen Hoover",
+		"author": "Collen Hoover",
 		"price": 599,
 		"url": "/bookcover/it-starts-with-us.jpg",
 		"genre": ["Romance", "Drama"],
@@ -385,9 +385,9 @@
 		"related": ["b22", "b37", "b38"]
 	},
 	{
-		"id": " b37",
+		"id": "b37",
 		"title": "It Ends with Us",
-		"author ": "Collen Hoover",
+		"author": "Collen Hoover",
 		"price": 599,
 		"url": "/bookcover/it-ends-with-us.jpg",
 		"genre": ["Romance", "Drama"],
@@ -398,7 +398,7 @@
 	{
 		"id": "b38",
 		"title": "Falling In Love Again",
-		"author ": "Ruskin Bond",
+		"author": "Ruskin Bond",
 		"price": 259,
 		"url": "/bookcover/falling-in-love-again.jpg",
 		"genre": ["Romance", "Drama"],

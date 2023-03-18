@@ -28,7 +28,7 @@
 		class="cart__container"
 		transition:fly={{ x: 250, duration: 250 }}
 		in={{ duration: 250, x: 0 }}
-		out={{ duration: 250, x: 250 }}
+		out={{ duration: 200, x: 250 }}
 	>
 		<h3>Cart</h3>
 		<div class="cart__wrapper">
@@ -37,7 +37,7 @@
 				<h4>Looks like your cart is feeling a little lonely at the moment.</h4>
 			{/if}
 			{#each $cartItems as item (item.id)}
-				<div class="cart__item" animate:flip={{duration: 250}}>
+				<div class="cart__item" animate:flip={{ duration: 250 }}>
 					<img src={item.url} alt={item.title} />
 					<div class="cart__info">
 						<h4>{item.title}</h4>
@@ -53,6 +53,7 @@
 			<h3>Total :</h3>
 			<span>₹{amount} /-</span>
 		</div>
+		<button disabled={cartItems.length}>Order Books</button>
 	</div>
 {/if}
 
