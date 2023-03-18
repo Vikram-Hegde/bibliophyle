@@ -8,8 +8,6 @@
 	export let data;
 
 	let cartVisible = false;
-
-	$: console.log(cartVisible);
 </script>
 
 <NavDesktop on:open={() => (cartVisible = true)} />

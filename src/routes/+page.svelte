@@ -1,6 +1,6 @@
 <script>
-	import heroImg from '$lib/assets/hero-img.png';
-	import heroImgMobile from '$lib/assets/hero-img-mobile.png';
+	import heroImg from '$lib/assets/hero-img.webp';
+	import heroImgMobile from '$lib/assets/hero-img-mobile.webp';
 </script>
 
 <svelte:head>

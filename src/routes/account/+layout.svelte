@@ -1,5 +1,5 @@
 <script>
-	import treeImg from '$lib/assets/book-tree.png';
+	import treeImg from '$lib/assets/book-tree.webp';
 	import { fly } from 'svelte/transition';
 </script>
 

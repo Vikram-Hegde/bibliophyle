@@ -53,7 +53,7 @@
 			<h3>Total :</h3>
 			<span>₹{amount} /-</span>
 		</div>
-		<button disabled={cartItems.length}>Order Books</button>
+		<button class="order--btn" disabled={$cartItems.length ? false : true}>Order Books</button>
 	</div>
 {/if}
 
@@ -141,6 +141,23 @@
 		span {
 			font-weight: bold;
 			font-size: var(--fs-100);
+		}
+	}
+
+	.order--btn {
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		background-color: var(--purple);
+		border: none;
+		color: var(--background);
+		font-weight: bold;
+		line-height: 3;
+		border-radius: 6px;
+		cursor: pointer;
+
+		&:disabled {
+			filter: brightness(80%);
+			cursor: not-allowed;
 		}
 	}
 </style>
