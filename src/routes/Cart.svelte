@@ -53,7 +53,7 @@
 			<h3>Total :</h3>
 			<span>₹{amount} /-</span>
 		</div>
-		<button class="order--btn" disabled={$cartItems.length ? false : true}>Order Books</button>
+		<button class="order--btn" disabled={$cartItems.length ? false : true}>Order {$cartItems.length > 1 ? 'Books' : 'Book'}</button>
 	</div>
 {/if}
 

@@ -2,12 +2,10 @@
 	import {
 		IconHome2,
 		IconBooks,
-		IconUserCircle,
 		IconLogin,
 		IconBuildingStore,
 		IconLogout,
 		IconUserPlus,
-		IconShoppingCart
 	} from '@tabler/icons-svelte';
 	import NavItem from './NavItem.svelte';
 	import { isLoggedIn } from '$lib/utils/authStore';
@@ -42,13 +40,6 @@
 				<IconBooks size={20} slot="icon" />
 			</NavItem>
 		</li>
-		{#if $isLoggedIn}
-			<li>
-				<NavItem href="/profile" name="Profile">
-					<IconUserCircle size={20} slot="icon" />
-				</NavItem>
-			</li>
-		{/if}
 	</ul>
 	<ul class="nav-desktop__list nav-desktop__action">
 		{#if $isLoggedIn}
