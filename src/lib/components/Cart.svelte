@@ -43,7 +43,9 @@
 						<h4>{item.title}</h4>
 						<div class="wrapper">
 							<h3>₹{item.price}</h3>
-							<button on:click={() => removeFromCart(item.id)}><IconTrash size={20} /></button>
+							<button on:click={() => removeFromCart(item.id)}
+								><IconTrash size={20} /></button
+							>
 						</div>
 					</div>
 				</div>
@@ -53,7 +55,9 @@
 			<h3>Total :</h3>
 			<span>₹{amount} /-</span>
 		</div>
-		<button class="order--btn" disabled={$cartItems.length ? false : true}>Order {$cartItems.length > 1 ? 'Books' : 'Book'}</button>
+		<button class="order--btn" disabled={$cartItems.length ? false : true}
+			>Order {$cartItems.length > 1 ? 'Books' : 'Book'}</button
+		>
 	</div>
 {/if}
 
@@ -72,7 +76,8 @@
 			background-color: hsl(34 98% 98%);
 			padding: 1.5rem;
 			z-index: 3;
-			box-shadow: -20px 0 25px -5px hsl(34 30% 70% / 30%), -4px 0 6px -4px hsl(34 30% 70% / 30%);
+			box-shadow: -20px 0 25px -5px hsl(34 30% 70% / 30%),
+				-4px 0 6px -4px hsl(34 30% 70% / 30%);
 			border-radius: 1rem 0 0 1rem;
 			overflow-y: auto;
 		}

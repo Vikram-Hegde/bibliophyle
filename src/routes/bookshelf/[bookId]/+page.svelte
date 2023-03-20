@@ -31,8 +31,8 @@
 	</button>
 	<section class="book__cover">
 		<img src={book.url} alt={book.title} />
-		<button on:click={() => addToCart(data.book)}
-			><IconShoppingCartPlus size={20} /> Add To Cart
+		<button on:click={() => addToCart(data.book)}>
+			<IconShoppingCartPlus size={20} /> Add To Cart
 		</button>
 	</section>
 	<section class="book__info">

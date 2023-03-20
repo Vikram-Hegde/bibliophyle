@@ -2,7 +2,7 @@
 	import PageTransition from '$lib/utils/PageTransition.svelte';
 	import NavDesktop from '$lib/components/Navbar/NavDesktop.svelte';
 	import NavMobile from '$lib/components/Navbar/NavMobile.svelte';
-	import Cart from './Cart.svelte';
+	import Cart from '$lib/components/Cart.svelte';
 
 	/** @type {import('./$types').PageData}*/
 	export let data;
