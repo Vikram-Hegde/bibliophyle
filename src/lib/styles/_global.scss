@@ -25,8 +25,9 @@
 		--nav: 3.5rem;
 		--max-width: 1280px;
 		--width: min(calc(100% - 4rem), var(--max-width));
-		font-family: 'Open Sans', sans-serif;
-		font-size: var(--fs--100);
+		font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
+			'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+		font-size: calc(var(--fs--100) + 0.075rem);
 		color: var(--text);
 		background-color: var(--background);
 		overflow-x: hidden;
@@ -86,7 +87,7 @@
 	h2,
 	h3,
 	h4 {
-		font-family: 'Merriweather', serif;
+		font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
 	}
 
 	.dark-screen {

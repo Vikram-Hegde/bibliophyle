@@ -5,10 +5,7 @@
 
 <main>
 	<slot />
-		<img
-			src={treeImg}
-			alt="A tree full of books instead of leaves"
-		/>
+	<img src={treeImg} alt="A tree full of books instead of leaves" />
 </main>
 
 <style lang="scss">

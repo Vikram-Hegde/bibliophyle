@@ -117,7 +117,7 @@
 			{#each readersLikes as book (book.id)}
 				<div class="book__wrapper">
 					<a href="/bookshelf/{book.id}">
-						<img loading="lazy" src={book.url} alt={book.title} />
+						<img src={book.url} alt={book.title} />
 					</a>
 				</div>
 			{/each}
