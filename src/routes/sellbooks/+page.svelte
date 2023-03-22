@@ -1,11 +1,150 @@
-<main>
+<script>
+	import { IconPhoto } from '@tabler/icons-svelte';
+	import Input from './Input.svelte';
+	import TagInput from './TagInput.svelte';
+	import { books } from '$lib/utils/uploadedBooks.js';
+	import { onMount } from 'svelte';
 
+	let form;
+
+	let url = '';
+	let title;
+	let description;
+	let author;
+	let price;
+	let rating;
+	let tags = [];
+	let loadError = false;
+
+	let previewText = 'Cover Preview';
+
+	const handleNewBook = () => {
+		$books = [
+			...$books,
+			{
+				id: crypto.randomUUID(),
+				title,
+				author,
+				price,
+				url: loadError ? '/bookshelf/error.png' : url,
+				genre: tags,
+				rating,
+				summary: description,
+				related: []
+			}
+		];
+		console.log($books)
+		tags = []
+		form.reset();
+	};
+</script>
+
+<svelte:head>
+	<title>Upload Book | Bibliophyle</title>
+</svelte:head>
+
+<main>
+	<h1>Upload your book</h1>
+	<div class="cover">
+		<IconPhoto size={50} stroke={1} />
+		<p>{previewText}</p>
+		{#if url}
+			<img
+				src={url}
+				alt=""
+				on:error={() => {
+					loadError = true;
+					previewText = 'Cover Not Found';
+				}}
+			/>
+		{/if}
+	</div>
+	<form bind:this={form}>
+		<Input type="text" placeholder="Book Title" bind:value={title} />
+		<Input type="url" placeholder="Book cover URL" bind:value={url} />
+		<Input type="text" placeholder="Book Author" bind:value={author} />
+		<div class="row">
+			<Input type="number" placeholder="Book Rating" max={5} bind:value={rating} />
+			<Input type="number" placeholder="Book Price" bind:value={price} />
+		</div>
+		<TagInput on:newtag={(e) => (tags = e.detail)} />
+		<Input type="textarea" placeholder="Book Description" bind:value={description} />
+		<div class="row btn-row">
+			<button class="btn btn--secondary" type="reset">Reset</button>
+			<button class="btn btn--primary" on:click={handleNewBook}>Submit</button>
+		</div>
+	</form>
 </main>
 
 <style lang="scss">
 	@use '../../lib/styles/utils' as *;
 
+	form {
+		inline-size: min(65ch, 100%);
+		display: grid;
+		gap: 1rem;
+	}
+
+	.row {
+		display: flex;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+
+	.btn-row {
+		justify-content: space-between;
+	}
+
+	.btn {
+		padding: 0.5rem 1rem;
+		border: none;
+		background-color: var(--bg);
+		font: inherit;
+		color: var(--color, inherit);
+		cursor: pointer;
+		border-radius: 6px;
+
+		&--primary {
+			--color: var(--background);
+			--bg: var(--purple);
+		}
+
+		&--secondary {
+			border: 1px solid;
+		}
+	}
+
 	main {
 		@extend %wrapper;
+		display: grid;
+		justify-items: center;
+		padding-block: 2rem;
+		align-content: start;
+		gap: 1rem;
+
+		@media (max-width: 850px) {
+			padding-bottom: 5rem;
+		}
+	}
+
+	.cover {
+		inline-size: calc(177px / 1.25);
+		position: relative;
+		block-size: calc(266px / 1.25);
+		overflow: hidden;
+		outline: 1px solid;
+		border-radius: 8px;
+		outline-style: dashed;
+		display: grid;
+		place-content: center;
+		justify-items: center;
+	}
+
+	img {
+		display: block;
+		position: absolute;
+		object-fit: cover;
+		aspect-ratio: 1 / 1.5;
+		max-inline-size: 100%;
 	}
 </style>

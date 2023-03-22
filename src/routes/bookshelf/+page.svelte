@@ -4,8 +4,10 @@
 	import Input from '$lib/components/Input.svelte';
 	import { IconFilter } from '@tabler/icons-svelte';
 	import { flip } from 'svelte/animate';
+	import { books as uploadedBooks } from '$lib/utils/uploadedBooks.js';
 
-	let books = bookData;
+	const totalBooks = [...bookData, ...$uploadedBooks];
+	let books = totalBooks;
 
 	/** @type {string[]} */
 	let filterOptions;
@@ -23,13 +25,13 @@
 
 	$: {
 		if (!filter.length) {
-			books = bookData.filter((book) => book.title.toLowerCase().includes(search.toLowerCase()));
+			books = totalBooks.filter((book) => book.title.toLowerCase().includes(search.toLowerCase()));
 			duration = 0;
 		}
 
 		if (search.length === 0 && filter.length !== 0) {
 			duration = 250;
-			books = bookData.filter((book) => {
+			books = totalBooks.filter((book) => {
 				let isPresent = false;
 				filter.forEach((genre) => {
 					if (book.genre.includes(genre)) isPresent = true;
@@ -40,7 +42,7 @@
 
 		if (search.length && filter.length) filter = [];
 
-		readersLikes = bookData.filter((book) => books[0]?.related.includes(book.id));
+		readersLikes = totalBooks.filter((book) => books[0]?.related.includes(book.id));
 	}
 
 	$: {

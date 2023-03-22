@@ -45,6 +45,10 @@ button {
 	}
 }
 
+.genre {
+	text-transform: capitalize;
+}
+
 .book {
 	display: grid;
 	position: relative;

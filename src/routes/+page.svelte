@@ -27,6 +27,7 @@
 		text-transform: uppercase;
 		font-size: var(--fs--100);
 		letter-spacing: 2px;
+		font-weight: bold;
 	}
 
 	h1 {
@@ -40,7 +41,7 @@
 
 	p {
 		font-size: var(--fs-100);
-		line-height: 1.5;
+		line-height: 1.35;
 		width: min(35ch, 100%);
 		margin: 0 auto;
 	}

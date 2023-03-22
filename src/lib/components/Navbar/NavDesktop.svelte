@@ -92,11 +92,6 @@
 			justify-content: center;
 			gap: 1rem;
 			@extend %list-reset;
-
-			li {
-				letter-spacing: 1px;
-				font-size: calc(var(--fs--100) + 0.075rem);
-			}
 		}
 
 		&__action {

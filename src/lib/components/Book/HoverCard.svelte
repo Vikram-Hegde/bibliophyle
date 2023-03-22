@@ -96,4 +96,8 @@
 			gap: 0.25rem;
 		}
 	}
+
+	.description {
+		font-size: calc(var(--fs--100) - 0.09rem);
+	}
 </style>

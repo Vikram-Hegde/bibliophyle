@@ -3,7 +3,7 @@
 	import Star from '$lib/components/Star.svelte';
 	import { IconArrowLeft, IconShoppingCartPlus } from '@tabler/icons-svelte';
 	import commentsJson from '$lib/comments.json';
-	import { cartItems, addToCart } from '$lib/utils/cartStore';
+	import { addToCart } from '$lib/utils/cartStore';
 
 	/** @type {import('./$types').PageData}*/
 	export let data;

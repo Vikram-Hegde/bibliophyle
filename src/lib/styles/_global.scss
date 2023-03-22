@@ -25,9 +25,8 @@
 		--nav: 3.5rem;
 		--max-width: 1280px;
 		--width: min(calc(100% - 4rem), var(--max-width));
-		font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
-			'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
-		font-size: calc(var(--fs--100) + 0.075rem);
+		font-family: ui-rounded, sans-serif;
+		font-size: calc(var(--fs--100));
 		color: var(--text);
 		background-color: var(--background);
 		overflow-x: hidden;
