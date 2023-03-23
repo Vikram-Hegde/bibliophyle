@@ -6,7 +6,7 @@
 	const dispatch = createEventDispatcher();
 </script>
 
-<button aria-label="Cart" on:click={() => dispatch('open')}>
+<button role="tab" aria-label="Cart" on:click={() => dispatch('open')}>
 	<IconShoppingCart size={24} />
 	{#if $cartItems.length}
 		<span class="indicator">{$cartItems.length}</span>

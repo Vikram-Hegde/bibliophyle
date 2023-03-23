@@ -26,7 +26,7 @@
 	}
 
 	:not(.sellbooks a).active {
-		color: hsl(34 80% 60%);
+		color: hsl(34 100% 35%);
 	}
 
 	@media (min-width: 850px) {
