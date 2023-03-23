@@ -53,6 +53,7 @@
 			{/each}
 		</div>
 	</section>
+	{#if relatedBooks.length}
 	<section class="book__recommendation">
 		<h2>Readers <i>would</i> recommend</h2>
 		<div class="books">
@@ -63,6 +64,7 @@
 			{/each}
 		</div>
 	</section>
+	{/if}
 	<section class="book__review">
 		<h2>Ratings <i>&</i> Reviews</h2>
 		{#each commentsJson as comment}
