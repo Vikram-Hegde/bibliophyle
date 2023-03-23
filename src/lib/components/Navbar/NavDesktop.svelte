@@ -5,7 +5,7 @@
 		IconLogin,
 		IconBuildingStore,
 		IconLogout,
-		IconUserPlus,
+		IconUserPlus
 	} from '@tabler/icons-svelte';
 	import NavItem from './NavItem.svelte';
 	import { isLoggedIn } from '$lib/utils/authStore';
@@ -14,7 +14,7 @@
 
 <nav class="nav-desktop">
 	<div class="nav-desktop__logo">
-		<a href="/">
+		<a href="/" aria-label="Home">
 			<svg
 				width="20"
 				height="20"
@@ -29,37 +29,37 @@
 			</svg>
 		</a>
 	</div>
-	<ul class="nav-desktop__list">
-		<li>
+	<ul class="nav-desktop__list" role="tablist">
+		<li role="tab">
 			<NavItem href="/" name="Home">
 				<IconHome2 size={20} slot="icon" />
 			</NavItem>
 		</li>
-		<li>
+		<li role="tab">
 			<NavItem href="/bookshelf" name="Bookshelf">
 				<IconBooks size={20} slot="icon" />
 			</NavItem>
 		</li>
 	</ul>
-	<ul class="nav-desktop__list nav-desktop__action">
+	<ul class="nav-desktop__list nav-desktop__action" role="tablist">
 		{#if $isLoggedIn}
-			<li class="sellbooks">
+			<li class="sellbooks" role="tab">
 				<NavItem href="/sellbooks" name="Sell Books">
 					<IconBuildingStore size={20} slot="icon" />
 				</NavItem>
 			</li>
-			<li>
+			<li role="tab">
 				<button title="Logout" class="logout" on:click={() => isLoggedIn.set(false)}>
 					<IconLogout size={22} />
 				</button>
 			</li>
 		{:else}
-			<li>
+			<li role="tab">
 				<NavItem href="/account/login" name="Login">
 					<IconLogin size={20} slot="icon" />
 				</NavItem>
 			</li>
-			<li>
+			<li role="tab">
 				<NavItem href="/account/signup" name="Sign Up">
 					<IconUserPlus size={20} slot="icon" />
 				</NavItem>

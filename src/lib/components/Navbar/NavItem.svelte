@@ -2,9 +2,10 @@
 	import { page } from '$app/stores';
 	export let href = '/';
 	export let name = ' ';
+	export let label = '';
 </script>
 
-<a {href} class:active={$page.url.pathname === href}>
+<a {href} aria-label={label} class:active={$page.url.pathname === href}>
 	<slot name="icon" />
 	{name}
 </a>

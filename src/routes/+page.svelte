@@ -13,8 +13,8 @@
 		<p>Sharing knowledge has never been easier. Find and sell used books at lower rates</p>
 	</section>
 	<picture>
-		<source srcset={heroImgMobile} media="(max-width: 600px)" />
-		<source srcset={heroImg} media="(min-width: 601px)" />
+		<source srcset={heroImgMobile} media="(max-width: 600px)" width="270" height="340" />
+		<source srcset={heroImg} media="(min-width: 601px)" width="920" height="340" />
 		<img src={heroImg} alt="two hands where one is taking a book from another" />
 	</picture>
 </main>
@@ -35,7 +35,7 @@
 		margin-bottom: 0.5rem;
 
 		@media (max-width: 600px) {
-		font-size: var(--fs-700);
+			font-size: var(--fs-700);
 		}
 	}
 
@@ -61,7 +61,8 @@
 		text-align: center;
 	}
 
-	picture, img {
+	picture,
+	img {
 		display: block;
 		height: 100%;
 		max-height: 340px;
