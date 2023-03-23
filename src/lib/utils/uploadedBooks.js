@@ -1,3 +1,9 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
-export let books = writable([])
+let storedBooks = localStorage.getItem('storedBooks');
+
+export let books = writable(storedBooks ? JSON.parse(storedBooks) : []);
+
+books.subscribe((value) => {
+	localStorage.setItem('storedBooks', JSON.stringify(value));
+});

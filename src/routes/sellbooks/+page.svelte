@@ -3,7 +3,6 @@
 	import Input from './Input.svelte';
 	import TagInput from './TagInput.svelte';
 	import { books } from '$lib/utils/uploadedBooks.js';
-	import { onMount } from 'svelte';
 
 	let form;
 
@@ -25,16 +24,16 @@
 				id: crypto.randomUUID(),
 				title,
 				author,
-				price,
-				url: loadError ? '/bookshelf/error.png' : url,
+				price: parseFloat(price),
+				url: loadError ? '/bookcover/error.png' : url,
 				genre: tags,
-				rating,
+				rating: parseFloat(rating),
 				summary: description,
 				related: []
 			}
 		];
-		console.log($books)
-		tags = []
+		console.log($books);
+		tags = [];
 		form.reset();
 	};
 </script>

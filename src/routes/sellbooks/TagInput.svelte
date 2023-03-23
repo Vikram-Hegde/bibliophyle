@@ -9,15 +9,16 @@
 
 	function handleInput(e) {
 		if (e.code === 'Comma') {
-			tags = [...tags, { id: crypto.randomUUID(), tag: input }];
+			input = input.charAt(0).toUpperCase() + input.slice(1);
+			tags = [...tags, input];
 			input = '';
 			dispatch('newtag', tags);
 			e.preventDefault();
 		}
 	}
 
-	const removeTag = (tid) => {
-		tags = tags.filter(({ id }) => tid != id);
+	const removeTag = (t) => {
+		tags = tags.filter((tag) => tag != t);
 		dispatch('newtag', tags);
 	};
 </script>
@@ -30,11 +31,10 @@
 />
 {#if tags.length}
 	<div class="tags">
-		{#each tags as { id, tag }}
+		{#each tags as tag}
 			<span class="tag">
 				{tag}
-
-				<button type="button" class="close" on:click={() => removeTag(id)}>&times;</button>
+				<button type="button" class="close" on:click={() => removeTag(tag)}>&times;</button>
 			</span>
 		{/each}
 	</div>

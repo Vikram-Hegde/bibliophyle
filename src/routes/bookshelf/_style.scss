@@ -320,3 +320,9 @@ form {
 		transition: background 250ms;
 	}
 }
+
+.book {
+	&__cover img {
+		max-inline-size: 174px;
+	}
+}
