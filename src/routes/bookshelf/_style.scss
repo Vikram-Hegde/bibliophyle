@@ -320,3 +320,7 @@ form {
 		transition: background 250ms;
 	}
 }
+
+.not-found {
+	grid-column: 1 / -1;
+}

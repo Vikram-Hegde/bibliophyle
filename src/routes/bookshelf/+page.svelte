@@ -106,6 +106,9 @@
 			</div>
 		</div>
 		<div class="bookshelf">
+			{#if books.length === 0}
+				<p class="not-found">We're sorry, but we don't have any results for that search.</p>
+			{/if}
 			{#each books as book (book.id)}
 				<div class="book__wrapper" animate:flip={{ duration }}>
 					<Book {book} />
@@ -116,6 +119,9 @@
 	<aside class="recommendation">
 		<h2>Readers Also Enjoyed</h2>
 		<div class="recommendation__bookshelf">
+			{#if readersLikes.length === 0}
+				<p class="not-found">No related books found</p>
+			{/if}
 			{#each readersLikes as book (book.id)}
 				<div class="book__wrapper">
 					<a href="/bookshelf/{book.id}">
