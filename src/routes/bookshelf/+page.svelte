@@ -2,7 +2,7 @@
 	import bookData from '$lib/books.json';
 	import Book from '$lib/components/Book/Book.svelte';
 	import Input from '$lib/components/Input.svelte';
-	import { IconFilter } from '@tabler/icons-svelte';
+	import { IconFilter, IconFilterOff } from '@tabler/icons-svelte';
 	import { flip } from 'svelte/animate';
 	import { books as uploadedBooks } from '$lib/utils/uploadedBooks.js';
 
@@ -69,7 +69,14 @@
 	<button class="dark-screen" data-state={state} on:click={toggleState} />
 	<section class="options" data-state={state}>
 		<div class="filter">
-			<h2>Filter by</h2>
+			<div class="wrapper">
+				<h2>Filter by</h2>
+				{#if filter.length}
+					<button aria-label="Reset Filters" on:click={() => (filter = [])}>
+						<IconFilterOff size={20} />
+					</button>
+				{/if}
+			</div>
 			{#each filterOptions as option}
 				<label class="control control-checkbox">
 					<input type="checkbox" bind:group={filter} value={option} />
@@ -99,6 +106,7 @@
 			</form>
 			<div class="actions__btn">
 				<button
+					class="filter"
 					on:click={() => {
 						state = state === 'open' ? 'closed' : 'open';
 					}}><IconFilter size={20} /></button

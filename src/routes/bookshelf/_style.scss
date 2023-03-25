@@ -243,7 +243,7 @@ form {
 		background-color: var(--background);
 	}
 
-	button {
+	.filter {
 		--size: 2.5rem;
 		display: flex;
 		align-items: center;
@@ -323,4 +323,29 @@ form {
 
 .not-found {
 	grid-column: 1 / -1;
+}
+
+button:not(.filter, .dark-screen) {
+	all: unset;
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+	padding: 0.5rem;
+	cursor: pointer;
+	border-radius: 6px;
+
+	&:focus-visible {
+		outline: 2px solid var(--purple);
+		outline-offset: 2px;
+	}
+
+	&:hover {
+		background-color: hsl(34 98% 88%);
+	}
+}
+
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }

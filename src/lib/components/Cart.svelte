@@ -43,9 +43,7 @@
 						<h4>{item.title}</h4>
 						<div class="wrapper">
 							<h3>₹{item.price}</h3>
-							<button on:click={() => removeFromCart(item.id)}
-								><IconTrash size={20} /></button
-							>
+							<button on:click={() => removeFromCart(item.id)}><IconTrash size={20} /></button>
 						</div>
 					</div>
 				</div>
@@ -72,12 +70,11 @@
 			block-size: 100%;
 			right: 0;
 			top: 0;
-			max-inline-size: min(20rem, 80%);
+			inline-size: min(20rem, 80%);
 			background-color: hsl(34 98% 98%);
 			padding: 1.5rem;
 			z-index: 3;
-			box-shadow: -20px 0 25px -5px hsl(34 30% 70% / 30%),
-				-4px 0 6px -4px hsl(34 30% 70% / 30%);
+			box-shadow: -20px 0 25px -5px hsl(34 30% 70% / 30%), -4px 0 6px -4px hsl(34 30% 70% / 30%);
 			border-radius: 1rem 0 0 1rem;
 			overflow-y: auto;
 		}
