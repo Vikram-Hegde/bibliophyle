@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
 let isLoggedIn = writable(false);
-let auth = {};
+let auth = writable({});
 
 if (browser) {
 	const authLocal = localStorage.getItem('auth');
