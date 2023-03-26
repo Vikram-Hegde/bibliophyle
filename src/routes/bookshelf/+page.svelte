@@ -72,7 +72,7 @@
 			<div class="wrapper">
 				<h2>Filter by</h2>
 				{#if filter.length}
-					<button aria-label="Reset Filters" on:click={() => (filter = [])}>
+					<button aria-label="Clear Filters" on:click={() => (filter = [])} title="Clear Filters">
 						<IconFilterOff size={20} />
 					</button>
 				{/if}
