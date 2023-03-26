@@ -5,6 +5,6 @@ import { isLoggedIn } from '$lib/utils/authStore.js';
 export const load = async () => {
 	if (!get(isLoggedIn)) {
 		console.log('Need to Login to access this page.');
-		throw redirect(301, '/');
+		throw redirect(401, '/');
 	}
 };
