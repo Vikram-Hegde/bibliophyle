@@ -18,4 +18,9 @@
 	--fs-600: clamp(2.49rem, calc(1.97rem + 2.31vw), 3.82rem);
 	--fs-700: clamp(2.99rem, calc(2.29rem + 3.10vw), 4.47rem);
 	--fs-800: clamp(3.58rem, calc(2.65rem + 4.13vw), 5.96rem);
+
+	/*
+	good hover color for buttons, one without backgrounds by default
+	hsl(34 60% 70% / 30%)
+	*/
 }

@@ -22,14 +22,6 @@
 <style lang="scss">
 	@use '../lib/styles/utils' as *;
 
-	.subtitle {
-		color: var(--green);
-		text-transform: uppercase;
-		font-size: var(--fs--100);
-		letter-spacing: 2px;
-		font-weight: bold;
-	}
-
 	h1 {
 		font-size: var(--fs-800);
 		margin-bottom: 0.5rem;
@@ -46,31 +38,37 @@
 		margin: 0 auto;
 	}
 
+	.subtitle {
+		color: var(--green);
+		text-transform: uppercase;
+		font-size: var(--fs--100);
+		letter-spacing: 2px;
+		font-weight: bold;
+	}
+
 	main {
 		@extend %wrapper;
 		padding: 2rem 0 0 0;
 		display: grid;
 		height: calc(100vh - var(--nav) - 2px);
 		grid-template-rows: 1fr 1fr;
-		grid-template-columns: repeat(12, 1fr);
 		align-items: center;
 	}
 
 	section {
-		grid-column: 1 / -1;
 		text-align: center;
 	}
 
-	picture,
+	picture {
+		height: min(340px, 100%);
+		margin: 0 auto;
+		align-self: end;
+	}
+
 	img {
 		display: block;
-		height: 100%;
-		max-height: 340px;
-		margin: 0 auto;
-		grid-column: 1 / -1;
-		object-fit: cover;
 		max-width: 100%;
-		align-self: end;
 		border-radius: 3rem 3rem 0 0;
+		object-fit: cover;
 	}
 </style>

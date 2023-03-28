@@ -75,7 +75,8 @@
 	}
 
 	a {
-		color: hsl(34 90% 60%);
+		color: var(--text);
+		text-decoration: none;
 	}
 
 	h1 {

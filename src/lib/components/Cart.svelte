@@ -1,6 +1,6 @@
 <script>
 	import { cartItems } from '$lib/utils/cartStore';
-	import { IconTrash } from '@tabler/icons-svelte';
+	import { IconArrowRight, IconTrash } from '@tabler/icons-svelte';
 	import { createEventDispatcher } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
@@ -30,10 +30,14 @@
 		in={{ duration: 250, x: 0 }}
 		out={{ duration: 200, x: 250 }}
 	>
-		<h3>Cart</h3>
+		<div class="wrapper">
+			<h3>Cart</h3>
+			<button class="arrow-right" aria-label="Close Cart Menu" on:click={() => dispatch('close')}>
+				<IconArrowRight size={20} />
+			</button>
+		</div>
 		<div class="cart__wrapper">
 			{#if $cartItems.length === 0}
-				<!-- this can be centered, will be done while refining empty states -->
 				<h4>Looks like your cart is feeling a little lonely at the moment.</h4>
 			{/if}
 			{#each $cartItems as item (item.id)}
@@ -160,6 +164,18 @@
 		&:disabled {
 			filter: brightness(80%);
 			cursor: not-allowed;
+		}
+	}
+
+	.arrow-right {
+		all: unset;
+		cursor: pointer;
+		padding: 0.5rem;
+		display: flex;
+		border-radius: 6px;
+
+		&:hover {
+			background-color: hsl(34 60% 70% / 30%);
 		}
 	}
 </style>

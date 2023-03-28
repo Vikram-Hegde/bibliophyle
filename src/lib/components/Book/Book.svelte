@@ -70,11 +70,6 @@
 {/if}
 
 <style lang="scss">
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
-
 	button {
 		background-color: hsl(34 90% 88%);
 		color: inherit;

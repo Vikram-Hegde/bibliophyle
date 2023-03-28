@@ -68,15 +68,13 @@
 		display: flex;
 		min-height: var(--nav);
 		align-items: center;
-		justify-content: space-between;
 	}
 
 	nav {
 		z-index: 1;
 		position: fixed;
-		display: inline-block;
 		bottom: 1.25rem;
-		translate: -50%;
+		translate: -50% 0;
 		left: 50%;
 		padding: 0 0.25rem;
 
@@ -86,21 +84,18 @@
 	}
 
 	ul {
-		display: flex;
-		align-items: center;
+		@extend %items-center;
 		line-height: 0;
-		@extend %list-reset;
+		list-style: none;
 	}
 
 	li {
-		display: flex;
 		width: 3rem;
 		height: 3rem;
-		justify-content: center;
-		align-items: center;
+		@include flex(center, center)
 	}
 
 	a {
-		color: var(--text);
+		line-height: 0;
 	}
 </style>

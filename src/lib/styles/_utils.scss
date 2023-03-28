@@ -25,6 +25,11 @@
 	}
 }
 
+%items-center {
+	display: flex;
+	align-items: center;
+}
+
 @mixin rounded($size) {
 	inline-size: #{$size};
 	block-size: #{$size};
