@@ -3,32 +3,15 @@
 	import HoverCard from './HoverCard.svelte';
 	import { addToCart } from '$lib/utils/cartStore';
 
-	/**
-	 * @typedef {Object} bookInfo
-	 * @property {string} title
-	 * @property {string} url
-	 * @property {number} price
-	 * @property {number} id
-	 * @property {string} author
-	 * @property {string} summary
-	 * @property {number} rating
-	 */
-
-	/**  @type {bookInfo} */
 	export let book;
+	export let link = `bookshelf/${book.id}`;
 
 	let mediaCheck = '(hover: none), (pointer: coarse), (max-width: 750px)';
 	let mobile = window.matchMedia(mediaCheck);
-
 	mobile.addEventListener('change', () => {
 		mobile = window.matchMedia(mediaCheck);
 	});
-
-	export let link = `bookshelf/${book.id}`;
-
 	let hovered = 0;
-
-	/**  @type {HTMLElement | null} card */
 	let card = null;
 
 	function onHover() {
@@ -44,13 +27,11 @@
 
 <div
 	class="book"
-	on:focus={onHover}
 	on:mouseenter={onHover}
-	on:blur={onLeave}
 	on:mouseleave={onLeave}
 >
-	<a href={link}>
-		<img src={book.url} alt={book.title} loading="lazy" />
+	<a href={link} on:focus={onHover} on:blur={onLeave}>
+		<img src={book.url} alt={book.title} />
 	</a>
 	<div class="book__details">
 		<div>

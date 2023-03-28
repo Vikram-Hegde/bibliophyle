@@ -74,6 +74,7 @@
 
 		&__logo {
 			line-height: 0;
+			justify-self: start;
 		}
 
 		&__list {

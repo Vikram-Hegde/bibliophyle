@@ -58,8 +58,8 @@
 		line-height: 0;
 
 		&:focus-visible {
+			--offset: 1px;
 			outline: 1px solid;
-			outline-offset: 1px;
 		}
 	}
 
