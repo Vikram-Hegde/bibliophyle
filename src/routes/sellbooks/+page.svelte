@@ -1,5 +1,5 @@
 <script>
-	import { IconPhoto } from '@tabler/icons-svelte';
+	import { IconArrowBackUp, IconPhoto, IconArrowRight } from '@tabler/icons-svelte';
 	import Input from './Input.svelte';
 	import TagInput from './TagInput.svelte';
 	import { books } from '$lib/utils/uploadedBooks.js';
@@ -17,7 +17,9 @@
 
 	let previewText = 'Cover Preview';
 
-	const handleNewBook = () => {
+	const handleNewBook = (e) => {
+		if (!form.reportValidity()) return;
+
 		$books = [
 			...$books,
 			{
@@ -32,7 +34,6 @@
 				related: []
 			}
 		];
-		console.log($books);
 		tags = [];
 		form.reset();
 	};
@@ -69,8 +70,8 @@
 		<TagInput on:newtag={(e) => (tags = e.detail)} />
 		<Input type="textarea" placeholder="Book Description" bind:value={description} />
 		<div class="row btn-row">
-			<button class="btn btn--secondary" type="reset">Reset</button>
-			<button class="btn btn--primary" on:click={handleNewBook}>Submit</button>
+			<button class="btn btn--secondary" type="reset"><IconArrowBackUp size={20} /> Reset</button>
+			<button class="btn btn--primary" on:click={handleNewBook}>Submit <IconArrowRight size={20} /></button>
 		</div>
 	</form>
 </main>
@@ -102,6 +103,10 @@
 		color: var(--color, inherit);
 		cursor: pointer;
 		border-radius: 6px;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		line-height: 0;
 
 		&--primary {
 			--color: var(--background);

@@ -45,6 +45,7 @@
 		color: hsl(33 35% 65%);
 		cursor: pointer;
 		transition: all 0.15s;
+		pointer-events: none;
 	}
 
 	textarea {

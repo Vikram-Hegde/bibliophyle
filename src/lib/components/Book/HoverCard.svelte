@@ -39,7 +39,7 @@
 	>
 		<div class="hover-card__content">
 			<h3>{book.title}</h3>
-			<p>{book.author}</p>
+			<i>{book.author}</i>
 			<div class="condition">
 				<p>Rating</p>
 				<Star rating={book.rating} size={14} />
@@ -93,7 +93,7 @@
 			padding: 1rem;
 			max-width: 320px;
 			display: grid;
-			gap: 0.25rem;
+			gap: 0.5rem;
 		}
 	}
 

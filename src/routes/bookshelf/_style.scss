@@ -33,9 +33,6 @@ main {
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		margin-block-end: 1rem;
-	}
-
-	h2 {
 		font-family: 'Open Sans', sans-serif;
 	}
 }
@@ -46,7 +43,7 @@ main {
 		z-index: 2;
 		overflow-y: auto;
 		box-shadow: -20px 0 25px -5px hsl(34 30% 70% / 30%), -4px 0 6px -4px hsl(34 30% 70% / 30%);
-		max-width: min(80%, 30ch);
+		inline-size: min(80%, 30ch);
 	}
 
 	.books,
