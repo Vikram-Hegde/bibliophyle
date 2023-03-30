@@ -37,7 +37,7 @@ button {
 	color: currentColor;
 
 	&:hover {
-		background-color: hsl(30 98% 88%);
+		background-color: hsl(var(--accent) 88%);
 	}
 
 	@media (min-width: 850px) {
@@ -115,7 +115,7 @@ button {
 	}
 
 	.genre {
-		background-color: hsl(30 98% 90%);
+		background-color: hsl(var(--accent) 90%);
 		padding: 0.25rem;
 		border-radius: 6px;
 	}

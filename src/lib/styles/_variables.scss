@@ -1,10 +1,20 @@
 :root {
 	color-scheme: light;
-	
-	--background: hsl(34 80% 96%);
-	--text: hsl(34 98% 18%);
+
+	--h: 34;
+	--s: 98%;
+	--accent: var(--h) var(--s);
+
+	// Predefined Colors
+	--background: hsl(var(--accent) 96%);
+	--text: hsl(var(--accent) 18%);
 	--green: hsl(78 63% 26%);
+	--green-100: hsl(78 63% 35%);
 	--purple: hsl(289 24% 54%);
+	--purple-100: hsl(289 24% 60%);
+
+	// misc colors
+	--bg-btn: hsl(34 60% 70% / 30%);
 
 	accent-color: var(--text);
 
@@ -16,11 +26,6 @@
 	--fs-400: clamp(1.73rem, calc(1.45rem + 1.24vw), 2.44rem);
 	--fs-500: clamp(2.07rem, calc(1.69rem + 1.7vw), 3.05rem);
 	--fs-600: clamp(2.49rem, calc(1.97rem + 2.31vw), 3.82rem);
-	--fs-700: clamp(2.99rem, calc(2.29rem + 3.10vw), 4.47rem);
+	--fs-700: clamp(2.99rem, calc(2.29rem + 3.1vw), 4.47rem);
 	--fs-800: clamp(3.58rem, calc(2.65rem + 4.13vw), 5.96rem);
-
-	/*
-	good hover color for buttons, one without backgrounds by default
-	hsl(34 60% 70% / 30%)
-	*/
 }

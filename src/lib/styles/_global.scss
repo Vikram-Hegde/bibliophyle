@@ -103,12 +103,12 @@
 		cursor: pointer;
 
 		&[data-state='open'] {
-			background-color: hsl(34 98% 98% / 0.5);
+			background-color: hsl(var(--accent) 98% / 0.5);
 			pointer-events: auto;
 		}
 
 		&[data-state='closed'] {
-			background-color: hsl(34 98% 98% / 0);
+			background-color: hsl(var(--accent) 98% / 0);
 			pointer-events: none;
 		}
 	}

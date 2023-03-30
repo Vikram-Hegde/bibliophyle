@@ -23,13 +23,13 @@
 		position: relative;
 
 		&:hover {
-			background-color: hsl(34 98% 92%);
+			background-color: hsl(var(--accent) 92%);
 		}
 	}
 
 	span {
 		font-size: var(--fs--200);
-		background-color: hsl(34 98% 90%);
+		background-color: hsl(var(--accent) 90%);
 		min-block-size: 1rem;
 		min-inline-size: 1rem;
 		border-radius: 10rem;

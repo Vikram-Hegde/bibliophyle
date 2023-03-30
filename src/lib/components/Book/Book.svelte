@@ -25,11 +25,7 @@
 	}
 </script>
 
-<div
-	class="book"
-	on:mouseenter={onHover}
-	on:mouseleave={onLeave}
->
+<div class="book" on:mouseenter={onHover} on:mouseleave={onLeave}>
 	<a href={link} on:focus={onHover} on:blur={onLeave}>
 		<img src={book.url} alt={book.title} />
 	</a>
@@ -52,7 +48,7 @@
 
 <style lang="scss">
 	button {
-		background-color: hsl(34 90% 88%);
+		background-color: hsl(var(--accent) 88%);
 		color: inherit;
 		padding: 0.5rem;
 		border: none;
@@ -62,7 +58,7 @@
 	}
 
 	.book {
-		background-color: hsl(34 98% 92%);
+		background-color: hsl(var(--accent) 92%);
 		min-inline-size: var(--min-width);
 		border-radius: 8px;
 		display: grid;

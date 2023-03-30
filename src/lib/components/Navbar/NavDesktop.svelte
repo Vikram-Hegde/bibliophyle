@@ -111,7 +111,7 @@
 		}
 
 		&:hover {
-			background-color: hsl(34 98% 92%);
+			background-color: hsl(var(--accent) 92%);
 		}
 	}
 </style>

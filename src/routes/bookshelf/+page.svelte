@@ -86,7 +86,9 @@
 			{/each}
 		</div>
 		<div class="sort">
-			<h2>Sort By</h2>
+			<div class="wrapper">
+				<h2>Sort By</h2>
+			</div>
 			<label class="control control-radio">
 				Price (Low to High)
 				<input type="radio" name="radio" value="LH" bind:group={sort} />

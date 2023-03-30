@@ -68,7 +68,7 @@
 		align-items: center;
 		padding: 0.25rem;
 		gap: 0.35rem;
-		background-color: hsl(33 98% 91%);
+		background-color: hsl(var(--accent) 91%);
 		border-radius: 6px;
 	}
 </style>

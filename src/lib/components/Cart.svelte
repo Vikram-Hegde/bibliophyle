@@ -75,7 +75,7 @@
 			right: 0;
 			top: 0;
 			inline-size: min(20rem, 80%);
-			background-color: hsl(34 98% 98%);
+			background-color: hsl(var(--accent) 98%);
 			padding: 1.5rem;
 			z-index: 3;
 			box-shadow: -20px 0 25px -5px hsl(34 30% 70% / 30%), -4px 0 6px -4px hsl(34 30% 70% / 30%);
@@ -160,6 +160,11 @@
 		line-height: 3;
 		border-radius: 6px;
 		cursor: pointer;
+		transition: background-color 150ms ease-in-out;
+
+		&:hover {
+			background-color: var(--purple-100);
+		}
 
 		&:disabled {
 			filter: brightness(80%);
@@ -175,7 +180,7 @@
 		border-radius: 6px;
 
 		&:hover {
-			background-color: hsl(34 60% 70% / 30%);
+			background-color: var(--bg-btn);
 		}
 	}
 </style>

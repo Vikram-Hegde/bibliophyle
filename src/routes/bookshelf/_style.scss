@@ -20,7 +20,7 @@ main {
 .options,
 .recommendation {
 	grid-column: span 5;
-	background-color: hsl(34 98% 93%);
+	background-color: hsl(var(--accent) 93%);
 	position: sticky;
 	top: 0;
 	padding: 1.5rem 1.75rem;
@@ -89,7 +89,7 @@ label {
 }
 
 .recommendation {
-	background-color: hsl(34 98% 98%);
+	background-color: hsl(var(--accent) 98%);
 
 	@media (max-width: 1170px) {
 		display: none;
@@ -163,6 +163,7 @@ form {
 		z-index: -1;
 		opacity: 0;
 	}
+
 	.control_indicator {
 		position: absolute;
 		top: 2px;
@@ -173,9 +174,10 @@ form {
 		border: 1px solid var(--text);
 		border-radius: 6px;
 	}
+
 	&:hover input ~ .control_indicator,
 	input:focus-visible ~ .control_indicator {
-		background-color: hsl(34 98% 89%);
+		background-color: hsl(var(--accent) 89%);
 	}
 
 	input:checked ~ .control_indicator {
@@ -201,7 +203,7 @@ form {
 		top: 3px;
 		inline-size: 3px;
 		block-size: 9px;
-		border: solid var(--background);
+		border:1px solid var(--background);
 		border-width: 0 2px 2px 0;
 		transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
@@ -248,14 +250,14 @@ form {
 		block-size: var(--size);
 		inline-size: var(--size);
 		border-radius: 50%;
-		color: hsl(34 98% 20%);
+		color: hsl(var(--accent) 20%);
 		border: 2px solid;
 		background-color: transparent;
 		cursor: pointer;
 
 		&:hover {
 			border-color: transparent;
-			background-color: hsl(34 98% 20%);
+			background-color:  hsl(var(--accent) 20%);
 			color: var(--background);
 		}
 	}
@@ -273,18 +275,19 @@ form {
 		position: absolute;
 		top: 2px;
 		left: 0;
-		height: 20px;
-		width: 20px;
+		block-size: 20px;
+		inline-size: 20px;
 		background-color: transparent;
-		border: 1px solid var(--text);
+		border: 1px solid;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		border-radius: 50%;
 	}
 
 	&:hover input ~ .control_indicator,
-	input:focus ~ .control_indicator {
-		background-color: hsl(34 98% 89%);
+	input:focus-visible ~ .control_indicator {
+		background-color: hsl(var(--accent) 89%);
 	}
 
 	input:checked ~ .control_indicator {
@@ -292,7 +295,7 @@ form {
 	}
 
 	&:hover input:not([disabled]):checked ~ .control_indicator,
-	input:checked:focus ~ .control_indicator {
+	input:checked:focus-visible ~ .control_indicator {
 		background-color: var(--text);
 	}
 
@@ -303,10 +306,6 @@ form {
 
 	input:checked ~ .control_indicator:after {
 		display: block;
-	}
-
-	.control_indicator {
-		border-radius: 50%;
 	}
 
 	.control_indicator:after {
@@ -336,7 +335,7 @@ button:not(.filter, .dark-screen) {
 	}
 
 	&:hover {
-		background-color: hsl(34 98% 88%);
+		background-color: hsl(var(--accent) 89%);
 	}
 }
 
@@ -344,4 +343,5 @@ button:not(.filter, .dark-screen) {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	min-height: 2.25rem;
 }
