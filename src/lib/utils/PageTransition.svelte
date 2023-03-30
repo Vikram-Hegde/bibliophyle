@@ -12,6 +12,6 @@
 <style>
 	div {
 		position: absolute;
-		width: 100%;
+		inline-size: 100%;
 	}
 </style>

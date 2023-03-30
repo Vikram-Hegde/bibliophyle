@@ -20,8 +20,8 @@
 	img {
 		isolation: isolate;
 		z-index: -1;
-		width: auto;
-		height: calc(100% - 1rem);
+		inline-size: auto;
+		block-size: calc(100% - 1rem);
 		object-fit: cover;
 		position: absolute;
 		bottom: 0;

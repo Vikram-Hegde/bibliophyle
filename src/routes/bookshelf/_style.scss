@@ -80,12 +80,12 @@ main {
 	}
 
 	@media (max-width: 850px) {
-		height: calc(100vh + var(--nav));
+		block-size: calc(100vh + var(--nav));
 	}
 }
 
 label {
-	width: max-content;
+	inline-size: max-content;
 }
 
 .recommendation {
@@ -339,5 +339,5 @@ button:not(.filter, .dark-screen) {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	min-height: 2.25rem;
+	min-block-size: 2.25rem;
 }

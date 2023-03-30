@@ -34,7 +34,7 @@
 	p {
 		font-size: var(--fs-100);
 		line-height: 1.35;
-		width: min(35ch, 100%);
+		inline-size: min(35ch, 100%);
 		margin: 0 auto;
 	}
 
@@ -50,7 +50,6 @@
 		@extend %wrapper;
 		padding: 2rem 0 0 0;
 		display: grid;
-		height: calc(100vh - var(--nav) - 2px);
 		grid-template-rows: 1fr 1fr;
 		align-items: center;
 	}
@@ -60,14 +59,14 @@
 	}
 
 	picture {
-		height: min(340px, 100%);
+		block-size: min(340px, 100%);
 		margin: 0 auto;
 		align-self: end;
 	}
 
 	img {
 		display: block;
-		max-width: 100%;
+		max-inline-size: 100%;
 		border-radius: 3rem 3rem 0 0;
 		object-fit: cover;
 	}

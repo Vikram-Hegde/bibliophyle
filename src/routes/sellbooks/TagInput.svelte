@@ -48,14 +48,9 @@
 	}
 
 	button {
-		all: unset;
 		border-radius: 50%;
-		cursor: pointer;
 		block-size: 10px;
 		inline-size: 10px;
-		display: flex;
-		align-items: center;
-		line-height: 0;
 
 		&:focus-visible {
 			--offset: 1px;

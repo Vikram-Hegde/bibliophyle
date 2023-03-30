@@ -36,8 +36,8 @@
 			position: absolute;
 			bottom: -23px;
 			left: 2px;
-			width: 100%;
-			height: 3px;
+			inline-size: 100%;
+			block-size: 3px;
 			border-radius: 10px;
 			background-color: currentColor;
 			outline: 0;

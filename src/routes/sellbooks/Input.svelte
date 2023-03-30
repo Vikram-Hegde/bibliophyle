@@ -46,13 +46,14 @@
 		cursor: pointer;
 		transition: all 0.15s;
 		pointer-events: none;
+		border-radius: 20px;
 	}
 
 	textarea {
-		width: 100%;
+		inline-size: 100%;
 		resize: vertical;
 		border-radius: 0.3rem;
-		height: 100%;
+		block-size: 100%;
 		padding: 0.75rem 0.5rem;
 		outline: none;
 		border: none;

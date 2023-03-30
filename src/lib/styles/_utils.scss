@@ -1,17 +1,11 @@
-@mixin prefers-motion() {
-	@media (prefers-reduced-motion: no-preference) {
-		@content;
-	}
-}
-
-@mixin prefer-dark() {
-	@media (prefers-color-scheme: dark) {
-		@content;
-	}
-}
-
 @mixin touch-device {
 	@media (hover: none), (pointer: coarse) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (hover: hover), (pointer: fine) {
 		@content;
 	}
 }
@@ -30,25 +24,7 @@
 	align-items: center;
 }
 
-@mixin rounded($size) {
-	inline-size: #{$size};
-	block-size: #{$size};
-	border-radius: calc($size / 2);
-}
-
-@mixin map($prefix, $variable) {
-	@each $prop, $value in $variable {
-		#{$prefix}-#{$prop}: #{$value};
-	}
-}
-
-%list-reset {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
 %wrapper {
-	width: var(--width);
+	inline-size: var(--width);
 	margin-inline: auto;
 }

@@ -8,9 +8,11 @@
 
 <button role="tab" aria-label="Cart" on:click={() => dispatch('open')}>
 	<IconShoppingCart size={24} />
-	{#if $cartItems.length}
-		<span class="indicator">{$cartItems.length}</span>
-	{/if}
+	{#key $cartItems.length}
+		{#if $cartItems.length}
+			<span class="indicator">{$cartItems.length}</span>
+		{/if}
+	{/key}
 </button>
 
 <style lang="scss">
@@ -32,5 +34,15 @@
 		right: 0.25rem;
 		top: 0.25rem;
 		scale: 0.8;
+		animation: scale 350ms ease-in-out forwards;
+	}
+
+	@keyframes scale {
+		from {
+			scale: 1.25;
+		}
+		to {
+			scale: 0.8;
+		}
 	}
 </style>

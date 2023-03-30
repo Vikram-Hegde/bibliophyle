@@ -57,13 +57,15 @@
 			<h3>Total :</h3>
 			<span>₹{amount} /-</span>
 		</div>
-		<button class="order--btn" disabled={$cartItems.length ? false : true}
+		<button class="order--btn btn--primary" disabled={$cartItems.length ? false : true}
 			>Order {$cartItems.length > 1 ? 'Books' : 'Book'}</button
 		>
 	</div>
 {/if}
 
 <style lang="scss">
+	@use '../styles/utils' as *;
+
 	.cart {
 		&__container {
 			display: grid;
@@ -123,8 +125,8 @@
 	}
 
 	img {
-		height: clamp(4rem, 4vw + 1rem, 5.25rem);
-		width: auto;
+		block-size: clamp(4rem, 4vw + 1rem, 5.25rem);
+		inline-size: auto;
 		object-fit: cover;
 		border-radius: 6px;
 		flex-shrink: 0;
@@ -161,8 +163,10 @@
 		transition: background-color 150ms ease-in-out;
 		justify-content: center;
 
-		&:hover {
-			background-color: var(--purple-100);
+		@include desktop {
+			&:hover {
+				background-color: var(--purple-100);
+			}
 		}
 
 		&:disabled {

@@ -31,8 +31,8 @@
 	</button>
 	<section class="book__cover">
 		<img src={book.url} alt={book.title} />
-		<button on:click={() => addToCart(data.book)}>
-			<IconShoppingCartPlus size={20} /> Add To Cart
+		<button class="btn--primary" on:click|once={() => addToCart(data.book)}>
+			<IconShoppingCartPlus size={20} /> <span>Add To Cart</span>
 		</button>
 	</section>
 	<section class="book__info">
@@ -54,16 +54,16 @@
 		</div>
 	</section>
 	{#if relatedBooks.length}
-	<section class="book__recommendation">
-		<h2>Readers <i>would</i> recommend</h2>
-		<div class="books">
-			{#each relatedBooks as book}
-				<div class="book__wrapper">
-					<Book {book} link={book.id} />
-				</div>
-			{/each}
-		</div>
-	</section>
+		<section class="book__recommendation">
+			<h2>Readers <i>would</i> recommend</h2>
+			<div class="books">
+				{#each relatedBooks as book}
+					<div class="book__wrapper">
+						<Book {book} link={book.id} />
+					</div>
+				{/each}
+			</div>
+		</section>
 	{/if}
 	<section class="book__review">
 		<h2>Ratings <i>&</i> Reviews</h2>
@@ -84,4 +84,10 @@
 
 <style lang="scss">
 	@use './style';
+
+	span {
+		margin-block-start: 2px;
+		letter-spacing: 1px;
+		font-weight: bold;
+	}
 </style>

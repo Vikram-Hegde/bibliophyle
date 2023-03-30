@@ -22,7 +22,15 @@
 		transition: scale 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		user-select: none;
 
-		&:active {
+		&.btn--primary {
+			&:before {
+				display: none;
+			}
+
+			font-size: calc(var(--fs--100) - 0.1rem);
+		}
+
+		&:not(.dark-screen):active {
 			scale: 0.94;
 		}
 
@@ -139,5 +147,17 @@
 			background-color: hsl(var(--accent) 98% / 0);
 			pointer-events: none;
 		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		:focus-visible {
+			transition: outline-offset 145ms cubic-bezier(0.25, 0, 0.4, 1);
+		}
+		:where(:not(:active)):focus-visible {
+			transition-duration: 250ms;
+		}
+	}
+	:where(:not(:active)):focus-visible {
+		outline-offset: 2px;
 	}
 }

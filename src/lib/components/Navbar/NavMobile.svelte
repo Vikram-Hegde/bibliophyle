@@ -90,8 +90,8 @@
 	}
 
 	li {
-		width: 3rem;
-		height: 3rem;
+		inline-size: 3rem;
+		block-size: 3rem;
 		@include flex(center, center)
 	}
 

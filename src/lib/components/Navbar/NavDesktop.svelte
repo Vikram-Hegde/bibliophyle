@@ -70,7 +70,7 @@
 		grid-template-columns: repeat(3, 1fr);
 		justify-content: space-between;
 		align-items: center;
-		height: var(--nav);
+		block-size: var(--nav);
 
 		&__logo {
 			line-height: 0;
@@ -99,6 +99,7 @@
 		color: var(--background);
 		background-color: var(--purple);
 		border-radius: 6px;
+		font-size: calc(var(--fs--100) - 0.10rem);
 
 		&:focus-within {
 			outline: 2px solid var(--purple);

@@ -82,7 +82,7 @@
 	.hover-card {
 		position: absolute;
 		bottom: 0;
-		width: 320px;
+		inline-size: 320px;
 		z-index: 1;
 		background-color: hsl(34 98% 92%);
 		box-shadow: 0 20px 25px -5px hsl(34 30% 70% / 50%), 0 4px 6px -4px hsl(34 30% 70% / 50%);
@@ -91,7 +91,7 @@
 
 		&__content {
 			padding: 1rem;
-			max-width: 320px;
+			max-inline-size: 320px;
 			display: grid;
 			gap: 0.5rem;
 		}
