@@ -28,15 +28,23 @@
 	button {
 		background-color: var(--purple);
 		color: var(--background);
-		border: none;
 		border-radius: 0.25rem;
 		padding: 0.7rem 1rem;
-		cursor: pointer;
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		font-size: var(--fs--200);
+		justify-content: center;
+		font-weight: bold;
 	}
 
 	p {
 		margin-top: 1rem;
+	}
+
+	a {
+		color: hsl(34 90% 50%);
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}

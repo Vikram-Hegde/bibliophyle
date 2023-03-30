@@ -99,18 +99,18 @@
 			flex: 1;
 
 			button {
-				all: unset;
 				color: hsl(4, 100%, 50%);
 				block-size: 1.75rem;
 				inline-size: 1.75rem;
 				border-radius: 50%;
-				display: flex;
 				justify-content: center;
-				align-items: center;
-				cursor: pointer;
 
-				&:hover {
+				&:before {
 					background-color: hsl(4, 100%, 90%);
+				}
+
+				&:focus-visible {
+					outline: 2px solid hsl(4, 100%, 50%);
 				}
 			}
 		}
@@ -154,13 +154,12 @@
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		background-color: var(--purple);
-		border: none;
 		color: var(--background);
 		font-weight: bold;
 		line-height: 3;
 		border-radius: 6px;
-		cursor: pointer;
 		transition: background-color 150ms ease-in-out;
+		justify-content: center;
 
 		&:hover {
 			background-color: var(--purple-100);
@@ -173,14 +172,11 @@
 	}
 
 	.arrow-right {
-		all: unset;
-		cursor: pointer;
 		padding: 0.5rem;
-		display: flex;
 		border-radius: 6px;
 
-		&:hover {
-			background-color: var(--bg-btn);
+		&:focus-visible {
+			outline: 2px solid;
 		}
 	}
 </style>

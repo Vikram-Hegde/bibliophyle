@@ -15,16 +15,7 @@
 
 <style lang="scss">
 	button {
-		all: unset;
-		display: flex;
 		padding: 0.5rem;
-		border-radius: 50%;
-		cursor: pointer;
-		position: relative;
-
-		&:hover {
-			background-color: hsl(var(--accent) 92%);
-		}
 	}
 
 	span {

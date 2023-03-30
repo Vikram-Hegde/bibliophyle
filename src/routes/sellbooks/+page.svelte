@@ -97,16 +97,10 @@
 
 	.btn {
 		padding: 0.5rem 1rem;
-		border: none;
 		background-color: var(--bg);
-		font: inherit;
 		color: var(--color, inherit);
-		cursor: pointer;
 		border-radius: 6px;
-		display: flex;
-		align-items: center;
 		gap: 0.5rem;
-		line-height: 0;
 
 		&--primary {
 			--color: var(--background);

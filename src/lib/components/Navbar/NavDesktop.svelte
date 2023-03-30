@@ -99,19 +99,23 @@
 		color: var(--background);
 		background-color: var(--purple);
 		border-radius: 6px;
+
+		&:focus-within {
+			outline: 2px solid var(--purple);
+			outline-offset: 2px;
+		}
+
+		:global(a) {
+			outline: none;
+		}
 	}
 
 	.logout {
-		border-radius: 50%;
 		padding: 0.5rem;
 
 		:global(svg) {
 			inline-size: 1.5rem;
 			aspect-ratio: 1;
-		}
-
-		&:hover {
-			background-color: hsl(var(--accent) 92%);
 		}
 	}
 </style>

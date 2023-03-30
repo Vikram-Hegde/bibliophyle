@@ -15,16 +15,12 @@ img {
 }
 
 button {
-	all: unset;
-	display: flex;
-	align-items: center;
 	gap: 0.35rem;
 	text-transform: uppercase;
 	background-color: var(--purple);
 	color: var(--background);
 	padding: 0.5rem 1rem;
 	border-radius: 6px;
-	cursor: pointer;
 }
 
 .back {

@@ -226,7 +226,6 @@ form {
 	flex: 1;
 
 	&__btn {
-		display: flex;
 		gap: 0.35rem;
 
 		@media (min-width: 1030px) {
@@ -244,20 +243,22 @@ form {
 
 	.filter {
 		--size: 2.5rem;
-		display: flex;
-		align-items: center;
+		align-content: center;
 		justify-content: center;
-		block-size: var(--size);
 		inline-size: var(--size);
+		aspect-ratio: 1;
 		border-radius: 50%;
 		color: hsl(var(--accent) 20%);
 		border: 2px solid;
 		background-color: transparent;
-		cursor: pointer;
+
+		&:before {
+			background-color: hsl(var(--accent) 20%);
+			border-radius: inherit;
+		}
 
 		&:hover {
 			border-color: transparent;
-			background-color:  hsl(var(--accent) 20%);
 			color: var(--background);
 		}
 	}
@@ -322,16 +323,11 @@ form {
 }
 
 button:not(.filter, .dark-screen) {
-	all: unset;
-	display: flex;
-	align-items: center;
-	gap: 0.25rem;
 	padding: 0.5rem;
-	cursor: pointer;
 	border-radius: 6px;
 
 	&:focus-visible {
-		outline: 2px solid var(--purple);
+		outline-color: var(--purple);
 	}
 
 	&:hover {

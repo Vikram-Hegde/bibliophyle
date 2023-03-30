@@ -48,12 +48,8 @@
 
 <style lang="scss">
 	button {
-		background-color: hsl(var(--accent) 88%);
 		color: inherit;
 		padding: 0.5rem;
-		border: none;
-		cursor: pointer;
-		display: flex;
 		border-radius: 6px;
 	}
 
