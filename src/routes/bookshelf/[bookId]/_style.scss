@@ -8,6 +8,10 @@ main {
 	}
 }
 
+.added-to-cart {
+	--bg: var(--purple-100);
+}
+
 img {
 	display: block;
 	max-inline-size: 174px;
@@ -137,7 +141,7 @@ button {
 		gap: 0.5rem;
 		grid-area: recommendation;
 		.books {
-			--min-width: 120px;
+			--min-width: 110px;
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(var(--min-width), 1fr));
 			gap: clamp(0.5rem, 4vw + 1rem, 0.75rem);

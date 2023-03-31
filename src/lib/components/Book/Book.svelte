@@ -2,6 +2,7 @@
 	import { IconShoppingCartPlus } from '@tabler/icons-svelte';
 	import HoverCard from './HoverCard.svelte';
 	import { addToCart } from '$lib/utils/cartStore';
+	import { draw, fade } from 'svelte/transition';
 
 	export let book;
 	export let link = `bookshelf/${book.id}`;
@@ -13,6 +14,7 @@
 	});
 	let hovered = 0;
 	let card = null;
+	let added = false;
 
 	function onHover() {
 		hovered = 1;
@@ -38,7 +40,36 @@
 			<p class="book__price">₹{book.price}</p>
 		</div>
 		{#if !mobile.matches}
-			<button on:click={() => addToCart(book)}><IconShoppingCartPlus size={20} /></button>
+			<button
+				on:click|once={() => {
+					addToCart(book);
+					added = true;
+					setTimeout(() => {
+						added = false;
+					}, 900);
+				}}
+			>
+				{#if added}
+					<div class="added-to-cart" role="presentation" out:fade={{duration: 100}}>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							fill="none"
+							stroke="currentColor"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							class="icon icon-tabler icon-tabler-check"
+							><path in:draw={{ duration: 100 }} stroke="none" d="M0 0h24v24H0z" /><path
+								in:draw={{ duration: 150, delay: 100 }}
+								d="m5 12 5 5L20 7"
+							/></svg
+						>
+					</div>
+				{/if}
+				<IconShoppingCartPlus size={20} />
+			</button>
 		{/if}
 	</div>
 </div>

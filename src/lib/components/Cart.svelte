@@ -4,9 +4,16 @@
 	import { createEventDispatcher } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
+	import { tweened } from 'svelte/motion';
+	import { quintOut } from 'svelte/easing';
+
 	export let cartVisible;
 
-	$: amount = $cartItems.reduce((acc, item) => {
+	let totalAmt = tweened(0, {
+		duration: 150,
+		easing: quintOut
+	});
+	$: $totalAmt = $cartItems.reduce((acc, item) => {
 		return acc + item.price;
 	}, 0);
 
@@ -55,7 +62,7 @@
 		</div>
 		<div class="total">
 			<h3>Total :</h3>
-			<span>₹{amount} /-</span>
+			<span>₹{Math.ceil($totalAmt)} /-</span>
 		</div>
 		<button class="order--btn btn--primary" disabled={$cartItems.length ? false : true}
 			>Order {$cartItems.length > 1 ? 'Books' : 'Book'}</button

@@ -5,6 +5,7 @@
 	import { IconFilter, IconFilterOff } from '@tabler/icons-svelte';
 	import { flip } from 'svelte/animate';
 	import { books as uploadedBooks } from '$lib/utils/uploadedBooks.js';
+	import { fade } from 'svelte/transition';
 
 	const totalBooks = [...bookData, ...$uploadedBooks];
 	let books = totalBooks;
@@ -72,7 +73,12 @@
 			<div class="wrapper">
 				<h2>Filter by</h2>
 				{#if filter.length}
-					<button aria-label="Clear Filters" on:click={() => (filter = [])} title="Clear Filters">
+					<button
+						transition:fade={{ duration: 100 }}
+						aria-label="Clear Filters"
+						on:click={() => (filter = [])}
+						title="Clear Filters"
+					>
 						<IconFilterOff size={20} />
 					</button>
 				{/if}

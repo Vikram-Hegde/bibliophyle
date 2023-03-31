@@ -10,7 +10,7 @@ main {
 }
 
 .bookshelf {
-	--min-width: 120px;
+	--min-width: 110px;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(var(--min-width), 1fr));
 	gap: clamp(0.5rem, 4vw - 1rem, 1rem);

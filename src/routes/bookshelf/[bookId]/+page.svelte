@@ -4,12 +4,14 @@
 	import { IconArrowLeft, IconShoppingCartPlus } from '@tabler/icons-svelte';
 	import commentsJson from '$lib/comments.json';
 	import { addToCart } from '$lib/utils/cartStore';
+	import { fade, draw } from 'svelte/transition';
 
 	/** @type {import('./$types').PageData}*/
 	export let data;
 
 	const { book } = data;
 	const { relatedBooks } = data;
+	let added = false;
 
 	function shuffleArray(array) {
 		for (let i = array.length - 1; i > 0; i--) {
@@ -31,7 +33,35 @@
 	</button>
 	<section class="book__cover">
 		<img src={book.url} alt={book.title} />
-		<button class="btn--primary" on:click|once={() => addToCart(data.book)}>
+		<button
+			class="btn--primary"
+			on:click|once={() => {
+				addToCart(data.book);
+				added = true;
+				setTimeout(() => {
+					added = false;
+				}, 900);
+			}}
+		>
+			{#if added}
+				<div class="added-to-cart" out:fade={{ duration: 100 }}>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						fill="none"
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						class="icon icon-tabler icon-tabler-check"
+						><path in:draw={{ duration: 100 }} stroke="none" d="M0 0h24v24H0z" /><path
+							in:draw={{ duration: 150, delay: 100 }}
+							d="m5 12 5 5L20 7"
+						/></svg
+					>
+				</div>
+			{/if}
 			<IconShoppingCartPlus size={20} /> <span>Add To Cart</span>
 		</button>
 	</section>

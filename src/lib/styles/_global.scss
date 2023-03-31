@@ -35,22 +35,33 @@
 			scale: 0.94;
 		}
 
-		&:before {
-			position: absolute;
-			z-index: -1;
-			content: '';
-			display: block;
-			inset: 0;
-			background-color: var(--bg-btn);
-			border-radius: 6px;
-			scale: 0.5;
-			opacity: 0;
-			transition: inherit;
+		@include desktop {
+			&:before {
+				position: absolute;
+				z-index: -1;
+				content: '';
+				display: block;
+				inset: 0;
+				background-color: var(--bg-btn);
+				border-radius: 6px;
+				scale: 0.5;
+				opacity: 0;
+				transition: inherit;
+			}
+
+			&:hover:before {
+				scale: 1;
+				opacity: 1;
+			}
 		}
 
-		&:hover:before {
-			scale: 1;
-			opacity: 1;
+		.added-to-cart {
+			position: absolute;
+			inset: 0;
+			background-color: var(--bg, hsl(var(--accent) 88%));
+			@extend %items-center;
+			justify-content: center;
+			border-radius: inherit;
 		}
 	}
 
