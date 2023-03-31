@@ -39,25 +39,22 @@
 </div>
 
 <style lang="scss">
+	@use '../styles/utils' as *;
+
 	label {
 		display: block;
 		margin-bottom: 0.25rem;
 	}
 	.icon {
-		display: inline-block;
-	}
-	.icon {
 		background-color: hsl(34 61% 89%);
 		block-size: 2.75rem;
 		inline-size: 3rem;
-		display: flex;
+		@extend %items-center;
 		justify-content: center;
-		align-items: center;
 		border-radius: 0.3rem 0 0 0.3rem;
 	}
 	.input {
-		display: flex;
-		align-items: center;
+		@extend %items-center;
 		block-size: 2.75rem;
 		border-radius: 0.3rem;
 

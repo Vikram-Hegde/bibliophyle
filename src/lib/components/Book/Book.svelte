@@ -47,6 +47,7 @@
 {/if}
 
 <style lang="scss">
+	@use '../../styles/utils' as *;
 	button {
 		color: inherit;
 		padding: 0.5rem;
@@ -81,10 +82,9 @@
 		}
 
 		&__details {
-			align-items: center;
+			@extend %items-center;
 			padding: 0.35rem;
 			align-self: end;
-			display: flex;
 			justify-content: space-between;
 		}
 

@@ -78,8 +78,7 @@
 		}
 
 		&__list {
-			display: flex;
-			align-items: center;
+			@extend %items-center;
 			justify-content: center;
 			gap: 0.5rem;
 			list-style: none;

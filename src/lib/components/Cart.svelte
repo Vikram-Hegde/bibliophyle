@@ -91,8 +91,7 @@
 		}
 
 		&__item {
-			display: flex;
-			align-items: center;
+			@extend %items-center;
 			inline-size: 100%;
 			gap: 0.5rem;
 		}
@@ -119,9 +118,8 @@
 	}
 
 	.wrapper {
-		display: flex;
+		@extend %items-center;
 		justify-content: space-between;
-		align-items: center;
 	}
 
 	img {
@@ -142,9 +140,8 @@
 	}
 
 	.total {
-		display: flex;
+		@extend %items-center;
 		justify-content: space-between;
-		align-items: center;
 
 		span {
 			font-weight: bold;

@@ -41,6 +41,8 @@
 {/if}
 
 <style lang="scss">
+	@use '../../lib/styles/utils' as *;
+
 	.tags {
 		display: flex;
 		gap: 0.5rem;
@@ -59,8 +61,7 @@
 	}
 
 	.tag {
-		display: flex;
-		align-items: center;
+		@extend %items-center;
 		padding: 0.25rem;
 		gap: 0.35rem;
 		background-color: hsl(var(--accent) 91%);

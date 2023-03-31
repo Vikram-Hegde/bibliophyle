@@ -16,6 +16,8 @@
 </button>
 
 <style lang="scss">
+	@use '../styles/utils' as *;
+
 	button {
 		padding: 0.5rem;
 	}
@@ -26,8 +28,7 @@
 		min-block-size: 1rem;
 		min-inline-size: 1rem;
 		border-radius: 10rem;
-		display: flex;
-		align-items: center;
+		@extend %items-center;
 		justify-content: center;
 		position: absolute;
 		font-weight: bold;

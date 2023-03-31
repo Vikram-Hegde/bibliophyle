@@ -11,22 +11,22 @@
 </a>
 
 <style lang="scss">
+	@use '../../styles/utils' as *;
 	a {
 		color: inherit;
 		text-decoration: none;
-		display: flex;
-		align-items: center;
+		@extend %items-center;
 		gap: 0.25rem;
 		text-transform: uppercase;
 		position: relative;
 
 		&:not(:is(.active, .sellbooks a)):hover {
-			color: hsl(34 98% 38%);
+			color: hsl(var(--accent) 38%);
 		}
 	}
 
 	:not(.sellbooks a).active {
-		color: hsl(34 100% 35%);
+		color: hsl(var(--accent) 35%);
 	}
 
 	@media (min-width: 850px) {

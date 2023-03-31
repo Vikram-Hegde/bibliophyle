@@ -33,9 +33,10 @@
 </div>
 
 <style lang="scss">
+	@use '../../lib/styles/utils' as *;
+
 	label {
-		display: flex;
-		align-items: center;
+		@extend %items-center;
 		inline-size: 100%;
 	}
 

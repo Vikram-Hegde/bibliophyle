@@ -21,6 +21,10 @@ button {
 	color: var(--background);
 	padding: 0.5rem 1rem;
 	border-radius: 6px;
+
+	&:hover {
+		background-color: var(--purple-100);
+	}
 }
 
 .back {
@@ -57,8 +61,6 @@ button {
 
 	@media (min-width: 860px) {
 		gap: 2.25rem;
-		// very doubtful which would be better
-		// align-items: start;
 		grid-template-areas:
 			'cover info info'
 			'. recommendation recommendation'
@@ -79,9 +81,8 @@ button {
 	}
 
 	&__genre {
-		display: flex;
+		@extend %items-center;
 		gap: 0.75rem;
-		align-items: center;
 		flex-wrap: wrap;
 	}
 
@@ -92,9 +93,8 @@ button {
 	}
 
 	&__rating {
-		display: flex;
+		@extend %items-center;
 		gap: 0.5rem;
-		align-items: center;
 
 		h2 {
 			line-height: 0;
@@ -117,8 +117,7 @@ button {
 	}
 
 	&__cover {
-		display: flex;
-		align-items: center;
+		@extend %items-center;
 		flex-direction: column;
 		gap: 0.5rem;
 		grid-area: cover;

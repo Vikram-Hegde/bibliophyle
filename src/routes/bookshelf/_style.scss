@@ -212,9 +212,8 @@ form {
 // action buttons
 
 .actions {
-	display: flex;
+	@extend %items-center;
 	gap: 0.75rem;
-	align-items: center;
 
 	form {
 		flex-grow: 1;
@@ -280,9 +279,8 @@ form {
 		inline-size: 20px;
 		background-color: transparent;
 		border: 1px solid;
-		display: flex;
+		@extend %items-center;
 		justify-content: center;
-		align-items: center;
 		border-radius: 50%;
 	}
 
@@ -336,8 +334,7 @@ button:not(.filter, .dark-screen) {
 }
 
 .wrapper {
-	display: flex;
+	@extend %items-center;
 	justify-content: space-between;
-	align-items: center;
 	min-block-size: 2.25rem;
 }

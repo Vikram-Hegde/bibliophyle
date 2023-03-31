@@ -65,9 +65,8 @@
 
 	header {
 		@extend %wrapper;
-		display: flex;
+		@extend %items-center;
 		min-height: var(--nav);
-		align-items: center;
 	}
 
 	nav {
@@ -87,6 +86,12 @@
 		@extend %items-center;
 		line-height: 0;
 		list-style: none;
+
+		:global(> :last-child) {
+			&:before {
+				border-radius: 50%;
+			}
+		}
 	}
 
 	li {
