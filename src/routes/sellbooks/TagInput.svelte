@@ -1,5 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import { flip } from 'svelte/animate';
 	import Input from './Input.svelte';
 
 	let input;
@@ -8,7 +9,7 @@
 	let dispatch = createEventDispatcher();
 
 	function handleInput(e) {
-		if (e.code === 'Comma') {
+		if (e.code === 'Enter') {
 			input = input.charAt(0).toUpperCase() + input.slice(1);
 			tags = [...tags, input];
 			input = '';
@@ -25,14 +26,14 @@
 
 <Input
 	type="tag"
-	placeholder="Book Genre(separated by comma)"
+	placeholder="Book Genre(hit enter to add)"
 	bind:value={input}
 	onKeyUp={handleInput}
 />
 {#if tags.length}
 	<div class="tags">
-		{#each tags as tag}
-			<span class="tag">
+		{#each tags as tag (tag)}
+			<span class="tag" animate:flip={{ duration: 150 }}>
 				{tag}
 				<button type="button" class="close" on:click={() => removeTag(tag)}>&times;</button>
 			</span>

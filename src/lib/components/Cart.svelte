@@ -34,8 +34,6 @@
 	<div
 		class="cart__container"
 		transition:fly={{ x: 250, duration: 250 }}
-		in={{ duration: 250, x: 0 }}
-		out={{ duration: 200, x: 250 }}
 	>
 		<div class="wrapper">
 			<h3>Cart</h3>

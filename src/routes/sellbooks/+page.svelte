@@ -71,7 +71,9 @@
 		<Input type="textarea" placeholder="Book Description" bind:value={description} />
 		<div class="row btn-row">
 			<button class="btn btn--secondary" type="reset"><IconArrowBackUp size={20} /> Reset</button>
-			<button class="btn btn--primary" on:click={handleNewBook}>Submit <IconArrowRight size={20} /></button>
+			<button type="button" class="btn btn--primary" on:click={handleNewBook}
+				>Submit <IconArrowRight size={20} /></button
+			>
 		</div>
 	</form>
 </main>

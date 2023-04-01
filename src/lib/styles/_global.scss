@@ -172,4 +172,10 @@
 	:where(:not(:active)):focus-visible {
 		outline-offset: 2px;
 	}
+
+	@include touch-device {
+		body:has(.dark-screen[data-state='open']) {
+			overflow: hidden;
+		}
+	}
 }
