@@ -8,7 +8,10 @@
 	} from '@tabler/icons-svelte';
 	import NavItem from './NavItem.svelte';
 	import { isLoggedIn } from '$lib/utils/authStore';
+	import { fly } from 'svelte/transition';
 	import ButtonIndicator from '../ButtonIndicator.svelte';
+
+	export let pathname;
 </script>
 
 <header class="nav-mobile">
@@ -20,6 +23,15 @@
 			/>
 		</svg>
 	</a>
+	{#key pathname}
+		<h2
+			class="page-title"
+			in:fly={{ y: 5, duration: 150, delay: 150 }}
+			out:fly={{ y: -5, duration: 150 }}
+		>
+			{pathname.slice(1) ? pathname.slice(1) : 'Home'}
+		</h2>
+	{/key}
 </header>
 <nav class="nav-mobile">
 	<ul role="tablist">
@@ -66,7 +78,13 @@
 	header {
 		@extend %wrapper;
 		@extend %items-center;
-		min-height: var(--nav);
+		gap: 0.5rem;
+		min-block-size: var(--nav);
+	}
+
+	.page-title {
+		text-transform: capitalize;
+		margin-block-start: 2px;
 	}
 
 	nav {
@@ -97,7 +115,7 @@
 	li {
 		inline-size: 3rem;
 		block-size: 3rem;
-		@include flex(center, center)
+		@include flex(center, center);
 	}
 
 	a {

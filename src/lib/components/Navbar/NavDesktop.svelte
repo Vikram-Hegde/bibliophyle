@@ -98,7 +98,7 @@
 		color: var(--background);
 		background-color: var(--purple);
 		border-radius: 6px;
-		font-size: calc(var(--fs--100) - 0.10rem);
+		font-size: calc(var(--fs--100) - 0.1rem);
 
 		&:focus-within {
 			outline: 2px solid var(--purple);
@@ -107,6 +107,7 @@
 
 		:global(a) {
 			outline: none;
+			margin-block-start: 2px;
 		}
 	}
 

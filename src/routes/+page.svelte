@@ -48,7 +48,6 @@
 
 	main {
 		@extend %wrapper;
-		padding: 2rem 0 0 0;
 		display: grid;
 		grid-template-rows: 1fr 1fr;
 		align-items: center;

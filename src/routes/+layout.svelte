@@ -4,14 +4,13 @@
 	import NavMobile from '$lib/components/Navbar/NavMobile.svelte';
 	import Cart from '$lib/components/Cart.svelte';
 
-	/** @type {import('./$types').PageData}*/
 	export let data;
 
 	let cartVisible = false;
 </script>
 
 <NavDesktop on:open={() => (cartVisible = true)} />
-<NavMobile on:open={() => (cartVisible = true)} />
+<NavMobile pathname={data.pathname} on:open={() => (cartVisible = true)} />
 
 <PageTransition pathname={data.pathname}>
 	<slot />

@@ -327,10 +327,6 @@ button:not(.filter, .dark-screen) {
 	&:focus-visible {
 		outline-color: var(--purple);
 	}
-
-	&:hover {
-		background-color: hsl(var(--accent) 89%);
-	}
 }
 
 .wrapper {
