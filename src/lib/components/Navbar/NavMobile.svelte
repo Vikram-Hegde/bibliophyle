@@ -29,7 +29,11 @@
 			in:fly={{ y: 5, duration: 150, delay: 150 }}
 			out:fly={{ y: -5, duration: 150 }}
 		>
-			{pathname.slice(1) ? pathname.slice(1) : 'Home'}
+			{#if pathname.slice(1).match(/^[^/]+/)}
+				{pathname.slice(1).match(/^[^/]+/)[0]}
+			{:else}
+				Home
+			{/if}
 		</h2>
 	{/key}
 </header>
