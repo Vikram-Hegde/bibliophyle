@@ -15,6 +15,7 @@
 	let hovered = 0;
 	let card = null;
 	let added = false;
+	let splash = false;
 
 	function onHover() {
 		hovered = 1;
@@ -27,8 +28,19 @@
 	}
 </script>
 
+{#if splash}
+	<div class="splash" />
+{/if}
+
 <div class="book" on:mouseenter={onHover} on:mouseleave={onLeave}>
-	<a href={link} on:focus={onHover} on:blur={onLeave}>
+	<a
+		on:click={() => {
+			splash = true;
+		}}
+		href={link}
+		on:focus={onHover}
+		on:blur={onLeave}
+	>
 		<img src={book.url} alt={book.title} />
 	</a>
 	<div class="book__details">
@@ -125,5 +137,12 @@
 				font-size: calc(var(--fs-100) + 0.25rem);
 			}
 		}
+	}
+
+	.splash {
+		position: fixed;
+		inset: 0;
+		background-color: var(--background);
+		z-index: 3;
 	}
 </style>

@@ -11,6 +11,8 @@
 	import { fly } from 'svelte/transition';
 	import ButtonIndicator from '../ButtonIndicator.svelte';
 
+	let duration = 150;
+
 	export let pathname;
 </script>
 
@@ -26,8 +28,7 @@
 	{#key pathname}
 		<h2
 			class="page-title"
-			in:fly={{ y: 5, duration: 150, delay: 150 }}
-			out:fly={{ y: -5, duration: 150 }}
+			in:fly={{ y: 5, duration, delay: duration }}
 		>
 			{#if pathname.slice(1).match(/^[^/]+/)}
 				{pathname.slice(1).match(/^[^/]+/)[0]}

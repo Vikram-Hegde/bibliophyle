@@ -5,6 +5,7 @@
 	import commentsJson from '$lib/comments.json';
 	import { addToCart } from '$lib/utils/cartStore';
 	import { fade, draw } from 'svelte/transition';
+	import { onMount, onDestroy } from 'svelte';
 
 	/** @type {import('./$types').PageData}*/
 	export let data;
@@ -21,6 +22,20 @@
 	}
 
 	shuffleArray(commentsJson);
+
+	let splash = false;
+
+	function addSplash() {
+		splash = true;
+	}
+
+	onMount(() => {
+		window.addEventListener('popstate', addSplash);
+	});
+	onDestroy(() => {
+		window.removeEventListener('popstate', addSplash);
+		splash = false;
+	});
 </script>
 
 <svelte:head>
@@ -28,7 +43,16 @@
 </svelte:head>
 
 <main class="book">
-	<button class="back" on:click={() => history.go(-1)}>
+	{#if splash}
+		<div class="splash" />
+	{/if}
+	<button
+		class="back"
+		on:click={() => {
+			history.go(-1);
+			splash = true;
+		}}
+	>
 		<IconArrowLeft size={24} />
 	</button>
 	<section class="book__cover">
@@ -119,5 +143,12 @@
 		margin-block-start: 2px;
 		letter-spacing: 1px;
 		font-weight: bold;
+	}
+
+	.splash {
+		position: fixed;
+		inset: 0;
+		background-color: var(--background);
+		z-index: 3;
 	}
 </style>

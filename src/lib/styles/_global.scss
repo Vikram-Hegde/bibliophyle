@@ -11,13 +11,6 @@
 		-webkit-tap-highlight-color: transparent;
 	}
 
-	@include desktop {
-		html,
-		body {
-			scroll-behavior: smooth;
-		}
-	}
-
 	button {
 		all: unset;
 		display: flex;
