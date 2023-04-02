@@ -11,9 +11,11 @@
 		-webkit-tap-highlight-color: transparent;
 	}
 
-	html,
-	body {
-		scroll-behavior: smooth;
+	@include desktop {
+		html,
+		body {
+			scroll-behavior: smooth;
+		}
 	}
 
 	button {
