@@ -18,6 +18,7 @@
 	}, 0);
 
 	const dispatch = createEventDispatcher();
+	let added = false;
 
 	const removeFromCart = (id) => {
 		$cartItems = $cartItems.filter((item) => item.id != id);
@@ -31,10 +32,7 @@
 		data-state="open"
 		on:click={() => dispatch('close')}
 	/>
-	<div
-		class="cart__container"
-		transition:fly={{ x: 250, duration: 250 }}
-	>
+	<div class="cart__container" transition:fly={{ x: 250, duration: 250 }}>
 		<div class="wrapper">
 			<h3>Cart</h3>
 			<button class="arrow-right" aria-label="Close Cart Menu" on:click={() => dispatch('close')}>
@@ -62,9 +60,47 @@
 			<h3>Total :</h3>
 			<span>₹{Math.ceil($totalAmt)} /-</span>
 		</div>
-		<button class="order--btn btn--primary" disabled={$cartItems.length ? false : true}
-			>Order {$cartItems.length > 1 ? 'Books' : 'Book'}</button
+		<button
+			class="order--btn btn--primary"
+			disabled={$cartItems.length ? false : true}
+			on:click={() => {
+				added = true;
+				setTimeout(() => {
+					added = false;
+				}, 1500);
+			}}
 		>
+			{#if added}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					width="40px"
+					height="40px"
+					viewBox="0 0 100 100"
+					preserveAspectRatio="xMidYMid"
+				>
+					<circle
+						cx="50"
+						cy="50"
+						fill="none"
+						stroke="var(--background)"
+						stroke-width="4"
+						r="20"
+						stroke-dasharray="94.24777960769379 33.41592653589793"
+					>
+						<animateTransform
+							attributeName="transform"
+							type="rotate"
+							repeatCount="indefinite"
+							dur="1s"
+							values="0 50 50;360 50 50"
+							keyTimes="0;1"
+						/>
+					</circle>
+				</svg>
+			{/if}
+			Order {$cartItems.length > 1 ? 'Books' : 'Book'}
+		</button>
 	</div>
 {/if}
 

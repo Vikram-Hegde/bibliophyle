@@ -11,6 +11,11 @@
 		-webkit-tap-highlight-color: transparent;
 	}
 
+	html,
+	body {
+		scroll-behavior: smooth;
+	}
+
 	button {
 		all: unset;
 		display: flex;
@@ -81,6 +86,20 @@
 		color: var(--text);
 		background-color: var(--background);
 		overflow-x: hidden;
+
+		@media (hover: hover), (pointer: fine) {
+			&::-webkit-scrollbar {
+				inline-size: 0.65rem;
+			}
+
+			&::-webkit-scrollbar-track {
+				background-color: hsl(var(--accent) 92%);
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background-color: hsl(var(--accent) 30%);
+			}
+		}
 	}
 
 	.nav-desktop {

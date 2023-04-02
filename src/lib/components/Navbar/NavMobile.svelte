@@ -55,7 +55,6 @@
 					<IconBuildingStore slot="icon" size={24} />
 				</NavItem>
 			</li>
-
 			<li role="tab">
 				<button
 					title="Logout"

@@ -22,7 +22,7 @@
 		{#if type === 'number'}
 			<input use:typeAction required bind:value placeholder=" " {max} {min} step="0.1" />
 		{:else if type === 'tag'}
-			<input type="text" bind:value placeholder=" " on:keypress={handleInputKeyUp} />
+			<input type="text" bind:value placeholder=" " on:keyup={handleInputKeyUp} />
 		{:else if type === 'textarea'}
 			<textarea required on:input={handleTextArea} placeholder=" " />
 		{:else if type === 'url'}

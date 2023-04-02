@@ -80,7 +80,7 @@ main {
 	}
 
 	@media (max-width: 850px) {
-		block-size: calc(100vh + var(--nav));
+		min-block-size: calc(100vh + var(--nav));
 	}
 }
 
