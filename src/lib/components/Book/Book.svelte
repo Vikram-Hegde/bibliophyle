@@ -141,8 +141,8 @@
 
 	.splash {
 		position: fixed;
-		inset: 0;
 		background-color: var(--background);
 		z-index: 3;
+		inset: 0;
 	}
 </style>

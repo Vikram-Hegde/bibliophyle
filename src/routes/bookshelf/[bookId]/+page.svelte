@@ -27,14 +27,15 @@
 
 	function addSplash() {
 		splash = true;
+		window.scrollTo(0, 0);
 	}
 
 	onMount(() => {
 		window.addEventListener('popstate', addSplash);
 	});
+
 	onDestroy(() => {
 		window.removeEventListener('popstate', addSplash);
-		splash = false;
 	});
 </script>
 
@@ -46,15 +47,15 @@
 	{#if splash}
 		<div class="splash" />
 	{/if}
-	<button
+	<a
 		class="back"
 		on:click={() => {
-			history.go(-1);
 			splash = true;
 		}}
+		href={'/bookshelf'}
 	>
 		<IconArrowLeft size={24} />
-	</button>
+	</a>
 	<section class="book__cover">
 		<img src={book.url} alt={book.title} />
 		<button
@@ -147,8 +148,9 @@
 
 	.splash {
 		position: fixed;
-		inset: 0;
 		background-color: var(--background);
-		z-index: 3;
+		z-index: 10;
+		block-size: calc(100vh - var(--nav) - 2px);
+		inset: 0;
 	}
 </style>
