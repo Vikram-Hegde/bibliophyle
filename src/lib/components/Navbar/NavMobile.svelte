@@ -10,6 +10,7 @@
 	import { isLoggedIn } from '$lib/utils/authStore';
 	import { fly } from 'svelte/transition';
 	import ButtonIndicator from '../ButtonIndicator.svelte';
+	import toast from 'svelte-french-toast';
 
 	let duration = 150;
 
@@ -26,10 +27,7 @@
 		</svg>
 	</a>
 	{#key pathname}
-		<h2
-			class="page-title"
-			in:fly={{ y: 5, duration, delay: duration }}
-		>
+		<h2 class="page-title" in:fly={{ y: 5, duration, delay: duration }}>
 			{#if pathname.slice(1).match(/^[^/]+/)}
 				{pathname.slice(1).match(/^[^/]+/)[0]}
 			{:else}
@@ -60,7 +58,10 @@
 				<button
 					title="Logout"
 					class="logout"
-					on:click={() => isLoggedIn.set(false)}
+					on:click={() => {
+						isLoggedIn.set(false);
+						toast.success('Successfully Logged out');
+					}}
 					aria-label="Logout"><IconLogout size={24} /></button
 				>
 			</li>

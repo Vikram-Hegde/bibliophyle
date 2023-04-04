@@ -9,12 +9,14 @@ specifiers:
   sass: ^1.58.0
   svelte: ^3.54.0
   svelte-check: ^3.0.1
+  svelte-french-toast: 1.0.4-beta.0
   svelte-preprocess: ^5.0.1
   typescript: ^4.9.3
   vite: ^4.0.0
 
 dependencies:
   '@tabler/icons-svelte': 2.3.0_svelte@3.55.1
+  svelte-french-toast: 1.0.4-beta.0_svelte@3.55.1
 
 devDependencies:
   '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.3
@@ -908,6 +910,15 @@ packages:
       - sugarss
     dev: true
 
+  /svelte-french-toast/1.0.4-beta.0_svelte@3.55.1:
+    resolution: {integrity: sha512-PkYNukEQAPZyV5ei+JzeYEsbaXFSbJS8/SDTdC8giYa5Atxp2SRepFnPDWx6mu7rV53g886FNLktPMLwRljkpw==}
+    peerDependencies:
+      svelte: ^3.57.0
+    dependencies:
+      svelte: 3.55.1
+      svelte-writable-derived: 3.0.1_svelte@3.55.1
+    dev: false
+
   /svelte-hmr/0.15.1_svelte@3.55.1:
     resolution: {integrity: sha512-BiKB4RZ8YSwRKCNVdNxK/GfY+r4Kjgp9jCLEy0DuqAKfmQtpL38cQK3afdpjw4sqSs4PLi3jIPJIFp259NkZtA==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
@@ -965,6 +976,14 @@ packages:
       svelte: 3.55.1
       typescript: 4.9.5
     dev: true
+
+  /svelte-writable-derived/3.0.1_svelte@3.55.1:
+    resolution: {integrity: sha512-zBWCS5c3MA9o4NT/UJHP3KoPOhtmH2ZQ/QRK31w9LzLdPP7MNncUcBGIu4iH2RVt17iRfR6agm7nEqwNvsYuMw==}
+    peerDependencies:
+      svelte: ^3.2.1
+    dependencies:
+      svelte: 3.55.1
+    dev: false
 
   /svelte/3.55.1:
     resolution: {integrity: sha512-S+87/P0Ve67HxKkEV23iCdAh/SX1xiSfjF1HOglno/YTbSTW7RniICMCofWGdJJbdjw3S+0PfFb1JtGfTXE0oQ==}

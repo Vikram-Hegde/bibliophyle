@@ -15,13 +15,14 @@
 		@extend %wrapper;
 		display: grid;
 		place-items: center;
+		position: relative;
 	}
 
 	img {
 		isolation: isolate;
 		z-index: -1;
 		inline-size: auto;
-		block-size: calc(100% - 1rem);
+		block-size: 100%;
 		object-fit: cover;
 		position: absolute;
 		bottom: 0;

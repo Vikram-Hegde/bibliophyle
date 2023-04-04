@@ -10,6 +10,7 @@
 	import NavItem from './NavItem.svelte';
 	import { isLoggedIn } from '$lib/utils/authStore';
 	import ButtonIndicator from '../ButtonIndicator.svelte';
+	import toast from 'svelte-french-toast';
 </script>
 
 <nav class="nav-desktop">
@@ -41,7 +42,14 @@
 				</NavItem>
 			</li>
 			<li role="tab">
-				<button title="Logout" class="logout" on:click={() => isLoggedIn.set(false)}>
+				<button
+					title="Logout"
+					class="logout"
+					on:click={() => {
+						isLoggedIn.set(false);
+						toast.success('Successfully Logged out');
+					}}
+				>
 					<IconLogout size={22} />
 				</button>
 			</li>
