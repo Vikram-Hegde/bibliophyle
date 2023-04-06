@@ -24,12 +24,21 @@
 	};
 </script>
 
-<Input
-	type="tag"
-	placeholder="Book Genre(hit enter to add)"
-	bind:value={input}
-	onKeyUp={handleInput}
-/>
+<div class="row">
+	<Input
+		type="tag"
+		placeholder="Book Genre(hit enter/+ to add)"
+		bind:value={input}
+		onKeyUp={handleInput}
+	/>
+	<button type="button" class="btn add-tag" on:click={() => {
+		input = input.charAt(0).toUpperCase() + input.slice(1);
+		tags = [...tags, input];
+		input = '';
+		dispatch('newtag', tags);
+	}}
+	>+</button>
+</div>
 {#if tags.length}
 	<div class="tags">
 		{#each tags as tag (tag)}
@@ -50,7 +59,7 @@
 		flex-wrap: wrap;
 	}
 
-	button {
+	button:not(.add-tag) {
 		border-radius: 50%;
 		block-size: 10px;
 		inline-size: 10px;
@@ -67,5 +76,22 @@
 		gap: 0.35rem;
 		background-color: hsl(var(--accent) 91%);
 		border-radius: 6px;
+	}
+
+	.row {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.btn {
+		padding: 0.5rem 1rem;
+		background-color: var(--bg);
+		color: var(--color, inherit);
+		border-radius: 6px;
+	}
+
+	.add-tag {
+		background-color: hsl(var(--accent) 90%);
+		font-size: var(--fs-100);
 	}
 </style>

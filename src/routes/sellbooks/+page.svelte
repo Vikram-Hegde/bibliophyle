@@ -31,7 +31,8 @@
 				genre: tags,
 				rating: parseFloat(rating),
 				summary: description,
-				related: []
+				related: [],
+				discount: (Math.ceil(Math.random() * 30) / 100).toFixed(2)
 			}
 		];
 		tags = [];
@@ -113,6 +114,7 @@
 			border: 1px solid;
 		}
 	}
+
 
 	main {
 		@extend %wrapper;
