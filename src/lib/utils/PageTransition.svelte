@@ -6,7 +6,7 @@
 {#key pathname}
 	<div
 		class="page"
-		in:fly={{ x: -10, duration: 300, delay: 200 }}
+		in:fly={{ x: -10, duration: 200, delay: 200 }}
 		out:fly={{ x: 5, duration: 200 }}
 	>
 		<slot />
