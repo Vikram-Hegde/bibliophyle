@@ -28,6 +28,7 @@
 		{:else if type === 'url'}
 			<input use:typeAction bind:value placeholder=" " />
 		{:else}
+		
 			<input use:typeAction required bind:value placeholder=" " />
 		{/if}
 		<span>{placeholder}</span>

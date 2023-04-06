@@ -11,6 +11,10 @@
 		-webkit-tap-highlight-color: transparent;
 	}
 
+	html {
+		scrollbar-gutter: stable;
+	}
+
 	button {
 		all: unset;
 		display: flex;

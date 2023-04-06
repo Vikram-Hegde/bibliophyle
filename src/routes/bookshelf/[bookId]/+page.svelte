@@ -5,12 +5,14 @@
 	import commentsJson from '$lib/comments.json';
 	import { addToCart } from '$lib/utils/cartStore';
 	import { fade, draw } from 'svelte/transition';
+	import { onMount, onDestroy } from 'svelte';
 
 	export let data;
 
 	const { book } = data;
 	const { relatedBooks } = data;
 	let added = false;
+	let main = null;
 
 	function shuffleArray(array) {
 		for (let i = array.length - 1; i > 0; i--) {
@@ -19,6 +21,20 @@
 		}
 	}
 
+	$: scrollY = window.scrollY;
+
+	onMount(() => {
+		main.style.opacity = 1;
+		window.addEventListener('popstate', () => {
+			if(main)
+			main.style.opacity = 0;
+		});
+	})
+
+	onDestroy(() => {
+		window.scrollTo(0, scrollY);
+	});
+
 	shuffleArray(commentsJson);
 </script>
 
@@ -26,7 +42,7 @@
 	<title>{book.title} | Bibliophile</title>
 </svelte:head>
 
-	<main class="book">
+<main class="book" bind:this={main}>
 	<a class="back" href={'/bookshelf'}>
 		<IconArrowLeft size={24} />
 	</a>
