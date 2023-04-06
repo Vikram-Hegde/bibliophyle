@@ -189,4 +189,10 @@ button {
 	&__price {
 		font-family: 'Open Sans', sans-serif;
 	}
+
+	&__price {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
 }

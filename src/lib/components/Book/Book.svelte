@@ -48,7 +48,7 @@
 			{#if mobile.matches}
 				<h3 class="book__title">{book.title}</h3>
 			{/if}
-			<strike>₹{book.price + 300}</strike>
+			<strike>₹{Math.ceil(book.price + (book.price * book.discount))}</strike>
 			<p class="book__price">₹{book.price}</p>
 		</div>
 		{#if !mobile.matches}

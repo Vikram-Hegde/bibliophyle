@@ -26,10 +26,9 @@
 	onMount(() => {
 		main.style.opacity = 1;
 		window.addEventListener('popstate', () => {
-			if(main)
-			main.style.opacity = 0;
+			if (main) main.style.opacity = 0;
 		});
-	})
+	});
 
 	onDestroy(() => {
 		window.scrollTo(0, scrollY);
@@ -87,7 +86,9 @@
 			<Star rating={book.rating} />
 			<h2>{book.rating}</h2>
 		</div>
-		<h2 class="book__price">₹{book.price}</h2>
+		<h2 class="book__price">
+			₹{book.price} <span class="discount">{book.discount * 100}% off</span>
+		</h2>
 		<p class="book__description">
 			{book.summary}
 		</p>
@@ -134,5 +135,16 @@
 		margin-block-start: 2px;
 		letter-spacing: 1px;
 		font-weight: bold;
+	}
+
+	.discount {
+		all: unset;
+		font-size: var(--fs--200);
+		font-weight: lighter;
+		background-color: hsl(var(--accent) 20%);
+		border-radius: 6px;
+		display: inline-block;
+		padding: 0.25rem;
+		color: var(--background);
 	}
 </style>
