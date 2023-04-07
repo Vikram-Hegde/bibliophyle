@@ -1,38 +1,54 @@
-# create-svelte
+<h1 align="center">
+  <a href="https://bibliophile.vercel.app"><img src="https://raw.githubusercontent.com/Vikram-Hegde/bibliophyle/132199cefe5db2d9823cf75470ab4d0ea4216390/static/favicon.svg" alt="Bibliophile" width="150"></a>
+  <br>
+  Bibliophile
+  <br>
+</h1>
+<h4 align="center">
+Sharing knowledge has never been easier. Find and sell used books at lower rates
+</h4>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+<p align="center">
+  <a href="https://bibliophyle.vercel.app">Demo</a> •
+  <a href="#stack">Tech Stack</a> •
+  <a href="#run">Run Locally</a> •
+  <a href="#credits">Credits</a>
+</p>
 
-## Creating a project
+## Stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+![Svelte](https://img.shields.io/badge/svelte-%23f1413d.svg?style=for-the-badge&logo=svelte&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+<h2 id="run">Run Locally</h2>
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+- Clone the project
 
 ```bash
-npm run build
+  git clone https://github.com/Vikram-Hegde/bibliophyle
 ```
 
-You can preview the production build with `npm run preview`.
+- Go to the project directory
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```bash
+  cd bibliophyle
+```
+
+- Install dependencies
+
+```bash
+  [p]npm install
+```
+
+- Start the server
+
+```bash
+  [p]npm dev
+```
+
+## Credits
+
+- [H Shreyas](https://github.com/H-Shreyas)
+- [Shreyas Nair](https://github.com/shreyasnair02)
+- [Thejas Venugopal](https://github.com/thejasvenugopal)
