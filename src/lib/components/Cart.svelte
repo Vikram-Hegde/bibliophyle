@@ -6,6 +6,7 @@
 	import { flip } from 'svelte/animate';
 	import { tweened } from 'svelte/motion';
 	import { quintOut } from 'svelte/easing';
+	import { toast } from 'svelte-french-toast';
 
 	export let cartVisible;
 
@@ -63,11 +64,16 @@
 		<button
 			class="order--btn btn--primary"
 			disabled={$cartItems.length ? false : true}
-			on:click={() => {
+			on:click={async () => {
 				added = true;
-				setTimeout(() => {
-					added = false;
-				}, 1500);
+				await new Promise((resolve) => {
+					setTimeout(() => {
+						added = false;
+						resolve();
+					}, 1500);
+				});
+				toast.success('Order Placed Successfully');
+				$cartItems = [];
 			}}
 		>
 			{#if added}

@@ -8,12 +8,17 @@
 
 	let dispatch = createEventDispatcher();
 
+	function addTag() {
+		if (!input.trim()) return;
+		input = input.charAt(0).toUpperCase() + input.slice(1);
+		tags = [...tags, input];
+		input = '';
+		dispatch('newtag', tags);
+	}
+
 	function handleInput(e) {
 		if (e.code === 'Enter') {
-			input = input.charAt(0).toUpperCase() + input.slice(1);
-			tags = [...tags, input];
-			input = '';
-			dispatch('newtag', tags);
+			addTag();
 			e.preventDefault();
 		}
 	}
@@ -31,13 +36,7 @@
 		bind:value={input}
 		onKeyUp={handleInput}
 	/>
-	<button type="button" class="btn add-tag" on:click={() => {
-		input = input.charAt(0).toUpperCase() + input.slice(1);
-		tags = [...tags, input];
-		input = '';
-		dispatch('newtag', tags);
-	}}
-	>+</button>
+	<button type="button" class="btn add-tag" on:click={addTag}>+</button>
 </div>
 {#if tags.length}
 	<div class="tags">
