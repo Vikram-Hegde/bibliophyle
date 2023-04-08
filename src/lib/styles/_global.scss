@@ -120,7 +120,7 @@
 	}
 
 	main {
-		min-block-size: calc(100vh - var(--nav) - 2px);
+		min-block-size: calc(100dvh - var(--nav) - 2px);
 	}
 
 	hr {

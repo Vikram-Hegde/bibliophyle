@@ -9,7 +9,6 @@
 
 <style>
 	main {
-		min-block-size: calc(100vh - var(--nav) - 2px);
 		display: grid;
 		place-items: center;
 		align-content: center;

@@ -24,7 +24,7 @@ main {
 	position: sticky;
 	top: 0;
 	padding: 1.5rem 1.75rem;
-	max-block-size: calc(100vh - 2px);
+	max-block-size: calc(100dvh - 2px);
 	transition: translate 0.25s ease-in-out;
 	overflow-x: auto;
 
@@ -80,7 +80,7 @@ main {
 	}
 
 	@media (max-width: 850px) {
-		min-block-size: calc(100vh + var(--nav));
+		min-block-size: calc(100dvh + var(--nav));
 	}
 }
 
@@ -203,7 +203,7 @@ form {
 		top: 3px;
 		inline-size: 3px;
 		block-size: 9px;
-		border:1px solid var(--background);
+		border: 1px solid var(--background);
 		border-width: 0 2px 2px 0;
 		transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}

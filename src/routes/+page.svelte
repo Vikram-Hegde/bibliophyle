@@ -52,6 +52,7 @@
 		grid-template-rows: 1fr 1fr;
 		align-items: center;
 	}
+	
 
 	section {
 		text-align: center;
