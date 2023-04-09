@@ -9,14 +9,14 @@
 <main>
 	<section>
 		<p class="subtitle">Paradise for book lovers</p>
-		<h1>Bibliophile</h1>
+		<h1>Bibliophyle</h1>
 		<p>Sharing knowledge has never been easier. Find and sell used books at lower rates</p>
+		<picture>
+			<source srcset={heroImgMobile} media="(max-width: 600px)" width="270" height="340" />
+			<source srcset={heroImg} media="(min-width: 601px)" width="920" height="340" />
+			<img src={heroImg} alt="two hands where one is taking a book from another" />
+		</picture>
 	</section>
-	<picture>
-		<source srcset={heroImgMobile} media="(max-width: 600px)" width="270" height="340" />
-		<source srcset={heroImg} media="(min-width: 601px)" width="920" height="340" />
-		<img src={heroImg} alt="two hands where one is taking a book from another" />
-	</picture>
 </main>
 
 <style lang="scss">
@@ -49,10 +49,8 @@
 	main {
 		@extend %wrapper;
 		display: grid;
-		grid-template-rows: 1fr 1fr;
-		align-items: center;
+		place-items: center;
 	}
-	
 
 	section {
 		text-align: center;
@@ -61,13 +59,14 @@
 	picture {
 		block-size: min(340px, 100%);
 		margin: 0 auto;
-		align-self: end;
+		justify-self: center;
 	}
 
 	img {
 		display: block;
 		max-inline-size: 100%;
-		border-radius: 3rem 3rem 0 0;
+		border-radius: 3rem;
 		object-fit: cover;
+		margin: 1.75rem auto;
 	}
 </style>
