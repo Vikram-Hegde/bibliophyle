@@ -50,6 +50,7 @@
 		@extend %wrapper;
 		display: grid;
 		place-items: center;
+		padding-top: 1.5rem;
 	}
 
 	section {
