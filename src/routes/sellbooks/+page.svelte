@@ -1,8 +1,8 @@
 <script>
-	import { IconArrowBackUp, IconPhoto, IconArrowRight } from '@tabler/icons-svelte';
+	import { books } from '$lib/utils/uploadedBooks.js';
+	import { IconArrowBackUp, IconArrowRight, IconPhoto } from '@tabler/icons-svelte';
 	import Input from './Input.svelte';
 	import TagInput from './TagInput.svelte';
-	import { books } from '$lib/utils/uploadedBooks.js';
 
 	let form;
 

@@ -1,5 +1,5 @@
 <script>
-	import { fly, scale } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	export let pathname = '';
 </script>
 
@@ -12,3 +12,10 @@
 		<slot />
 	</div>
 {/key}
+
+<style lang="scss">
+	div {
+		position: absolute;
+		inset: calc(var(--nav) + 2px) 0 0 0;
+	}
+</style>

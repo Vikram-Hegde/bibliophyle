@@ -1,9 +1,10 @@
 <script>
-	import PageTransition from '$lib/utils/PageTransition.svelte';
+	import Cart from '$lib/components/Cart.svelte';
 	import NavDesktop from '$lib/components/Navbar/NavDesktop.svelte';
 	import NavMobile from '$lib/components/Navbar/NavMobile.svelte';
-	import Cart from '$lib/components/Cart.svelte';
+	import PageTransition from '$lib/utils/PageTransition.svelte';
 	import { Toaster } from 'svelte-french-toast';
+	import '../app.scss';
 
 	export let data;
 
@@ -30,7 +31,3 @@
 		}
 	}}
 />
-
-<style lang="scss">
-	@use '../lib/styles/global' as *;
-</style>

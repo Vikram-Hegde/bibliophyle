@@ -1,8 +1,8 @@
 <script>
-	import { IconShoppingCartPlus } from '@tabler/icons-svelte';
-	import HoverCard from './HoverCard.svelte';
 	import { addToCart } from '$lib/utils/cartStore';
+	import { IconShoppingCartPlus } from '@tabler/icons-svelte';
 	import { draw, fade } from 'svelte/transition';
+	import HoverCard from './HoverCard.svelte';
 
 	export let book;
 	export let link = `bookshelf/${book.id}`;

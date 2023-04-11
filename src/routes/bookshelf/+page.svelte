@@ -2,9 +2,9 @@
 	import bookData from '$lib/books.json';
 	import Book from '$lib/components/Book/Book.svelte';
 	import Input from '$lib/components/Input.svelte';
+	import { books as uploadedBooks } from '$lib/utils/uploadedBooks.js';
 	import { IconFilter, IconFilterOff } from '@tabler/icons-svelte';
 	import { flip } from 'svelte/animate';
-	import { books as uploadedBooks } from '$lib/utils/uploadedBooks.js';
 	import { fade } from 'svelte/transition';
 
 	const totalBooks = [...bookData, ...$uploadedBooks];

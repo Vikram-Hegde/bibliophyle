@@ -1,11 +1,11 @@
 <script>
+	import commentsJson from '$lib/comments.json';
 	import Book from '$lib/components/Book/Book.svelte';
 	import Star from '$lib/components/Star.svelte';
-	import { IconArrowLeft, IconShoppingCartPlus } from '@tabler/icons-svelte';
-	import commentsJson from '$lib/comments.json';
 	import { addToCart } from '$lib/utils/cartStore';
-	import { fade, draw } from 'svelte/transition';
-	import { onMount, onDestroy } from 'svelte';
+	import { IconArrowLeft, IconShoppingCartPlus } from '@tabler/icons-svelte';
+	import { onDestroy, onMount } from 'svelte';
+	import { draw, fade } from 'svelte/transition';
 
 	export let data;
 
@@ -23,19 +23,17 @@
 
 	$: scrollY = window.scrollY;
 
-	onMount(() => {
-		main.style.opacity = 1;
-		window.addEventListener('popstate', () => {
-			if (main) main.style.opacity = 0;
-		});
-	});
-
-	onDestroy(() => {
-		window.scrollTo(0, scrollY);
-	});
+	onMount(() => (main.style.opacity = 1));
+	onDestroy(() => window.scrollTo(0, scrollY));
 
 	shuffleArray(commentsJson);
 </script>
+
+<svelte:window
+	on:popstate={() => {
+		if (main) main.style.opacity = 0;
+	}}
+/>
 
 <svelte:head>
 	<title>{book.title} | Bibliophile</title>

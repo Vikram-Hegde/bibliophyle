@@ -34,7 +34,7 @@
 {#if hovered}
 	<div
 		class={`hover-card ${align ? 'right' : 'left'}`}
-		in:fly={{ y: 10, duration: 200 }}
+		in:fly={{ y: 10, duration: 250 }}
 		out:fly={{ y: -10, duration: 150 }}
 	>
 		<div class="hover-card__content">

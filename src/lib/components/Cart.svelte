@@ -2,11 +2,11 @@
 	import { cartItems } from '$lib/utils/cartStore';
 	import { IconArrowRight, IconTrash } from '@tabler/icons-svelte';
 	import { createEventDispatcher } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
-	import { flip } from 'svelte/animate';
-	import { tweened } from 'svelte/motion';
-	import { quintOut } from 'svelte/easing';
 	import { toast } from 'svelte-french-toast';
+	import { flip } from 'svelte/animate';
+	import { quintOut } from 'svelte/easing';
+	import { tweened } from 'svelte/motion';
+	import { fade, fly } from 'svelte/transition';
 
 	export let cartVisible;
 

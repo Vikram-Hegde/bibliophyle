@@ -1,16 +1,16 @@
 <script>
-	import {
-		IconHome2,
-		IconBooks,
-		IconLogin,
-		IconLogout,
-		IconBuildingStore
-	} from '@tabler/icons-svelte';
-	import NavItem from './NavItem.svelte';
 	import { isLoggedIn } from '$lib/utils/authStore';
+	import {
+		IconBooks,
+		IconBuildingStore,
+		IconHome2,
+		IconLogin,
+		IconLogout
+	} from '@tabler/icons-svelte';
+	import toast from 'svelte-french-toast';
 	import { fly } from 'svelte/transition';
 	import ButtonIndicator from '../ButtonIndicator.svelte';
-	import toast from 'svelte-french-toast';
+	import NavItem from './NavItem.svelte';
 
 	let duration = 150;
 
