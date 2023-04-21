@@ -6,6 +6,6 @@ import toast from 'svelte-french-toast';
 export const load = async () => {
 	if (!get(isLoggedIn)) {
 		toast.error('Login to access this page');
-		throw redirect(401, '/');
+		throw redirect(302, '/');
 	}
 };

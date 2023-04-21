@@ -1,20 +1,11 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import Star from '../Star.svelte';
-	/**
-	 * @typedef {Object} bookInfo
-	 * @property {string} title
-	 * @property {string} author
-	 * @property {string} summary
-	 * @property {number} rating
-	 */
 
 	let align = 1;
 
-	/**  @type {bookInfo} */
 	export let book;
 
-	/** @type {HTMLElement | null} */
 	export let card;
 
 	export let hovered = 0;

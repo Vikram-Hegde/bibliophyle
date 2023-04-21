@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"verbatimModuleSyntax": true,
+		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "bundler",
+		"ignoreDeprecations": "5.0",
+	},
+	"extends": "./.svelte-kit/tsconfig.json"
+}

@@ -4,7 +4,7 @@
 	import Input from './Input.svelte';
 
 	let input;
-	let tags = [];
+	export let tags = [];
 
 	let dispatch = createEventDispatcher();
 

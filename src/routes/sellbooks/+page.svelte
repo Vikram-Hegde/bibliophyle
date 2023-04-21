@@ -68,7 +68,7 @@
 			<Input type="number" placeholder="Book Rating" max={5} bind:value={rating} />
 			<Input type="number" placeholder="Book Price" bind:value={price} />
 		</div>
-		<TagInput on:newtag={(e) => (tags = e.detail)} />
+		<TagInput tags={tags} on:newtag={(e) => (tags = e.detail)} />
 		<Input type="textarea" placeholder="Book Description" bind:value={description} />
 		<div class="row btn-row">
 			<button class="btn btn--secondary" type="reset"><IconArrowBackUp size={20} /> Reset</button>
