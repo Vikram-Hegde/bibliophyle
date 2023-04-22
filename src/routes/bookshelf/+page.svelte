@@ -56,10 +56,7 @@
 
 	$: if (search.length) duration = 0;
 
-	const toggleState = () => {
-		if (state === 'open') state = 'closed';
-		else state = 'open';
-	};
+	const toggleState = () => (state = state === 'open' ? 'closed' : 'open');
 </script>
 
 <svelte:head>

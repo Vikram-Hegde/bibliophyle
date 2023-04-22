@@ -119,7 +119,7 @@
 
 	li {
 		inline-size: 3rem;
-		block-size: 3rem;
+		aspect-ratio: 1;
 		@include flex(center, center);
 	}
 
