@@ -26,7 +26,7 @@
 	}
 
 	:not(.sellbooks a).active {
-		color: hsl(var(--accent) 35%);
+		color: hsl(var(--accent) 30%);
 	}
 
 	@media (min-width: 850px) {
