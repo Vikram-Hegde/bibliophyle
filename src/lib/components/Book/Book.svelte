@@ -6,6 +6,7 @@
 
 	export let book;
 	export let link = `bookshelf/${book.id}`;
+	export let noscroll = 'off';
 
 	let mediaCheck = '(hover: none), (pointer: coarse), (max-width: 750px)';
 	let mobile = window.matchMedia(mediaCheck);
@@ -40,6 +41,7 @@
 		href={link}
 		on:focus={onHover}
 		on:blur={onLeave}
+		data-sveltekit-noscroll={noscroll}
 	>
 		<img src={book.url} alt={book.title} />
 	</a>
@@ -48,7 +50,7 @@
 			{#if mobile.matches}
 				<h3 class="book__title">{book.title}</h3>
 			{/if}
-			<strike>₹{Math.ceil(book.price + (book.price * book.discount))}</strike>
+			<strike>₹{Math.ceil(book.price + book.price * book.discount)}</strike>
 			<p class="book__price">₹{book.price}</p>
 		</div>
 		{#if !mobile.matches}

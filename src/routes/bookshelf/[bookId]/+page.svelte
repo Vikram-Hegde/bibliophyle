@@ -21,10 +21,13 @@
 		}
 	}
 
-	$: scrollY = window.scrollY;
 
-	onMount(() => (main.style.opacity = 1));
-	onDestroy(() => window.scrollTo(0, scrollY));
+	// TODO: HMMMMMM, what does this do
+
+	// $: scrollY = window.scrollY;
+
+	// onMount(() => (main.style.opacity = 1));
+	// onDestroy(() => window.scrollTo(0, scrollY));
 
 	shuffleArray(commentsJson);
 </script>
@@ -85,7 +88,7 @@
 			<h2>{book.rating}</h2>
 		</div>
 		<h2 class="book__price">
-			₹{book.price} <span class="discount">{book.discount * 100}% off</span>
+			₹{book.price} <span class="discount">{Math.ceil(book.discount * 100)}% off</span>
 		</h2>
 		<p class="book__description">
 			{book.summary}
@@ -103,7 +106,7 @@
 			<div class="books">
 				{#each relatedBooks as book}
 					<div class="book__wrapper">
-						<Book {book} link={book.id} />
+						<Book {book} link={book.id} noscroll="" />
 					</div>
 				{/each}
 			</div>
