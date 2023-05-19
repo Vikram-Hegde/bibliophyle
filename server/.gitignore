@@ -1,0 +1,30 @@
+# Ignore system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+.env
+# Ignore compiled files and build output
+*.o
+*.pyc
+*.class
+*.jar
+/target/
+/build/
+
+# Ignore dependencies
+node_modules
+/vendor/
+
+# Ignore logs and temporary files
+/log/
+/tmp/
+
+# Ignore configuration files with sensitive information
+config.ini
+secrets.json
+
+# Ignore specific files or directories
+file_to_ignore.txt
+directory_to_ignore/
