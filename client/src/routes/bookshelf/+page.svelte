@@ -1,14 +1,14 @@
 <script>
-	import bookData from '$lib/books.json';
 	import Book from '$lib/components/Book/Book.svelte';
 	import Input from '$lib/components/Input.svelte';
-	import { books as uploadedBooks } from '$lib/utils/uploadedBooks.js';
 	import { IconFilter, IconFilterOff } from '@tabler/icons-svelte';
 	import { flip } from 'svelte/animate';
 	import { fade } from 'svelte/transition';
 
-	const totalBooks = [...bookData, ...$uploadedBooks];
-	let books = totalBooks;
+	export let data;
+
+	let books = data.books;
+	let totalBooks = [...data.books];
 
 	/** @type {string[]} */
 	let filterOptions;
@@ -22,7 +22,7 @@
 
 	let duration = 150;
 
-	let readersLikes = [];
+	// let readersLikes = [];
 
 	$: {
 		if (!filter.length) {
@@ -43,7 +43,7 @@
 
 		if (search.length && filter.length) filter = [];
 
-		readersLikes = totalBooks.filter((book) => books[0]?.related.includes(book.id));
+		// readersLikes = books.filter((book) => books[0]?.related.includes(book.id));
 	}
 
 	$: {
@@ -122,14 +122,14 @@
 			{#if books.length === 0}
 				<p class="not-found">We're sorry, but we don't have any results for that search.</p>
 			{/if}
-			{#each books as book (book.id)}
+			{#each books as book (book._id)}
 				<div class="book__wrapper" animate:flip={{ duration }}>
 					<Book {book} />
 				</div>
 			{/each}
 		</div>
 	</section>
-	<aside class="recommendation">
+	<!-- <aside class="recommendation">
 		<h2>Readers Also Enjoyed</h2>
 		<div class="recommendation__bookshelf">
 			{#if readersLikes.length === 0}
@@ -143,7 +143,7 @@
 				</div>
 			{/each}
 		</div>
-	</aside>
+	</aside> -->
 </main>
 
 <style lang="scss">

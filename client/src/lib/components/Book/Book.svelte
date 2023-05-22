@@ -5,7 +5,7 @@
 	import HoverCard from './HoverCard.svelte';
 
 	export let book;
-	export let link = `bookshelf/${book.id}`;
+	export let link = `bookshelf/${book._id}`;
 	export let noscroll = 'off';
 
 	let mediaCheck = '(hover: none), (pointer: coarse), (max-width: 750px)';
@@ -43,14 +43,14 @@
 		on:blur={onLeave}
 		data-sveltekit-noscroll={noscroll}
 	>
-		<img src={book.url} alt={book.title} />
+		<img src={book.imageURL} alt={book.title} />
 	</a>
 	<div class="book__details">
 		<div>
 			{#if mobile.matches}
 				<h3 class="book__title">{book.title}</h3>
 			{/if}
-			<strike>₹{Math.ceil(book.price + book.price * book.discount)}</strike>
+			<strike>₹{Math.ceil(book.price + book.price * 0.25)}</strike>
 			<p class="book__price">₹{book.price}</p>
 		</div>
 		{#if !mobile.matches}

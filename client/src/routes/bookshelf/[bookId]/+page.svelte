@@ -10,7 +10,7 @@
 	export let data;
 
 	const { book } = data;
-	const { relatedBooks } = data;
+	// const { relatedBooks } = data;
 	let added = false;
 	let main = null;
 
@@ -43,11 +43,11 @@
 </svelte:head>
 
 <main class="book" bind:this={main}>
-	<a class="back" href={'/bookshelf'}>
+	<a class="back" href='/bookshelf'>
 		<IconArrowLeft size={24} />
 	</a>
 	<section class="book__cover">
-		<img src={book.url} alt={book.title} />
+		<img src={book.imageURL} alt={book.title} />
 		<button
 			class="btn--primary"
 			on:click|once={() => {
@@ -88,7 +88,7 @@
 			<h2>{book.rating}</h2>
 		</div>
 		<h2 class="book__price">
-			₹{book.price} <span class="discount">{Math.ceil(book.discount * 100)}% off</span>
+			₹{book.price} <span class="discount">25% off</span>
 		</h2>
 		<p class="book__description">
 			{book.summary}
@@ -100,7 +100,7 @@
 			{/each}
 		</div>
 	</section>
-	{#if relatedBooks.length}
+	<!-- {#if relatedBooks.length}
 		<section class="book__recommendation">
 			<h2>Readers <i>would</i> recommend</h2>
 			<div class="books">
@@ -111,10 +111,10 @@
 				{/each}
 			</div>
 		</section>
-	{/if}
+	{/if} -->
 	<section class="book__review">
 		<h2>Ratings <i>&</i> Reviews</h2>
-		{#each commentsJson as comment}
+		{#each book.reviews as comment}
 			<div class="review">
 				<div class="review__author-info">
 					<img src={comment.avatar_link} alt="comment author {comment.name}" loading="lazy" />

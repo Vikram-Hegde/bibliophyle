@@ -46,7 +46,7 @@
 			{/if}
 			{#each $cartItems as item (item.id)}
 				<div class="cart__item" animate:flip={{ duration: 250 }}>
-					<img src={item.url} alt={item.title} />
+					<img src={item.imageURL} alt={item.title} />
 					<div class="cart__info">
 						<h4>{item.title}</h4>
 						<div class="wrapper">
@@ -144,21 +144,22 @@
 		}
 
 		&__info {
+			--accent: 4, 100%;
 			flex: 1;
 
 			button {
-				color: hsl(4, 100%, 50%);
+				color: hsl(var(--accent), 50%);
 				block-size: 1.75rem;
 				inline-size: 1.75rem;
 				border-radius: 50%;
 				justify-content: center;
 
 				&:before {
-					background-color: hsl(4, 100%, 90%);
+					background-color: hsl(var(--accent), 90%);
 				}
 
 				&:focus-visible {
-					outline: 2px solid hsl(4, 100%, 50%);
+					outline: 2px solid hsl(var(--accent), 50%);
 				}
 			}
 		}
