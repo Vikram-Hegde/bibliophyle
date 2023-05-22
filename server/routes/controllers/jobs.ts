@@ -43,5 +43,27 @@ const reviewBook = async (req: Request, res: Response) => {
     console.log(error);
   }
 };
+const getRelated = async (req: Request, res: Response) => {
+  try {
+    const genres = req.query.genres as string[] | string;
+    const { id } = req.params;
+    let decodedGenres: string[] | string;
+    let regExGenres: RegExp[] | RegExp;
+    if (Array.isArray(genres)) {
+      decodedGenres = genres?.map((genre) => decodeURIComponent(genre));
+      regExGenres = decodedGenres?.map((genre) => RegExp(genre, "i"));
+    } else {
+      regExGenres = RegExp(genres, "i");
+    }
+    if (mongoose.Types.ObjectId.isValid(id)) {
+      const data = await bookModel
+        .find({ genre: { $in: regExGenres }, _id: { $ne: id } })
+        .limit(4);
+      res.status(200).json(data);
+    }
+  } catch (error) {
+    res.sendStatus(400);
+  }
+};
 
-export { reviewBook, getBook, createBook, getBooks };
+export { reviewBook, getBook, createBook, getBooks, getRelated };

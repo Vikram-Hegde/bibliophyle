@@ -1,8 +1,8 @@
 <script>
-	import { books } from '$lib/utils/uploadedBooks.js';
 	import { IconArrowBackUp, IconArrowRight, IconPhoto } from '@tabler/icons-svelte';
 	import Input from './Input.svelte';
 	import TagInput from './TagInput.svelte';
+	import toast from 'svelte-french-toast';
 
 	let form;
 
@@ -17,26 +17,34 @@
 
 	let previewText = 'Cover Preview';
 
-	const handleNewBook = (e) => {
+	const handleNewBook = async (e) => {
 		if (!form.reportValidity()) return;
+		let data = {
+			title,
+			author,
+			price: parseFloat(price),
+			imageURL: loadError ? '/bookcover/error.png' : url,
+			genre: tags,
+			rating: parseFloat(rating),
+			summary: description,
+			related: []
+		};
 
-		$books = [
-			...$books,
-			{
-				id: crypto.randomUUID(),
-				title,
-				author,
-				price: parseFloat(price),
-				url: loadError ? '/bookcover/error.png' : url,
-				genre: tags,
-				rating: parseFloat(rating),
-				summary: description,
-				related: [],
-				discount: (Math.ceil(Math.random() * 30) / 100).toFixed(2)
-			}
-		];
-		tags = [];
-		form.reset();
+		try {
+			await fetch('http://localhost:5174/books/createBook', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ book: data })
+			});
+			toast.success('Successfully uploaded the book');
+			tags = [];
+			url = '';
+			form.reset();
+		} catch (err) {
+			console.error(err);
+		}
 	};
 </script>
 
@@ -52,7 +60,7 @@
 		{#if url}
 			<img
 				src={url}
-				alt=""
+				alt={title}
 				on:error={() => {
 					loadError = true;
 					previewText = 'Cover Not Found';
@@ -61,18 +69,29 @@
 		{/if}
 	</div>
 	<form bind:this={form}>
-		<Input type="text" placeholder="Book Title" bind:value={title} />
-		<Input type="url" placeholder="Book cover URL" bind:value={url} />
-		<Input type="text" placeholder="Book Author" bind:value={author} />
+		<Input type="text" placeholder="Book Title" bind:value={title} name="bookTitle" />
+		<Input type="url" placeholder="Book cover URL" bind:value={url} name="bookCoverURL" />
+		<Input type="text" placeholder="Book Author" bind:value={author} name="bookAuthor" />
 		<div class="row">
-			<Input type="number" placeholder="Book Rating" max={5} bind:value={rating} />
-			<Input type="number" placeholder="Book Price" bind:value={price} />
+			<Input
+				type="number"
+				placeholder="Book Rating"
+				max={5}
+				bind:value={rating}
+				name="bookRating"
+			/>
+			<Input type="number" placeholder="Book Price" bind:value={price} name="bookPrice" />
 		</div>
-		<TagInput tags={tags} on:newtag={(e) => (tags = e.detail)} />
-		<Input type="textarea" placeholder="Book Description" bind:value={description} />
+		<TagInput {tags} on:newtag={(e) => (tags = e.detail)} />
+		<Input
+			type="textarea"
+			placeholder="Book Description"
+			bind:value={description}
+			name="bookDescription"
+		/>
 		<div class="row btn-row">
 			<button class="btn btn--secondary" type="reset"><IconArrowBackUp size={20} /> Reset</button>
-			<button type="button" class="btn btn--primary" on:click={handleNewBook}
+			<button class="btn btn--primary" on:click={handleNewBook}
 				>Submit <IconArrowRight size={20} /></button
 			>
 		</div>
@@ -114,7 +133,6 @@
 			border: 1px solid;
 		}
 	}
-
 
 	main {
 		@extend %wrapper;

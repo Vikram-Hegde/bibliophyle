@@ -5,6 +5,7 @@
 	export let max = '';
 	export let min = 1;
 	export let onKeyUp = '';
+	export let name='';
 
 	const handleTextArea = (e) => (value = e.target.value);
 
@@ -20,15 +21,15 @@
 <div class="input-wrapper">
 	<label>
 		{#if type === 'number'}
-			<input use:typeAction required bind:value placeholder=" " {max} {min} step="0.1" />
+			<input {name} use:typeAction required bind:value placeholder=" " {max} {min} step="0.1" />
 		{:else if type === 'tag'}
-			<input type="text" bind:value placeholder=" " on:keyup={handleInputKeyUp} />
+			<input {name} type="text" bind:value placeholder=" " on:keyup={handleInputKeyUp} />
 		{:else if type === 'textarea'}
-			<textarea required on:input={handleTextArea} placeholder=" " />
+			<textarea {name} required on:input={handleTextArea} placeholder=" " />
 		{:else if type === 'url'}
-			<input use:typeAction bind:value placeholder=" " />
+			<input {name} use:typeAction bind:value placeholder=" " />
 		{:else}
-			<input use:typeAction required bind:value placeholder=" " />
+			<input {name} use:typeAction required bind:value placeholder=" " />
 		{/if}
 		<span>{placeholder}</span>
 	</label>

@@ -13,7 +13,7 @@ if (browser) {
 
 const addToCart = (book) => {
 	cartItems.update((items) => {
-		if (items.find((item) => item.id === book.id)) {
+		if (items.find((item) => item._id === book._id)) {
 			return items;
 		}
 		return [...items, book];

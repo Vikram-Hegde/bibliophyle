@@ -106,7 +106,7 @@
 			<div class="books">
 				{#each relatedBooks as book}
 					<div class="book__wrapper">
-						<Book {book} link={book.id} noscroll="" />
+						<Book {book} link={book._id} noscroll="" />
 					</div>
 				{/each}
 			</div>

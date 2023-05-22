@@ -22,7 +22,7 @@
 	let added = false;
 
 	const removeFromCart = (id) => {
-		$cartItems = $cartItems.filter((item) => item.id != id);
+		$cartItems = $cartItems.filter((item) => item._id != id);
 	};
 </script>
 
@@ -44,14 +44,14 @@
 			{#if $cartItems.length === 0}
 				<h4>Looks like your cart is feeling a little lonely at the moment.</h4>
 			{/if}
-			{#each $cartItems as item (item.id)}
+			{#each $cartItems as item (item._id)}
 				<div class="cart__item" animate:flip={{ duration: 250 }}>
 					<img src={item.imageURL} alt={item.title} />
 					<div class="cart__info">
 						<h4>{item.title}</h4>
 						<div class="wrapper">
 							<h3>₹{item.price}</h3>
-							<button on:click={() => removeFromCart(item.id)}><IconTrash size={20} /></button>
+							<button on:click={() => removeFromCart(item._id)}><IconTrash size={20} /></button>
 						</div>
 					</div>
 				</div>
