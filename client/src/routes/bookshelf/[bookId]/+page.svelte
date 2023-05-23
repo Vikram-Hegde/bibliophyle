@@ -1,35 +1,52 @@
 <script>
-	import commentsJson from '$lib/comments.json';
 	import Book from '$lib/components/Book/Book.svelte';
 	import Star from '$lib/components/Star.svelte';
 	import { addToCart } from '$lib/utils/cartStore';
 	import { IconArrowLeft, IconShoppingCartPlus } from '@tabler/icons-svelte';
-	import { onDestroy, onMount } from 'svelte';
 	import { draw, fade } from 'svelte/transition';
+	import Input from '../../sellbooks/Input.svelte';
+	import toast from 'svelte-french-toast';
+	import MD5 from 'crypto-js/md5';
+	import { auth } from '$lib/utils/authStore';
+	import { invalidateAll } from '$app/navigation';
 
 	export let data;
 
 	const { book } = data;
-	// const { relatedBooks } = data;
+	const { relatedBooks } = data;
 	let added = false;
 	let main = null;
 
-	function shuffleArray(array) {
-		for (let i = array.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			[array[i], array[j]] = [array[j], array[i]];
+	let form;
+
+	let rating;
+	let commentText;
+	let avatar_link = `https://www.gravatar.com/avatar/${MD5($auth.email).toString()}`;
+
+	const handleSubmit = async () => {
+		let review = {
+			book_id: book._id,
+			name: $auth.name,
+			rating,
+			comment: commentText,
+			avatar_link
+		};
+
+		try {
+			await fetch(`http://localhost:5174/books/${data.param}/reviewBook`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ review })
+			});
+			form.reset();
+			toast.success('Posted review successfully');
+			invalidateAll();
+		} catch (err) {
+			console.error(err);
 		}
-	}
-
-
-	// TODO: HMMMMMM, what does this do
-
-	// $: scrollY = window.scrollY;
-
-	// onMount(() => (main.style.opacity = 1));
-	// onDestroy(() => window.scrollTo(0, scrollY));
-
-	shuffleArray(commentsJson);
+	};
 </script>
 
 <svelte:window
@@ -43,7 +60,7 @@
 </svelte:head>
 
 <main class="book" bind:this={main}>
-	<a class="back" href='/bookshelf'>
+	<a class="back" href="/bookshelf">
 		<IconArrowLeft size={24} />
 	</a>
 	<section class="book__cover">
@@ -100,7 +117,7 @@
 			{/each}
 		</div>
 	</section>
-	<!-- {#if relatedBooks.length}
+	{#if relatedBooks.length}
 		<section class="book__recommendation">
 			<h2>Readers <i>would</i> recommend</h2>
 			<div class="books">
@@ -111,9 +128,14 @@
 				{/each}
 			</div>
 		</section>
-	{/if} -->
+	{/if}
 	<section class="book__review">
 		<h2>Ratings <i>&</i> Reviews</h2>
+		<form on:submit|preventDefault={handleSubmit} bind:this={form}>
+			<Input type="number" placeholder="Book Rating" bind:value={rating} />
+			<Input type="textarea" placeholder="Book Review" bind:value={commentText} />
+			<button class="btn"> Submit </button>
+		</form>
 		{#each book.reviews as comment}
 			<div class="review">
 				<div class="review__author-info">
@@ -147,5 +169,27 @@
 		display: inline-block;
 		padding: 0.25rem;
 		color: var(--background);
+	}
+
+	form {
+		max-inline-size: 75ch;
+		display: grid;
+		gap: 1rem;
+	}
+
+	@media (max-width: 850px) {
+		form {
+			max-inline-size: 100%;
+		}
+
+		h2 {
+			margin-block-end: 1rem;
+		}
+	}
+
+	.btn {
+		width: fit-content;
+		padding: 1rem;
+		margin-left: auto;
 	}
 </style>
