@@ -31,7 +31,7 @@
 		};
 
 		try {
-			await fetch('http://localhost:5174/books/createBook', {
+			await fetch('https://bibliophile-server.up.railway.app/books/createBook', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'

@@ -33,7 +33,7 @@
 		};
 
 		try {
-			await fetch(`http://localhost:5174/books/${data.param}/reviewBook`, {
+			await fetch(`https://bibliophile-server.up.railway.app/books/${data.param}/reviewBook`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
