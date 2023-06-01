@@ -131,11 +131,13 @@
 	{/if}
 	<section class="book__review">
 		<h2>Ratings <i>&</i> Reviews</h2>
+		{#if $auth.name}
 		<form on:submit|preventDefault={handleSubmit} bind:this={form}>
-			<Input type="number" placeholder="Book Rating" bind:value={rating} />
+			<Input type="number" max="5.0" min="1.0" placeholder="Book Rating" bind:value={rating} />
 			<Input type="textarea" placeholder="Book Review" bind:value={commentText} />
 			<button class="btn"> Submit </button>
 		</form>
+		{/if}
 		{#each book.reviews as comment}
 			<div class="review">
 				<div class="review__author-info">

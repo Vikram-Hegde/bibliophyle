@@ -17,8 +17,7 @@ main {
 	padding: 1.5rem 0;
 }
 
-.options,
-.recommendation {
+.options {
 	grid-column: span 5;
 	background-color: hsl(var(--accent) 93%);
 	position: sticky;
@@ -86,29 +85,6 @@ main {
 
 label {
 	inline-size: max-content;
-}
-
-.recommendation {
-	background-color: hsl(var(--accent) 98%);
-
-	@media (max-width: 1170px) {
-		display: none;
-	}
-
-	&__bookshelf {
-		--min-width: 80px;
-		margin-block-start: 2rem;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
-		gap: clamp(0.5rem, 4vw - 1rem, 1rem);
-
-		img {
-			block-size: 100%;
-			inline-size: 100%;
-			object-fit: cover;
-			border-radius: 0.5rem;
-		}
-	}
 }
 
 .books {

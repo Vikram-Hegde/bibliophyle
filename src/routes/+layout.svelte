@@ -4,15 +4,29 @@
 	import NavMobile from '$lib/components/Navbar/NavMobile.svelte';
 	import PageTransition from '$lib/utils/PageTransition.svelte';
 	import { Toaster } from 'svelte-french-toast';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import Loader from '$lib/components/Loader.svelte';
 	import '../app.scss';
 
 	export let data;
 
 	let cartVisible = false;
+	let isLoading = false;
+
+	beforeNavigate(() => (isLoading = true));
+	afterNavigate(() =>
+		setTimeout(() => {
+			isLoading = false;
+		}, 100)
+	);
 </script>
 
 <NavDesktop on:open={() => (cartVisible = true)} />
 <NavMobile pathname={data.pathname} on:open={() => (cartVisible = true)} />
+
+{#if isLoading}
+	<Loader />
+{/if}
 
 <PageTransition pathname={data.pathname}>
 	<slot />
