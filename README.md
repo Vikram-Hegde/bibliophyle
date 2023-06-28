@@ -1,8 +1,10 @@
 <h1 align="center">
   <a href="https://bibliophile.vercel.app"><img src="https://raw.githubusercontent.com/Vikram-Hegde/bibliophyle/132199cefe5db2d9823cf75470ab4d0ea4216390/static/favicon.svg" alt="Bibliophile" width="150"></a>
-  <br>
+  <br />
   Bibliophile
-  <br>
+  <br />
+  <a href="https://madewithsvelte.com/p/bibliophile/shield-link"><img src="https://madewithsvelte.com/storage/repo-shields/4325-shield.svg" alt="MadeWithSvelte.com shield" /></a>
+  <br />
 </h1>
 <h4 align="center">
 Sharing knowledge has never been easier. Find and sell used books at lower rates
