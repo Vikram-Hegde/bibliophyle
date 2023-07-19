@@ -7,7 +7,7 @@
   <br />
 </h1>
 <h4 align="center">
-Sharing knowledge has never been easier. Find and sell used books at lower rates
+Sharing knowledge has never been easier. Find and sell used books at lower prices
 </h4>
 
 <p align="center">
